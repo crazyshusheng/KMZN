@@ -1,0 +1,6 @@
+framework module Pods_KMZN {
+  umbrella header "Pods-KMZN-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DeviceInfoCell" customModule="KMZN" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock_icon" translatesAutoresizingMaskIntoConstraints="NO" id="j8p-Ae-gGk">
+                    <rect key="frame" x="35" y="10" width="60" height="150"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="rTe-ie-0Wq"/>
+                        <constraint firstAttribute="width" constant="60" id="tmD-58-EoM"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="前门锁" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQ8-ZF-o2K">
+                    <rect key="frame" x="145" y="75" width="46" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="CIg-XY-rks"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YJ9-Rw-qdn">
+                    <rect key="frame" x="267" y="74.5" width="8" height="22"/>
+                    <state key="normal" image="device_offline"/>
+                    <state key="selected" image="devcie_online"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正常运行" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMh-0F-ICL">
+                    <rect key="frame" x="285" y="76.5" width="61.5" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="xJy-8H-XAJ" firstAttribute="trailing" secondItem="YJ9-Rw-qdn" secondAttribute="trailing" constant="100" id="0JJ-zt-eHf"/>
+                <constraint firstItem="UQ8-ZF-o2K" firstAttribute="leading" secondItem="j8p-Ae-gGk" secondAttribute="trailing" constant="50" id="9Nn-47-E5N"/>
+                <constraint firstItem="YJ9-Rw-qdn" firstAttribute="centerY" secondItem="j8p-Ae-gGk" secondAttribute="centerY" id="LRz-Zo-iWN"/>
+                <constraint firstItem="j8p-Ae-gGk" firstAttribute="centerY" secondItem="xJy-8H-XAJ" secondAttribute="centerY" id="abZ-qh-Jja"/>
+                <constraint firstItem="rMh-0F-ICL" firstAttribute="leading" secondItem="YJ9-Rw-qdn" secondAttribute="trailing" constant="10" id="gsS-n5-H59"/>
+                <constraint firstItem="j8p-Ae-gGk" firstAttribute="leading" secondItem="xJy-8H-XAJ" secondAttribute="leading" constant="35" id="ijq-88-QIJ"/>
+                <constraint firstItem="UQ8-ZF-o2K" firstAttribute="centerY" secondItem="j8p-Ae-gGk" secondAttribute="centerY" id="pqO-W6-zN5"/>
+                <constraint firstItem="rMh-0F-ICL" firstAttribute="centerY" secondItem="YJ9-Rw-qdn" secondAttribute="centerY" id="syD-6Q-hph"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="xJy-8H-XAJ"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                    <integer key="value" value="15"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="iconView" destination="j8p-Ae-gGk" id="du3-7R-bQg"/>
+                <outlet property="imageView" destination="j8p-Ae-gGk" id="04o-G4-vVR"/>
+                <outlet property="infoLabel" destination="UQ8-ZF-o2K" id="bHg-W2-gzZ"/>
+                <outlet property="stateButton" destination="YJ9-Rw-qdn" id="caG-wN-mIx"/>
+                <outlet property="stateLabel" destination="rMh-0F-ICL" id="Zyz-pu-icu"/>
+            </connections>
+            <point key="canvasLocation" x="22.5" y="-634"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="devcie_online" width="8" height="8"/>
+        <image name="device_offline" width="8" height="8"/>
+        <image name="lock_icon" width="69" height="150"/>
+    </resources>
+</document>
