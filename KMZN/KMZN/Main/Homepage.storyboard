@@ -431,7 +431,7 @@
         <!--开锁记录-->
         <scene sceneID="pjW-iq-hMr">
             <objects>
-                <viewController title="开锁记录" id="brE-ma-RRN" customClass="UnlockRecordViewController" customModule="KMZN" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UnlockRecordVC" title="开锁记录" id="brE-ma-RRN" customClass="UnlockRecordViewController" customModule="KMZN" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lcm-Ou-3mx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -459,12 +459,8 @@
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5b3-So-NoF">
-                                                    <rect key="frame" x="295" y="25" width="50" height="50"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="5b3-So-NoF" secondAttribute="height" multiplier="1:1" id="0cb-FC-MBi"/>
-                                                        <constraint firstAttribute="width" constant="50" id="yvy-6i-QbF"/>
-                                                    </constraints>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="头像" translatesAutoresizingMaskIntoConstraints="NO" id="5b3-So-NoF">
+                                                    <rect key="frame" x="297" y="26" width="48" height="48"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018/08/02 16:44" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZ8-rV-hOZ">
                                                     <rect key="frame" x="27" y="64" width="109" height="16"/>
@@ -474,12 +470,12 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="5b3-So-NoF" secondAttribute="trailing" constant="15" id="2YW-pQ-zfp"/>
                                                 <constraint firstItem="w8Q-MJ-8sh" firstAttribute="centerY" secondItem="S9t-ZP-Rt6" secondAttribute="centerY" constant="-10" id="6RD-lD-n0R"/>
-                                                <constraint firstItem="5b3-So-NoF" firstAttribute="centerY" secondItem="S9t-ZP-Rt6" secondAttribute="centerY" id="CIV-rg-woN"/>
+                                                <constraint firstItem="5b3-So-NoF" firstAttribute="centerY" secondItem="S9t-ZP-Rt6" secondAttribute="centerY" id="BeA-oO-0AS"/>
                                                 <constraint firstItem="yZ8-rV-hOZ" firstAttribute="leading" secondItem="S9t-ZP-Rt6" secondAttribute="leadingMargin" constant="12" id="Ejk-NI-Hu1"/>
                                                 <constraint firstItem="Rql-HL-oip" firstAttribute="centerX" secondItem="S9t-ZP-Rt6" secondAttribute="centerX" constant="-50" id="OH4-BG-gSo"/>
                                                 <constraint firstItem="w8Q-MJ-8sh" firstAttribute="leading" secondItem="S9t-ZP-Rt6" secondAttribute="leadingMargin" constant="12" id="Oil-vd-d3l"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="5b3-So-NoF" secondAttribute="trailing" constant="15" id="ays-dd-kFQ"/>
                                                 <constraint firstItem="Rql-HL-oip" firstAttribute="centerY" secondItem="w8Q-MJ-8sh" secondAttribute="centerY" id="gek-yf-dhq"/>
                                                 <constraint firstItem="yZ8-rV-hOZ" firstAttribute="top" secondItem="w8Q-MJ-8sh" secondAttribute="bottom" constant="15" id="wUI-fQ-fBt"/>
                                             </constraints>
@@ -548,5 +544,6 @@
         <image name="unlock_bg" width="172" height="172"/>
         <image name="unlock_bg_select" width="140" height="140"/>
         <image name="unlock_message" width="15" height="22"/>
+        <image name="头像" width="48" height="48"/>
     </resources>
 </document>

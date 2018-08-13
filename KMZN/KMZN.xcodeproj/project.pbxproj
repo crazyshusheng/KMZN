@@ -43,6 +43,8 @@
 		294EA7C221086A33007F9E5B /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294EA7C121086A33007F9E5B /* BaseViewModel.swift */; };
 		294EA7C421086F15007F9E5B /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294EA7C321086F15007F9E5B /* RegisterViewModel.swift */; };
 		294EA7C82108744B007F9E5B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294EA7C72108744B007F9E5B /* Utils.swift */; };
+		2954B8B5211E883800905ECD /* ManagerPWDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2954B8B4211E883800905ECD /* ManagerPWDViewController.swift */; };
+		2954B8B7211E8D7600905ECD /* HeartBeatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2954B8B6211E8D7600905ECD /* HeartBeatViewController.swift */; };
 		2979D66C2106BE6E00FF0E44 /* CodeLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2979D66B2106BE6E00FF0E44 /* CodeLoginViewController.swift */; };
 		2979D66E2106BEAF00FF0E44 /* ResetPwdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2979D66D2106BEAF00FF0E44 /* ResetPwdViewController.swift */; };
 /* End PBXBuildFile section */
@@ -85,6 +87,8 @@
 		294EA7C121086A33007F9E5B /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		294EA7C321086F15007F9E5B /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		294EA7C72108744B007F9E5B /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		2954B8B4211E883800905ECD /* ManagerPWDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerPWDViewController.swift; sourceTree = "<group>"; };
+		2954B8B6211E8D7600905ECD /* HeartBeatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartBeatViewController.swift; sourceTree = "<group>"; };
 		2979D66B2106BE6E00FF0E44 /* CodeLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeLoginViewController.swift; sourceTree = "<group>"; };
 		2979D66D2106BEAF00FF0E44 /* ResetPwdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPwdViewController.swift; sourceTree = "<group>"; };
 		31000842390331D2A80109DA /* Pods-KMZN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KMZN.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KMZN/Pods-KMZN.debug.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 				290A46D7211D666A00D37A37 /* ManagerDeviceViewController.swift */,
 				290A46DD211D846100D37A37 /* TypeDeviceViewController.swift */,
 				290A46DF211D896500D37A37 /* AddDeviceViewController.swift */,
+				2954B8B4211E883800905ECD /* ManagerPWDViewController.swift */,
+				2954B8B6211E8D7600905ECD /* HeartBeatViewController.swift */,
 			);
 			path = device;
 			sourceTree = "<group>";
@@ -416,12 +422,14 @@
 				290A46E0211D896500D37A37 /* AddDeviceViewController.swift in Sources */,
 				290A46CF211C30DE00D37A37 /* UnlockRecordViewController.swift in Sources */,
 				294EA7C0210827A0007F9E5B /* BaseMappable.swift in Sources */,
+				2954B8B7211E8D7600905ECD /* HeartBeatViewController.swift in Sources */,
 				294EA7B821081DF8007F9E5B /* HttpWrapper.swift in Sources */,
 				294EA7C221086A33007F9E5B /* BaseViewModel.swift in Sources */,
 				294E6BDF211AEE6800FEED8C /* HomeViewController.swift in Sources */,
 				290FD08E2109675C00A615B4 /* UserInfo.swift in Sources */,
 				294075F62105C84700ACECEB /* LoginViewController.swift in Sources */,
 				290A46DE211D846100D37A37 /* TypeDeviceViewController.swift in Sources */,
+				2954B8B5211E883800905ECD /* ManagerPWDViewController.swift in Sources */,
 				2979D66C2106BE6E00FF0E44 /* CodeLoginViewController.swift in Sources */,
 				294075D82105B10400ACECEB /* StartViewController.swift in Sources */,
 				290A46D1211C310B00D37A37 /* UnlockRecordCell.swift in Sources */,

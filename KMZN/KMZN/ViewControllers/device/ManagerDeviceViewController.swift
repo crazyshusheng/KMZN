@@ -91,9 +91,28 @@ extension ManagerDeviceViewController:UICollectionViewDelegate,UICollectionViewD
         //某个Cell被选择的事件处理
         switch (indexPath.row) {
             
-        case 0:
+        case 0,1,2:
             
-            break
+            var title:String?
+            if indexPath.row == 0 {
+                title = "密码管理"
+            }else if indexPath.row == 1{
+                title = "指纹管理"
+            }else{
+                title = "卡片管理"
+            }
+            let managerVC = storyboard?.instantiateViewController(withIdentifier: "ManagerPWDVC") as! ManagerPWDViewController
+            managerVC.titleName = title
+            navigationController?.pushViewController(managerVC, animated: true)
+        case 3:
+            let heartVC = storyboard?.instantiateViewController(withIdentifier: "HeartBeatVC") as! HeartBeatViewController
+            navigationController?.pushViewController(heartVC, animated: true)
+        case 4,5:
+            let recordVC = UIStoryboard.init(name: "Homepage", bundle: nil).instantiateViewController(withIdentifier: "UnlockRecordVC") as! UnlockRecordViewController
+            recordVC.type = indexPath.row - 3
+            navigationController?.pushViewController(recordVC, animated: true)
+            
+            
            
         default:
             break
