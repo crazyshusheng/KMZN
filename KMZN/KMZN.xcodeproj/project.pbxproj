@@ -45,6 +45,8 @@
 		294EA7C82108744B007F9E5B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294EA7C72108744B007F9E5B /* Utils.swift */; };
 		2954B8B5211E883800905ECD /* ManagerPWDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2954B8B4211E883800905ECD /* ManagerPWDViewController.swift */; };
 		2954B8B7211E8D7600905ECD /* HeartBeatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2954B8B6211E8D7600905ECD /* HeartBeatViewController.swift */; };
+		2961937C21211406006BA9F1 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2961937B21211406006BA9F1 /* UserViewController.swift */; };
+		2961937E21211DF0006BA9F1 /* SettingUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2961937D21211DF0006BA9F1 /* SettingUserViewController.swift */; };
 		2979D66C2106BE6E00FF0E44 /* CodeLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2979D66B2106BE6E00FF0E44 /* CodeLoginViewController.swift */; };
 		2979D66E2106BEAF00FF0E44 /* ResetPwdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2979D66D2106BEAF00FF0E44 /* ResetPwdViewController.swift */; };
 /* End PBXBuildFile section */
@@ -89,6 +91,8 @@
 		294EA7C72108744B007F9E5B /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		2954B8B4211E883800905ECD /* ManagerPWDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerPWDViewController.swift; sourceTree = "<group>"; };
 		2954B8B6211E8D7600905ECD /* HeartBeatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartBeatViewController.swift; sourceTree = "<group>"; };
+		2961937B21211406006BA9F1 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		2961937D21211DF0006BA9F1 /* SettingUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingUserViewController.swift; sourceTree = "<group>"; };
 		2979D66B2106BE6E00FF0E44 /* CodeLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeLoginViewController.swift; sourceTree = "<group>"; };
 		2979D66D2106BEAF00FF0E44 /* ResetPwdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPwdViewController.swift; sourceTree = "<group>"; };
 		31000842390331D2A80109DA /* Pods-KMZN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KMZN.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KMZN/Pods-KMZN.debug.xcconfig"; sourceTree = "<group>"; };
@@ -205,6 +209,7 @@
 				294075F22105C7E800ACECEB /* login&register */,
 				294E6BDD211AEE3000FEED8C /* homepage */,
 				290A46D4211D5E4800D37A37 /* device */,
+				2961937A2121136A006BA9F1 /* userSetting */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -259,6 +264,15 @@
 				294EA7BC21082724007F9E5B /* CommonResult.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2961937A2121136A006BA9F1 /* userSetting */ = {
+			isa = PBXGroup;
+			children = (
+				2961937B21211406006BA9F1 /* UserViewController.swift */,
+				2961937D21211DF0006BA9F1 /* SettingUserViewController.swift */,
+			);
+			path = userSetting;
 			sourceTree = "<group>";
 		};
 		6BCFBBECB54BE375EE28CBCF /* Pods */ = {
@@ -435,11 +449,13 @@
 				290A46D1211C310B00D37A37 /* UnlockRecordCell.swift in Sources */,
 				290A46C6211BE27500D37A37 /* ChooseDeviceViewController.swift in Sources */,
 				294EA7BA21081F6A007F9E5B /* Api.swift in Sources */,
+				2961937E21211DF0006BA9F1 /* SettingUserViewController.swift in Sources */,
 				294EA7C82108744B007F9E5B /* Utils.swift in Sources */,
 				294EA7B621081C2F007F9E5B /* UserSettings.swift in Sources */,
 				290A46C4211BE1A400D37A37 /* ThemeViewController.swift in Sources */,
 				294075F42105C82C00ACECEB /* RegisterViewController.swift in Sources */,
 				290A46D8211D666A00D37A37 /* ManagerDeviceViewController.swift in Sources */,
+				2961937C21211406006BA9F1 /* UserViewController.swift in Sources */,
 				294075EB2105B6AA00ACECEB /* KMConstant.swift in Sources */,
 				290A46DC211D764400D37A37 /* ButtonWithRightImage.swift in Sources */,
 				294EA7BD21082724007F9E5B /* CommonResult.swift in Sources */,

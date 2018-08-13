@@ -91,15 +91,17 @@ extension ManagerDeviceViewController:UICollectionViewDelegate,UICollectionViewD
         //某个Cell被选择的事件处理
         switch (indexPath.row) {
             
-        case 0,1,2:
+        case 0,1,2,6:
             
             var title:String?
             if indexPath.row == 0 {
                 title = "密码管理"
             }else if indexPath.row == 1{
                 title = "指纹管理"
-            }else{
+            }else if indexPath.row == 2{
                 title = "卡片管理"
+            }else{
+                title = "设备成员"
             }
             let managerVC = storyboard?.instantiateViewController(withIdentifier: "ManagerPWDVC") as! ManagerPWDViewController
             managerVC.titleName = title
