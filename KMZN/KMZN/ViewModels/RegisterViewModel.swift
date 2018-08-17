@@ -14,9 +14,6 @@ class RegisterViewModel: BaseViewModel {
   
     fileprivate var userInfo = UserInfo()
     
-    
-    
-    
     //注册
     func register(password:String,mobile:String,verificationCode:String,finishedCallback : @escaping () -> ()){
         let param=NSMutableDictionary()
@@ -55,12 +52,14 @@ class RegisterViewModel: BaseViewModel {
         param.setValue(pwd, forKey: "password")
         loadData(action: Api.USER_LOGIN, param: param) { (jStr) in
            
+            print(jStr)
             
             if let result = CommonResult<UserInfo>(JSONString:jStr){
                 
                 print(result.resultData.mobile)
                 
                  Utils.showHUD(info: "登录成功")
+                 UserSettings.shareInstance.setValue(key: UserSettings.IS_LOGIN, value: true)
                  UserSettings.shareInstance.setValue(key: UserSettings.TOKEN, value:result.resultData.token)
                  UserSettings.shareInstance.setValue(key: UserSettings.USER_PASSWORD, value:result.resultData.password)
                  UserSettings.shareInstance.setValue(key: UserSettings.USER_ID, value:result.resultData.userId)

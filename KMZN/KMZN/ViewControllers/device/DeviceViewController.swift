@@ -74,7 +74,7 @@ extension DeviceViewController: UITableViewDataSource,UITableViewDelegate{
         
         cell.layer.borderWidth = 0.5
         cell.layer.borderColor = UIColor.darkGray.cgColor
-        
+        cell.selectionStyle = .none
         
         return cell
         
@@ -106,7 +106,7 @@ extension DeviceViewController: UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        tableView.cellForRow(at: indexPath)?.isSelected = false
+        
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "ManagerDeviceVC") as! ManagerDeviceViewController
         navigationController?.pushViewController(vc, animated: true)

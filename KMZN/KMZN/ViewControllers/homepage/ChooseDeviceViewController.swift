@@ -56,7 +56,7 @@ extension ChooseDeviceViewController: UITableViewDataSource,UITableViewDelegate{
         
         cell.layer.borderWidth = 0.5
         cell.layer.borderColor = UIColor.darkGray.cgColor
-        
+        cell.selectionStyle = .none
         
         return cell
         
@@ -98,7 +98,7 @@ extension ChooseDeviceViewController: UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        tableView.cellForRow(at: indexPath)?.isSelected = false
+      
         
         
     }

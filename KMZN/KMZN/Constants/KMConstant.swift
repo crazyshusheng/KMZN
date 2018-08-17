@@ -6,6 +6,7 @@ import UIKit
 public let THEME_RED_COLOR = UIColor.colorWithCustom(r: 0xc8, g: 0x0d, b: 0x18)
 
 public let BASE_URL="http://39.108.7.110:8080/itlock-apiapp" //接口访问地址
+public let WB_URL = "ws://39.108.7.110:6381/websocket"  //websocket链接地址
 
 public let SCREEN_WIDTH: CGFloat = UIScreen.main.bounds.size.width
 public let SCREEN_HEIGHT: CGFloat = UIScreen.main.bounds.size.height

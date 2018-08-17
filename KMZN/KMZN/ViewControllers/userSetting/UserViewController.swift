@@ -14,6 +14,11 @@ class UserViewController: UIViewController {
     
     private let titles = [["通知消息"],["系统设置","检查更新"],["关于我们"]]
     
+    @IBOutlet weak var userBtn: UIButton!
+    
+    @IBOutlet weak var tipLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
           setupUI()
@@ -34,6 +39,16 @@ class UserViewController: UIViewController {
 
     
 
+    @IBAction func login(_ sender: Any) {
+        
+        if !UserSettings.shareInstance.isLogin(){
+            
+            let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+            let loginVC = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
+            navigationController?.pushViewController(loginVC, animated: true)
+        }
+        
+    }
     
     
     override func didReceiveMemoryWarning() {
@@ -49,12 +64,21 @@ extension UserViewController{
     
     func setupUI(){
         
+        if UserSettings.shareInstance.isLogin(){
+            userBtn.setTitle(UserSettings.shareInstance.getStringValue(key: UserSettings.USER_PHONE), for: .normal)
+                tipLabel.isHidden = true
+        }else{
+            
+            userBtn.setTitle("登录", for: .normal)
+            tipLabel.isHidden = false
+        }
+        
+        
         
         tableView.delegate = self
         tableView.dataSource = self
-        
         tableView.tableFooterView = UIView()
-        
+       
     }
     
 }
@@ -76,6 +100,7 @@ extension UserViewController: UITableViewDataSource,UITableViewDelegate{
         cell.textLabel?.font = UIFont.systemFont(ofSize: 15)
         
         cell.accessoryType = .disclosureIndicator
+        cell.selectionStyle = .none
         
         return cell
         
@@ -109,7 +134,7 @@ extension UserViewController: UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        tableView.cellForRow(at: indexPath)?.isSelected = false
+      
         
         
         

@@ -76,7 +76,7 @@ extension UnlockRecordViewController: UITableViewDataSource,UITableViewDelegate{
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        tableView.cellForRow(at: indexPath)?.isSelected = false
+     
         
         
     }

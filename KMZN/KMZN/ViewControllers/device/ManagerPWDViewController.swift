@@ -66,11 +66,11 @@ extension ManagerPWDViewController: UITableViewDataSource,UITableViewDelegate{
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        tableView.cellForRow(at: indexPath)?.isSelected = false
+  
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ManagerDetailVC") as! ManagerDetailViewController
+        navigationController?.pushViewController(vc, animated: true)
         
-        
-        
-        
+    
     }
     
     

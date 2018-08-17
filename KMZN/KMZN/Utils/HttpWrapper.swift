@@ -12,6 +12,7 @@ import SVProgressHUD
 
 class HttpWrapper {
     
+    
     static let shareInstance = HttpWrapper()//单例
     var manager:AFHTTPSessionManager!
     var reachability:AFNetworkReachabilityManager!

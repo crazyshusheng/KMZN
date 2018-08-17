@@ -18,6 +18,7 @@ class ResetPwdViewController: UIViewController {
     
     @IBOutlet weak var codeButton: UIButton!
     
+    
     var registerVM = RegisterViewModel()
     
     var countdownTimer: Timer?
@@ -62,8 +63,7 @@ class ResetPwdViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    
-    @IBAction func sendCode(_ sender: Any) {
+    @IBAction func sendcode(_ sender: Any) {
         
         let phone = phoneTextField.text!
         if(Utils.isVailedPhone(phone: phone)){
@@ -77,6 +77,8 @@ class ResetPwdViewController: UIViewController {
             
         }
     }
+    
+
     
     
     @IBAction func confirm(_ sender: Any) {
@@ -95,6 +97,10 @@ class ResetPwdViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        self.view.endEditing(true)
+    }
 
 
 

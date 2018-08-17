@@ -10,7 +10,8 @@ import Foundation
 
 class Api{
     
- /* 注册登录 */
+    
+    /** 注册登录 */
     static let USER_LOGIN = "/user/login" //普通登录
     static let USER_CODE_LOGIN = "/user/loginWithVCode" //验证码登录
     static let USER_REGISTER = "/user/register" //注册
@@ -18,6 +19,21 @@ class Api{
     static let USER_UPDATE_PASSWORD = "/user/updatePassword" //修改密码
     static let USER_SEND_CODE = "/user/sendVCode" //发送验证码
     
+    /** 设备 */
+    static let DEVICE_CREATE_DEVICE = "/device/createDevice" //添加设备
+    static let DEVICE_ADD_DEVICE = "/device/addUserDevice" //关联用户
+    static let DEVICE_DELETE_DEVICE = "/device/deleteUserDevice" //解除关联关系
+    static let DEVICE_INFO = "/device/getInfo" //获取设备状态信息
+    static let DEVICE_HEART_BEAT = "/device/setHeartBeat" //设置心跳时间
+    
+    static let DEVICE_OPENLOCK = "/device/openLock" //远程开锁
+    static let DEVICE_LOCK_RECORD = "/record/getLockRecord" //开锁记录查询
+    static let DEVICE_ALERT_RECORD = "/record/getAlertRecord" //报警记录查询
+    
+    static let DEVICE_GET_PASSLIST = "/pass/getPassList" //获取通行证(密码，指纹，卡)列表
+    static let DEVICE_ADD_PWD = "/pass/addPassword" //添加密码
+    static let DEVICE_DELETE_PWD = "/pass/deletePass" //删除密码
+    static let DEVICE_UPDATE_NAME = "/pass/updateName" //修改名称
     
 }
 

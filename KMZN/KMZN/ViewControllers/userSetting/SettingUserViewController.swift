@@ -26,7 +26,14 @@ class SettingUserViewController: ThemeViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func signOut(_ sender: Any) {
+        
+        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+        let loginVC = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
+        navigationController?.pushViewController(loginVC, animated: true)
+        
+    }
+    
 
 
 }
@@ -96,7 +103,7 @@ extension SettingUserViewController: UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        tableView.cellForRow(at: indexPath)?.isSelected = false
+     
         
     }
     

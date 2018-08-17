@@ -9,12 +9,28 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    
+    
+     var loginViewModel =  RegisterViewModel()
+    
+    
     override func viewDidLoad() {
+       
+        
         super.viewDidLoad()
-
+        
+        
+//        if ((UserSettings.shareInstance.getUserID()) != nil){
+//
+//            loginViewModel.login(phone: UserSettings.shareInstance.getStringValue(key: UserSettings.USER_PHONE)!, pwd: UserSettings.shareInstance.getStringValue(key: UserSettings.USER_PASSWORD)!) {
+//
+//                
+//
+//            }
+//        }
+    
         //判断是否登录 ！测试
-        if(UserSettings.shareInstance.isLogin()){
+        if(!UserSettings.shareInstance.isLogin()){
             
             let storyBD = UIStoryboard.init(name: "Main", bundle: nil)
             let startvc = storyBD.instantiateViewController(withIdentifier: "startNVC")
@@ -23,8 +39,9 @@ class HomeViewController: UIViewController {
         }
         
        
-        
-        
+        let webSocket = KMWebSocket.sharedInstance()
+        webSocket.connectSever()
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {

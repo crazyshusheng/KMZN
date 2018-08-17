@@ -22,6 +22,8 @@
 		290A46E0211D896500D37A37 /* AddDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290A46DF211D896500D37A37 /* AddDeviceViewController.swift */; };
 		290F351CD2545C033A4B6BC2 /* Pods_KMZN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95530961FAB0509454A37F5A /* Pods_KMZN.framework */; };
 		290FD08E2109675C00A615B4 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290FD08D2109675C00A615B4 /* UserInfo.swift */; };
+		2937410A2123B9F60086529E /* KMWebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293741092123B9F60086529E /* KMWebSocket.swift */; };
+		2937410C212550C50086529E /* ManagerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2937410B212550C50086529E /* ManagerDetailViewController.swift */; };
 		294075D62105B10400ACECEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294075D52105B10400ACECEB /* AppDelegate.swift */; };
 		294075D82105B10400ACECEB /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294075D72105B10400ACECEB /* StartViewController.swift */; };
 		294075DB2105B10400ACECEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 294075D92105B10400ACECEB /* Main.storyboard */; };
@@ -66,6 +68,8 @@
 		290A46DD211D846100D37A37 /* TypeDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeDeviceViewController.swift; sourceTree = "<group>"; };
 		290A46DF211D896500D37A37 /* AddDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeviceViewController.swift; sourceTree = "<group>"; };
 		290FD08D2109675C00A615B4 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		293741092123B9F60086529E /* KMWebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMWebSocket.swift; sourceTree = "<group>"; };
+		2937410B212550C50086529E /* ManagerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerDetailViewController.swift; sourceTree = "<group>"; };
 		294075D22105B10400ACECEB /* KMZN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KMZN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		294075D52105B10400ACECEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		294075D72105B10400ACECEB /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 				290A46DD211D846100D37A37 /* TypeDeviceViewController.swift */,
 				290A46DF211D896500D37A37 /* AddDeviceViewController.swift */,
 				2954B8B4211E883800905ECD /* ManagerPWDViewController.swift */,
+				2937410B212550C50086529E /* ManagerDetailViewController.swift */,
 				2954B8B6211E8D7600905ECD /* HeartBeatViewController.swift */,
 			);
 			path = device;
@@ -243,7 +248,7 @@
 				294EA7C72108744B007F9E5B /* Utils.swift */,
 				294EA7B521081C2F007F9E5B /* UserSettings.swift */,
 				294EA7B721081DF8007F9E5B /* HttpWrapper.swift */,
-				290FD08D2109675C00A615B4 /* UserInfo.swift */,
+				293741092123B9F60086529E /* KMWebSocket.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 			children = (
 				294EA7BF210827A0007F9E5B /* BaseMappable.swift */,
 				294EA7BC21082724007F9E5B /* CommonResult.swift */,
+				290FD08D2109675C00A615B4 /* UserInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -392,12 +398,14 @@
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -448,6 +456,7 @@
 				294075D82105B10400ACECEB /* StartViewController.swift in Sources */,
 				290A46D1211C310B00D37A37 /* UnlockRecordCell.swift in Sources */,
 				290A46C6211BE27500D37A37 /* ChooseDeviceViewController.swift in Sources */,
+				2937410A2123B9F60086529E /* KMWebSocket.swift in Sources */,
 				294EA7BA21081F6A007F9E5B /* Api.swift in Sources */,
 				2961937E21211DF0006BA9F1 /* SettingUserViewController.swift in Sources */,
 				294EA7C82108744B007F9E5B /* Utils.swift in Sources */,
@@ -459,6 +468,7 @@
 				294075EB2105B6AA00ACECEB /* KMConstant.swift in Sources */,
 				290A46DC211D764400D37A37 /* ButtonWithRightImage.swift in Sources */,
 				294EA7BD21082724007F9E5B /* CommonResult.swift in Sources */,
+				2937410C212550C50086529E /* ManagerDetailViewController.swift in Sources */,
 				290A46D6211D5E7B00D37A37 /* DeviceViewController.swift in Sources */,
 				294075D62105B10400ACECEB /* AppDelegate.swift in Sources */,
 				290A46CB211C224F00D37A37 /* DeviceInfoCell.swift in Sources */,
@@ -602,11 +612,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3KTVYP4563;
+				DEVELOPMENT_TEAM = TKP3ERZA96;
 				INFOPLIST_FILE = KMZN/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.liveRadio.KMZN.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.liveRadio.KMZN;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -621,11 +631,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3KTVYP4563;
+				DEVELOPMENT_TEAM = TKP3ERZA96;
 				INFOPLIST_FILE = KMZN/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.liveRadio.KMZN.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.liveRadio.KMZN;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;

@@ -9,7 +9,13 @@
 import UIKit
 
 class AddDeviceViewController: ThemeViewController {
-
+    
+    @IBOutlet weak var eiTextField: UITextField!
+    
+    @IBOutlet weak var siTextField: UITextField!
+    
+    @IBOutlet weak var nameTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,14 +28,7 @@ class AddDeviceViewController: ThemeViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func addDevice(_ sender: Any) {
     }
-    */
-
+    
 }

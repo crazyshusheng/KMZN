@@ -104,6 +104,11 @@ class RegisterViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        self.view.endEditing(true)
+    }
+    
 
     @objc func updateTime() {
         // 计时开始时，逐秒减少remainingSeconds的值

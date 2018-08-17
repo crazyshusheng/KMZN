@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: ThemeViewController {
     
     @IBOutlet weak var usernameTextField: UITextField!
     
@@ -36,6 +36,7 @@ class LoginViewController: UIViewController {
         userLogin()
     }
     
+
     
     
     
@@ -91,6 +92,8 @@ extension LoginViewController{
         registerVM.login(phone: phone, pwd: pwd) {
             
            self.navigationController?.dismiss(animated: true, completion: nil)
+           self.navigationController?.popViewController(animated: true)
+            
         }
         
     }

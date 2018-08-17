@@ -15,18 +15,21 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - ObjectMapper (3.1.0)
+  - Starscream (3.0.5)
   - SVProgressHUD (2.1.2)
 
 DEPENDENCIES:
   - AFNetworking
   - ObjectMapper (~> 3.1.0)
+  - Starscream
   - SVProgressHUD
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
+  Starscream: faf918b2f2eff7d5dd21180646bf015a669673bd
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
 
-PODFILE CHECKSUM: 8e01240b80b7d088554b321dda25290675765cc3
+PODFILE CHECKSUM: 0c8ba898b91b8b2f9898c44027b8a4e4a0072bea
 
 COCOAPODS: 1.3.0.rc.1
