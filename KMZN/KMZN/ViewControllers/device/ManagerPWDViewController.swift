@@ -12,11 +12,16 @@ class ManagerPWDViewController: ThemeViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var titleName:String?
+    var typeID:Int!
+    var deviceID:String!
+    var dataList = [RecondListInfo]()
+    var listType = 1
     
+    fileprivate var viewModel = RecordListViewModel.init()
     override func viewDidLoad() {
         super.viewDidLoad()
          setupUI()
-        // Do any additional setup after loading the view.
+        getInfoList()
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,13 +35,49 @@ extension ManagerPWDViewController{
     
     
     func setupUI(){
-        
-        
+    
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
         navigationItem.title = titleName
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: #imageLiteral(resourceName: "添加设备"), style: .plain, target: self, action: #selector(addRecord))
     }
+    
+    func getInfoList(){
+        
+        switch typeID {
+            
+        case 1,2,3:
+            if typeID == 2 {
+                
+                listType = 3
+            }else if typeID == 3 {
+                
+                listType = 2
+            }
+            viewModel.getDeviceInfo(deviceID: deviceID, passType: String(listType)) {
+                
+                self.tableView.reloadData()
+            }
+        case  4:
+            viewModel.getDeviceUsers(deviceID: deviceID) {
+                
+                self.dataList =  self.viewModel.recordList
+                self.tableView.reloadData()
+            }
+            
+        default:
+            break
+        }
+    }
+    
+    @objc func addRecord(){
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "AddPwdVC") as! AddPwdViewController
+        navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
     
 }
 
@@ -51,15 +92,19 @@ extension ManagerPWDViewController: UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "manager_pwd_cell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "manager_pwd_cell") as! DeviceManagerCell
+        if dataList.count > 0 {
+            
+            cell.type = self.typeID
+            cell.managerInfo = dataList[indexPath.row]
+        }
         
-        
-        return cell!
+        return cell
         
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 3
+        return dataList.count
         
     }
     
@@ -68,6 +113,7 @@ extension ManagerPWDViewController: UITableViewDataSource,UITableViewDelegate{
         
   
         let vc = storyboard?.instantiateViewController(withIdentifier: "ManagerDetailVC") as! ManagerDetailViewController
+        vc.detailType = listType
         navigationController?.pushViewController(vc, animated: true)
         
     

@@ -13,13 +13,13 @@ class ManagerDeviceViewController: ThemeViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     private let titles = ["密码管理","指纹管理","卡片管理","心跳时间","开锁记录","报警记录","设备成员"]
+    fileprivate let viewModel = DeviceInfoViewModel.init()
+    var deviceID = "39090334"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    
         setupUI()
-    
+        getDeviceInfo()
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,8 +27,6 @@ class ManagerDeviceViewController: ThemeViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-
 }
 
 extension ManagerDeviceViewController{
@@ -39,6 +37,12 @@ extension ManagerDeviceViewController{
         collectionView.dataSource = self
     }
     
+    func getDeviceInfo(){
+        
+        viewModel.getDeviceInfo(deviceID: deviceID) {
+            
+        }
+    }
     
     
 }
@@ -94,6 +98,7 @@ extension ManagerDeviceViewController:UICollectionViewDelegate,UICollectionViewD
         case 0,1,2,6:
             
             var title:String?
+            var type = indexPath.row + 1
             if indexPath.row == 0 {
                 title = "密码管理"
             }else if indexPath.row == 1{
@@ -102,9 +107,12 @@ extension ManagerDeviceViewController:UICollectionViewDelegate,UICollectionViewD
                 title = "卡片管理"
             }else{
                 title = "设备成员"
+                type = 4
             }
             let managerVC = storyboard?.instantiateViewController(withIdentifier: "ManagerPWDVC") as! ManagerPWDViewController
             managerVC.titleName = title
+            managerVC.deviceID = self.deviceID
+            managerVC.typeID = type
             navigationController?.pushViewController(managerVC, animated: true)
         case 3:
             let heartVC = storyboard?.instantiateViewController(withIdentifier: "HeartBeatVC") as! HeartBeatViewController
@@ -112,6 +120,7 @@ extension ManagerDeviceViewController:UICollectionViewDelegate,UICollectionViewD
         case 4,5:
             let recordVC = UIStoryboard.init(name: "Homepage", bundle: nil).instantiateViewController(withIdentifier: "UnlockRecordVC") as! UnlockRecordViewController
             recordVC.type = indexPath.row - 3
+            recordVC.deviceID = deviceID
             navigationController?.pushViewController(recordVC, animated: true)
             
             

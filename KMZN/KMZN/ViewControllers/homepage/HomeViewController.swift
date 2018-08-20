@@ -10,9 +10,18 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    @IBOutlet weak var typeLabel: UILabel!
     
-     var loginViewModel =  RegisterViewModel()
+    @IBOutlet weak var statusLabel: UILabel!
     
+    @IBOutlet weak var batteryLabel: UILabel!
+    
+  
+    
+    @IBOutlet weak var signalLabel: UILabel!
+    
+    var deviceVM =  DeviceInfoViewModel()
+    var deviceInfo = DeviceInfo()
     
     override func viewDidLoad() {
        
@@ -20,27 +29,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         
-//        if ((UserSettings.shareInstance.getUserID()) != nil){
-//
-//            loginViewModel.login(phone: UserSettings.shareInstance.getStringValue(key: UserSettings.USER_PHONE)!, pwd: UserSettings.shareInstance.getStringValue(key: UserSettings.USER_PASSWORD)!) {
-//
-//                
-//
-//            }
-//        }
-    
-        //判断是否登录 ！测试
-        if(!UserSettings.shareInstance.isLogin()){
-            
-            let storyBD = UIStoryboard.init(name: "Main", bundle: nil)
-            let startvc = storyBD.instantiateViewController(withIdentifier: "startNVC")
-            self.present(startvc, animated: false)
-
-        }
-        
-       
-        let webSocket = KMWebSocket.sharedInstance()
-        webSocket.connectSever()
+       setupUI()
     
     }
     
@@ -63,7 +52,50 @@ class HomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-
-
 }
+extension HomeViewController {
+    
+    
+    func   setupUI(){
+        
+        
+        //判断是否登录
+        if(!UserSettings.shareInstance.isLogin()){
+            
+            let storyBD = UIStoryboard.init(name: "Main", bundle: nil)
+            let startvc = storyBD.instantiateViewController(withIdentifier: "startNVC")
+            self.present(startvc, animated: false)
+            
+        }
+        
+        //简历webSocket链接
+        let webSocket = KMWebSocket.sharedInstance()
+        webSocket.connectSever()
+        
+        if let deviceID = UserSettings.shareInstance.getStringValue(key: UserSettings.DEVICE_ID){
+            
+            deviceVM.getDeviceInfo(deviceID:deviceID) {
+                
+                self.deviceInfo = self.deviceVM.deviceInfo
+                self.batteryLabel.text = "\(self.deviceInfo.battery!)%"
+            }
+        }
+        
+      
+        
+        
+        //测试设备
+        UserSettings.shareInstance.setValue(key: UserSettings.DEVICE_IMEI, value:"869405031814545")
+        UserSettings.shareInstance.setValue(key: UserSettings.DEVICE_IMSI, value:"460042304905726")
+        UserSettings.shareInstance.setValue(key: UserSettings.DEVICE_ID, value:"39090334")
+        
+
+
+        
+        
+       
+    }
+    
+    
+}
+

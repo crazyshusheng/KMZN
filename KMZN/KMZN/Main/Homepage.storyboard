@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cvh-h8-CGo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cvh-h8-CGo">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -167,7 +167,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ZC-lH-M5W">
-                                                        <rect key="frame" x="40" y="90" width="37" height="20"/>
+                                                        <rect key="frame" x="40" y="90" width="38" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="U5u-Eq-NUG"/>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="uL6-xO-R4a"/>
@@ -329,6 +329,12 @@
                         <viewLayoutGuide key="safeArea" id="iL0-9i-TPA"/>
                     </view>
                     <navigationItem key="navigationItem" id="PEk-IS-JHd"/>
+                    <connections>
+                        <outlet property="batteryLabel" destination="7ZC-lH-M5W" id="aLl-yY-5ky"/>
+                        <outlet property="signalLabel" destination="iJc-lr-P8N" id="ugo-vZ-U9w"/>
+                        <outlet property="statusLabel" destination="kxR-o6-GNm" id="rzm-TC-Ly1"/>
+                        <outlet property="typeLabel" destination="ife-MP-TpL" id="gqe-dx-H58"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eZ1-WV-twn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -480,6 +486,12 @@
                                                 <constraint firstItem="yZ8-rV-hOZ" firstAttribute="top" secondItem="w8Q-MJ-8sh" secondAttribute="bottom" constant="15" id="wUI-fQ-fBt"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="detLael" destination="Rql-HL-oip" id="kyj-U0-YbT"/>
+                                            <outlet property="nameLabel" destination="w8Q-MJ-8sh" id="PI9-2T-pkg"/>
+                                            <outlet property="photoImageView" destination="5b3-So-NoF" id="oHc-lZ-16d"/>
+                                            <outlet property="timeLabel" destination="yZ8-rV-hOZ" id="PBv-Wc-hdt"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

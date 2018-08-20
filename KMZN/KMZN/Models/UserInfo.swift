@@ -8,6 +8,8 @@
 
 import Foundation
 import ObjectMapper
+
+
 class UserInfo :BaseMappable {
 
     var userId:Int!

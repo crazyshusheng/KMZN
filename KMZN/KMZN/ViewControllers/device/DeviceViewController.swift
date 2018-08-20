@@ -48,7 +48,6 @@ extension DeviceViewController{
     
     func setupUI(){
         
-        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib.init(nibName: "DeviceInfoCell", bundle: nil), forCellReuseIdentifier: KMDeviceCellID)
@@ -109,6 +108,7 @@ extension DeviceViewController: UITableViewDataSource,UITableViewDelegate{
         
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "ManagerDeviceVC") as! ManagerDeviceViewController
+        vc.deviceID = "39090334"
         navigationController?.pushViewController(vc, animated: true)
         
         

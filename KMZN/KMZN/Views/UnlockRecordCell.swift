@@ -10,6 +10,38 @@ import UIKit
 
 class UnlockRecordCell: UITableViewCell {
 
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    @IBOutlet weak var detLael: UILabel!
+    
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    @IBOutlet weak var photoImageView: UIImageView!
+    
+    
+    
+    var recordInfo: UnlockTypeInfo! {
+        
+        didSet{
+            
+            nameLabel.text = String(recordInfo.recondID)
+            timeLabel.text = recordInfo.time
+            
+            if recordInfo.operateType != nil {
+                
+                detLael.text = UNLOCK_TYPE[String(recordInfo.operateType)]
+            }
+            if recordInfo.alertType != nil {
+                
+                 detLael.text = ALERT_TYPE[String(recordInfo.alertType)]
+            }
+            
+        }
+        
+        
+    }
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

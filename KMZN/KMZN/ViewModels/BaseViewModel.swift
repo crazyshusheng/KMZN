@@ -24,6 +24,7 @@ extension BaseViewModel {
         
         HttpWrapper.shareInstance.post(action: BASE_URL.appending(action), param: param, loadSuccess: { (resultData) in
             
+            
              //json转对象
             if let result = CommonResult<BaseMappable>(JSONString:resultData){
                 
@@ -52,10 +53,10 @@ extension BaseViewModel {
     
     
     //错误处理
-    func error(errorCode:String,message:String?){
+    func error(errorCode:String?,message:String?){
         
         
-        print(errorCode)
+        print(message)
     }
     
     

@@ -56,6 +56,8 @@ class RegisterViewModel: BaseViewModel {
             
             if let result = CommonResult<UserInfo>(JSONString:jStr){
                 
+            
+                
                 print(result.resultData.mobile)
                 
                  Utils.showHUD(info: "登录成功")

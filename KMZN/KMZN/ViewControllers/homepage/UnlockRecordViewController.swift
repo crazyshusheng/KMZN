@@ -12,13 +12,19 @@ class UnlockRecordViewController: ThemeViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    
+    var viewModel = UnlockRecordViewModel()
+    
+    var dataList = [UnlockTypeInfo]()
+    
     var type = 1  // 1,开锁记录  2,报警记录
+    var deviceID = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
-        print(type)
+        getDataList()
         // Do any additional setup after loading the view.
     }
 
@@ -27,26 +33,44 @@ class UnlockRecordViewController: ThemeViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func setupUI(){
-        
-        if type == 1{
-            
-            self.navigationItem.title = "开锁记录"
-        }else{
-            navigationItem.title = "报警记录"
-        }
-        
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.tableFooterView = UIView()
-        tableView.reloadData()
-    }
+   
 
     
 
 
 }
+extension UnlockRecordViewController {
+    
+    
+    func setupUI(){
+        
+        if type == 1{
+            
+            self.navigationItem.title = "开锁记录"
+        }else if type == 2{
+            navigationItem.title = "报警记录"
+        }
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.tableFooterView = UIView()
+       
+    }
+    
+    func getDataList(){
+        
+        viewModel.getLockRecord(deviceID: deviceID,type:type) {
+            
+            self.dataList = self.viewModel.infoList
+            self.tableView.reloadData()
+        }
+    }
+    
+    
+}
+
+
+
 
 extension UnlockRecordViewController: UITableViewDataSource,UITableViewDelegate{
     
@@ -61,6 +85,10 @@ extension UnlockRecordViewController: UITableViewDataSource,UITableViewDelegate{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "unlockrecord_cell") as! UnlockRecordCell
         
+        if dataList.count > 0 {
+            
+            cell.recordInfo = dataList[indexPath.row]
+        }
         
         
         return cell
@@ -69,7 +97,7 @@ extension UnlockRecordViewController: UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 3
+        return dataList.count
         
     }
    
