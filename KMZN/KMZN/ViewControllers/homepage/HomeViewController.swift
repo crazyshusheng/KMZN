@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SVProgressHUD
+
 
 class HomeViewController: UIViewController {
     
@@ -15,8 +17,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var statusLabel: UILabel!
     
     @IBOutlet weak var batteryLabel: UILabel!
-    
-  
     
     @IBOutlet weak var signalLabel: UILabel!
     
@@ -28,8 +28,9 @@ class HomeViewController: UIViewController {
         
         super.viewDidLoad()
         
+        setupUI()
         
-       setupUI()
+        
     
     }
     
@@ -51,6 +52,16 @@ class HomeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func unlockRecord(_ sender: Any) {
+        
+        
+        let recordVC = UIStoryboard.init(name: "Homepage", bundle: nil).instantiateViewController(withIdentifier: "UnlockRecordVC") as! UnlockRecordViewController
+        recordVC.type = 1
+        recordVC.deviceID = deviceInfo.deviceId
+        navigationController?.pushViewController(recordVC, animated: true)
+    }
+    
     
 }
 extension HomeViewController {

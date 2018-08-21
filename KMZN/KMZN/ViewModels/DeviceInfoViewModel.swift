@@ -22,7 +22,7 @@ class DeviceInfoViewModel: BaseViewModel {
         
         loadData(action: Api.DEVICE_INFO, param: param) { (jsonStr) in
             
-             print(jsonStr)
+            
             
             if let result = CommonResult<DeviceInfo>(JSONString: jsonStr){
                 

@@ -16,12 +16,26 @@ class ManagerPWDViewController: ThemeViewController {
     var deviceID:String!
     var dataList = [RecondListInfo]()
     var listType = 1
+    var isRefresh = false
     
     fileprivate var viewModel = RecordListViewModel.init()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
          setupUI()
         getInfoList()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        if isRefresh{
+             getInfoList()
+             isRefresh = false
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,6 +71,7 @@ extension ManagerPWDViewController{
             }
             viewModel.getDeviceInfo(deviceID: deviceID, passType: String(listType)) {
                 
+                self.dataList =  self.viewModel.recordList
                 self.tableView.reloadData()
             }
         case  4:
@@ -74,6 +89,8 @@ extension ManagerPWDViewController{
     @objc func addRecord(){
         
         let vc = storyboard?.instantiateViewController(withIdentifier: "AddPwdVC") as! AddPwdViewController
+        vc.type = listType
+        vc.deviceID = self.deviceID
         navigationController?.pushViewController(vc, animated: true)
         
     }
@@ -114,6 +131,7 @@ extension ManagerPWDViewController: UITableViewDataSource,UITableViewDelegate{
   
         let vc = storyboard?.instantiateViewController(withIdentifier: "ManagerDetailVC") as! ManagerDetailViewController
         vc.detailType = listType
+        vc.recordInfo = dataList[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
         
     

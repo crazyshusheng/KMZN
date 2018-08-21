@@ -291,7 +291,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="brE-ma-RRN" kind="show" id="lIy-mA-AgF"/>
+                                            <action selector="unlockRecord:" destination="Cvh-h8-CGo" eventType="touchUpInside" id="4p4-Th-6gl"/>
                                         </connections>
                                     </button>
                                 </subviews>

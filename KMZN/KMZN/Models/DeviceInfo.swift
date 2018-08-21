@@ -13,10 +13,11 @@ class DeviceInfo: BaseMappable {
     
     
     var battery:Int!
-    var heartBeat:Int!
+    var heartBeat:Int?
     var signal:Int!
     var status:Int!
     var deviceId:String!
+    var online:Int?
     var upadateTime:Date!
     
     override func mapping(map: Map) {
@@ -25,6 +26,7 @@ class DeviceInfo: BaseMappable {
         heartBeat <- map["heartBeat"]
         signal <- map["signal"]
         status <- map["status"]
+        online <- map["online"]
         deviceId <- map["deviceId"]
         
     }

@@ -19,7 +19,7 @@ class AddDeviceViewModel: BaseViewModel {
          param.setValue(name, forKey: "name")
         loadData(action: Api.DEVICE_CREATE_DEVICE, param: param) { (jsonStr) in
         
-            print(jsonStr)
+           
         }
     }
     

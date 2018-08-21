@@ -9,27 +9,120 @@
 import UIKit
 
 class AddPwdViewController: ThemeViewController {
+    
+    @IBOutlet weak var nameTextField: UITextField!
+    
+    @IBOutlet weak var pwdLabel: UILabel!
+    
+    @IBOutlet weak var pwdTextField: UITextField!
+    
+    var viewModel = AddPwdViewModel.init()
+    
+    var deviceID = ""
+    
+    var type = 1
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupUI()
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func confirm(_ sender: Any) {
+        
+        addPassword()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+extension AddPwdViewController{
+    
+    func setupUI(){
+        
+        if type == 1{
+            navigationItem.title = "添加密码"
+            pwdLabel.text = "密码"
+        }else if type == 4 {
+            
+            navigationItem.title = "添加成员"
+            pwdLabel.text = "手机号"
+        }
+        
+        let webSocket = KMWebSocket.sharedInstance()
+        webSocket.webSocketDelegate = self
+    }
+    
+    func addPassword(){
+        
+        let name = nameTextField.text!
+        let pwd = pwdTextField.text!
+       
+        
+        if(name.isEmpty ){
+            
+            Utils.showHUD(info:"请输入名称")
+            
+            return
+        }
+        
+        
+        if type == 1{
+            
+            if(pwd.isEmpty || pwd.count != 6){
+                
+                Utils.showHUD(info:"请输入6位数密码")
+                
+                return
+            }
+            
+            viewModel.addDevicePwd(deviceId: deviceID, name: name, password: pwd) {
+                
+            }
+            
+        }else if type == 4 {
+            
+            if(pwd.isEmpty || !Utils.isVailedPhone(phone: pwd)){
+                
+                Utils.showHUD(info:"请输入手机号")
+                
+                return
+            }
+            
+            viewModel.addUserDevice(deviceId: deviceID, name: name, mobile: pwd) {
+                
+            }
+            
+        }
+        
+        
+     
+     
+     
+
+    }
+    
+}
+
+extension AddPwdViewController:KMWebSocketDelegate{
+    
+    
+    func websocketDidReceiveMessage(socket: KMWebSocket, text: String) {
+        
+        navigationController?.popViewController(animated: true)
+        
+        if let result = CommonResult<BaseMappable>(JSONString:text){
+            
+            Utils.showHUD(info: result.message)
+            let vc = self.navigationController?.viewControllers[2] as? ManagerPWDViewController
+            vc?.isRefresh = true
+        }
+        
+    }
+}
+
+

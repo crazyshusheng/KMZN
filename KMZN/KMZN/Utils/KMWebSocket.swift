@@ -17,9 +17,11 @@ import Starscream
     /**websocket 连接失败*/
     @objc optional  func websocketDidDisconnect(socket: KMWebSocket, error: Error?)
     /**websocket 接受文字信息*/
-    func websocketDidReceiveMessage(socket: KMWebSocket, text: String)
+    @objc optional func websocketDidReceiveMessage(socket: KMWebSocket, text: String)
     /**websocket 接受二进制信息*/
     @objc optional  func  websocketDidReceiveData(socket: KMWebSocket, data: Data)
+    
+    
 }
 
 
@@ -86,13 +88,14 @@ public class KMWebSocket:NSObject,WebSocketDelegate{
     public func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
         
         print("接受到消息了")
-        webSocketDelegate?.websocketDidReceiveMessage(socket: self, text: text)
+        webSocketDelegate?.websocketDidReceiveMessage!(socket: self, text: text)
     }
     
     public func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
         print("data数据")
         webSocketDelegate?.websocketDidReceiveData!(socket: self, data: data)
     }
+    
     
     
 

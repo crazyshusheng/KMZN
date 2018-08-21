@@ -22,6 +22,8 @@
 		290A46E0211D896500D37A37 /* AddDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290A46DF211D896500D37A37 /* AddDeviceViewController.swift */; };
 		290F351CD2545C033A4B6BC2 /* Pods_KMZN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95530961FAB0509454A37F5A /* Pods_KMZN.framework */; };
 		290FD08E2109675C00A615B4 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290FD08D2109675C00A615B4 /* UserInfo.swift */; };
+		293439EB212BEFF50022B4E0 /* ManagerDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293439EA212BEFF50022B4E0 /* ManagerDetailViewModel.swift */; };
+		293439ED212C039D0022B4E0 /* AddPwdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293439EC212C039D0022B4E0 /* AddPwdViewModel.swift */; };
 		2937410A2123B9F60086529E /* KMWebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293741092123B9F60086529E /* KMWebSocket.swift */; };
 		2937410C212550C50086529E /* ManagerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2937410B212550C50086529E /* ManagerDetailViewController.swift */; };
 		294075D62105B10400ACECEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294075D52105B10400ACECEB /* AppDelegate.swift */; };
@@ -79,6 +81,8 @@
 		290A46DD211D846100D37A37 /* TypeDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeDeviceViewController.swift; sourceTree = "<group>"; };
 		290A46DF211D896500D37A37 /* AddDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeviceViewController.swift; sourceTree = "<group>"; };
 		290FD08D2109675C00A615B4 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		293439EA212BEFF50022B4E0 /* ManagerDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerDetailViewModel.swift; sourceTree = "<group>"; };
+		293439EC212C039D0022B4E0 /* AddPwdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPwdViewModel.swift; sourceTree = "<group>"; };
 		293741092123B9F60086529E /* KMWebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMWebSocket.swift; sourceTree = "<group>"; };
 		2937410B212550C50086529E /* ManagerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerDetailViewController.swift; sourceTree = "<group>"; };
 		294075D22105B10400ACECEB /* KMZN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KMZN.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -287,6 +291,8 @@
 				29623F8C212ABAD600CBE772 /* UnlockRecordViewModel.swift */,
 				29623F7E212A8F5100CBE772 /* DeviceInfoViewModel.swift */,
 				29623F82212A9CB900CBE772 /* RecordListViewModel.swift */,
+				293439EA212BEFF50022B4E0 /* ManagerDetailViewModel.swift */,
+				293439EC212C039D0022B4E0 /* AddPwdViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -471,6 +477,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2979D66E2106BEAF00FF0E44 /* ResetPwdViewController.swift in Sources */,
+				293439EB212BEFF50022B4E0 /* ManagerDetailViewModel.swift in Sources */,
 				29623F7B212A6C0600CBE772 /* PasswordAlertView.swift in Sources */,
 				290A46D3211D3C9700D37A37 /* ButtonWithUpImage.swift in Sources */,
 				294EA7C421086F15007F9E5B /* RegisterViewModel.swift in Sources */,
@@ -482,6 +489,7 @@
 				2954B8B7211E8D7600905ECD /* HeartBeatViewController.swift in Sources */,
 				294EA7B821081DF8007F9E5B /* HttpWrapper.swift in Sources */,
 				29623F7D212A717600CBE772 /* AddDeviceViewModel.swift in Sources */,
+				293439ED212C039D0022B4E0 /* AddPwdViewModel.swift in Sources */,
 				294EA7C221086A33007F9E5B /* BaseViewModel.swift in Sources */,
 				294E6BDF211AEE6800FEED8C /* HomeViewController.swift in Sources */,
 				290FD08E2109675C00A615B4 /* UserInfo.swift in Sources */,

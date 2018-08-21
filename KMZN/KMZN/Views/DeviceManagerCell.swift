@@ -24,6 +24,11 @@ class DeviceManagerCell: UITableViewCell {
                 
                 nameLabel.text = managerInfo.name
                 delLabel.text = (managerInfo.role == 1) ? "管理员" : "成员"
+            }else{
+                
+                nameLabel.text = managerInfo.name
+                delLabel.text = "ID:" + String(managerInfo.recordID)
+                
             }
            
             

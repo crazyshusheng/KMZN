@@ -28,7 +28,7 @@ class UnlockRecordViewModel: BaseViewModel {
         
         loadData(action: urlStr, param: param) { (jsonStr) in
             
-            print(jsonStr)
+            
             
             if let result = CommonResult<PageRow<UnlockTypeInfo>>(JSONString: jsonStr){
                 self.infoList = result.resultData.list

@@ -52,7 +52,7 @@ class RegisterViewModel: BaseViewModel {
         param.setValue(pwd, forKey: "password")
         loadData(action: Api.USER_LOGIN, param: param) { (jStr) in
            
-            print(jStr)
+            
             
             if let result = CommonResult<UserInfo>(JSONString:jStr){
                 

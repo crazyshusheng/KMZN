@@ -586,6 +586,9 @@
                                 <state key="normal" title="删除记录">
                                     <color key="titleColor" red="0.066666666669999999" green="0.66666666669999997" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="deleteRecord:" destination="cmO-Y0-YMf" eventType="touchUpInside" id="nhS-AF-8re"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -599,6 +602,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="e0Y-R5-YvN"/>
                     </view>
+                    <connections>
+                        <outlet property="detailLabel" destination="ek1-Eu-qbQ" id="jfh-kk-ZFm"/>
+                        <outlet property="nameLabel" destination="a9i-ai-eeC" id="5oc-tq-qU1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pc9-pj-vow" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -689,7 +696,7 @@
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -733,6 +740,9 @@
                                         <integer key="value" value="22"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="confirm:" destination="47l-LO-Ykc" eventType="touchUpInside" id="gN5-hM-6kr"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -746,6 +756,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zPV-oa-HIv"/>
                     </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="mAy-LQ-8u3" id="WfX-Wa-vaQ"/>
+                        <outlet property="pwdLabel" destination="fmJ-8l-zlu" id="Muz-HK-CBt"/>
+                        <outlet property="pwdTextField" destination="IX7-r5-VAq" id="kpY-fR-UZN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N4H-9e-ujS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

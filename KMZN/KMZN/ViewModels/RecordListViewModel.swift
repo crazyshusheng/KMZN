@@ -13,6 +13,8 @@ class RecordListViewModel: BaseViewModel {
     lazy var recordList = [RecondListInfo]()
     
     
+    //获取通行证(密码，指纹，卡)列表
+
     func getDeviceInfo(deviceID:String,passType:String,finishedCallback : @escaping () -> ()){
         
         let param=NSMutableDictionary()
@@ -22,15 +24,18 @@ class RecordListViewModel: BaseViewModel {
         
         loadData(action: Api.DEVICE_GET_PASSLIST, param: param) { (jsonStr) in
             
-            print(passType,jsonStr)
-            
-            if let result = CommonResult<DeviceInfo>(JSONString: jsonStr){
+    
+            if let result = CommonResult<PageRow<RecondListInfo>>(JSONString: jsonStr){
                 
+                self.recordList = result.resultData.list
+                
+                finishedCallback()
             }
         }
         
     }
     
+    //获取关联用户
     func getDeviceUsers(deviceID:String,finishedCallback : @escaping () -> ()){
         
         let param=NSMutableDictionary()
@@ -38,7 +43,7 @@ class RecordListViewModel: BaseViewModel {
    
         loadData(action: Api.DEVICE_GET_USER, param: param) { (jsonStr) in
             
-            print(jsonStr)
+            
             
             if let result = CommonResult<PageRow<RecondListInfo>>(JSONString: jsonStr){
                 

@@ -18,6 +18,12 @@ class Utils {
         SVProgressHUD.show(nil, status: info)
     }
     
+    class func showStatus(info:String){
+       
+        SVProgressHUD.show(withStatus: info)
+    }
+    
+    
     
     // 日期类型格式化
     class func getDateStrFromTime(time:Int,formatStr:String="yyyy-MM-dd HH:mm:ss")->String {
