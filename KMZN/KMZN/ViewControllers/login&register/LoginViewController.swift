@@ -91,8 +91,14 @@ extension LoginViewController{
         
         registerVM.login(phone: phone, pwd: pwd) {
             
-           self.navigationController?.dismiss(animated: true, completion: nil)
-           self.navigationController?.popViewController(animated: true)
+            //发送通知
+           NotificationCenter.default.post(name: NOTIFY_HOMEVC_REFRESH, object: self)
+           NotificationCenter.default.post(name: NOTIFY_DEVICEVC_DEVICE, object: self)
+           NotificationCenter.default.post(name: NOTIFY_USERVC_DEVICE, object: self)
+            
+            
+           self.dismiss(animated: true, completion: nil)
+           self.navigationController?.popToRootViewController(animated: true)
             
         }
         

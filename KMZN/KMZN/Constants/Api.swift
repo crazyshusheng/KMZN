@@ -25,12 +25,14 @@ class Api{
     static let DEVICE_DELETE_DEVICE = "/device/deleteUserDevice" //解除关联关系
     static let DEVICE_GET_USER = "/device/getDeviceUsers" //获取设备关联的用户
     static let DEVICE_GET_USERDEVICE = "/device/getUserDevices" //获取用户关联的设备
+    static let DEVICE_SWITCH_CURRENT = "/device/switchCurrentDevice" //切换设备
     
-    
+    static let PRODUCT_LIST_INFO = "/device/getProductList" // 获取产品型号列表
     static let DEVICE_INFO = "/device/getInfo" //获取设备状态信息
     static let DEVICE_HEART_BEAT = "/device/setHeartBeat" //设置心跳时间
     static let DEVICE_MASTER_PWD = "/device/setMasterPassword" //设置管理员密码
     static let DEVICE_CKECK_PWD = "/device/checkMasterPassword" //验证管理员密码
+    static let DEVICE_UPDATE_DEVICENAME = "/device/updateDeviceName"  
     
     static let DEVICE_OPENLOCK = "/device/openLock" //远程开锁
     static let DEVICE_LOCK_RECORD = "/record/getLockRecord" //开锁记录查询
@@ -40,6 +42,13 @@ class Api{
     static let DEVICE_ADD_PWD = "/pass/addPassword" //添加密码
     static let DEVICE_DELETE_PWD = "/pass/deletePass" //删除密码
     static let DEVICE_UPDATE_NAME = "/pass/updateName" //修改名称
+    
+    
+    
+    /** 个人设置 */
+    
+    static let USER_PHOTO_INFO = "/user/uploadAvatar" //头像文件
+    static let USER_NAME_INFO = "/user/updateName" //名字
     
 }
 

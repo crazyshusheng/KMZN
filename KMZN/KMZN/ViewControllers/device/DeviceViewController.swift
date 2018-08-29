@@ -8,28 +8,29 @@
 
 import UIKit
 
-class DeviceViewController: UIViewController {
+class DeviceViewController: BasicViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    
+    var viewModel = DeviceListViewModel()
+    var dataList = [DeviceInfo]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
-        // Do any additional setup after loading the view.
+        
+        loadData()
+        
+        viewModel.viewController = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshDeviceUI), name: NOTIFY_DEVICEVC_DEVICE, object: nil)
+        
+     
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-        
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-       
 
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-        
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -37,6 +38,7 @@ class DeviceViewController: UIViewController {
     }
     
     @IBAction func addDevice(_ sender: Any) {
+        
         
     }
     
@@ -52,8 +54,21 @@ extension DeviceViewController{
         tableView.dataSource = self
         tableView.register(UINib.init(nibName: "DeviceInfoCell", bundle: nil), forCellReuseIdentifier: KMDeviceCellID)
         tableView.tableFooterView = UIView()
-        tableView.reloadData()
+    
+    }
+    
+    func loadData(){
         
+        viewModel.getUserDevices(isSort: false, finishedCallback: {
+          
+            self.dataList = self.viewModel.infoList
+            self.tableView.reloadData()
+        })
+    }
+    
+    @objc func refreshDeviceUI(){
+        
+         loadData()
     }
     
 }
@@ -75,6 +90,11 @@ extension DeviceViewController: UITableViewDataSource,UITableViewDelegate{
         cell.layer.borderColor = UIColor.darkGray.cgColor
         cell.selectionStyle = .none
         
+        if dataList.count > 0 {
+            
+            cell.deviceInfo = dataList[indexPath.section]
+        }
+        
         return cell
         
     }
@@ -86,7 +106,7 @@ extension DeviceViewController: UITableViewDataSource,UITableViewDelegate{
 
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 2
+        return dataList.count
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -108,7 +128,8 @@ extension DeviceViewController: UITableViewDataSource,UITableViewDelegate{
         
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "ManagerDeviceVC") as! ManagerDeviceViewController
-        vc.deviceID = "39090334"
+        vc.deviceID = dataList[indexPath.section].deviceId
+        vc.deviceInfo = dataList[indexPath.section]
         navigationController?.pushViewController(vc, animated: true)
         
         

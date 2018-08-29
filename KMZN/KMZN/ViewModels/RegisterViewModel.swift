@@ -17,7 +17,7 @@ class RegisterViewModel: BaseViewModel {
     //注册
     func register(password:String,mobile:String,verificationCode:String,finishedCallback : @escaping () -> ()){
         let param=NSMutableDictionary()
-        param.setValue(password, forKey: "password")
+        param.setValue(password.sha1(), forKey: "password")
         param.setValue(mobile, forKey: "mobile")
         param.setValue(verificationCode, forKey: "verificationCode")
         self.loadData(action: Api.USER_REGISTER, param: param) { (jsonString) in
@@ -25,6 +25,10 @@ class RegisterViewModel: BaseViewModel {
             //完成回调
            finishedCallback()
            Utils.showHUD(info: "注册成功")
+        
+           UserSettings.shareInstance.setValue(key: UserSettings.USER_PHONE, value:mobile)
+           UserSettings.shareInstance.setValue(key: UserSettings.USER_PASSWORD, value:password)
+            
         }
         
     }
@@ -49,7 +53,7 @@ class RegisterViewModel: BaseViewModel {
         
         let param=NSMutableDictionary()
         param.setValue(phone, forKey: "mobile")
-        param.setValue(pwd, forKey: "password")
+        param.setValue(pwd.sha1(), forKey: "password")
         loadData(action: Api.USER_LOGIN, param: param) { (jStr) in
            
             
@@ -63,9 +67,23 @@ class RegisterViewModel: BaseViewModel {
                  Utils.showHUD(info: "登录成功")
                  UserSettings.shareInstance.setValue(key: UserSettings.IS_LOGIN, value: true)
                  UserSettings.shareInstance.setValue(key: UserSettings.TOKEN, value:result.resultData.token)
-                 UserSettings.shareInstance.setValue(key: UserSettings.USER_PASSWORD, value:result.resultData.password)
+                 UserSettings.shareInstance.setValue(key: UserSettings.USER_PASSWORD, value:pwd)
                  UserSettings.shareInstance.setValue(key: UserSettings.USER_ID, value:result.resultData.userId)
                 UserSettings.shareInstance.setValue(key: UserSettings.USER_PHONE, value:result.resultData.mobile)
+                if let registerID =  result.resultData.currentDeviceId {
+                    
+                      UserSettings.shareInstance.setValue(key: UserSettings.DEVICE_ID, value:registerID)
+                }
+                if let nickname = result.resultData.nickname{
+                    
+                    UserSettings.shareInstance.setValue(key: UserSettings.USER_NICK_NAME, value:nickname)
+                }
+                if let avatar = result.resultData.avatar{
+                    
+                    UserSettings.shareInstance.setValue(key: UserSettings.USER_PHOTO, value:avatar)
+                }
+                
+                
                 
                 finishCallBack()
             }
@@ -93,6 +111,17 @@ class RegisterViewModel: BaseViewModel {
                 UserSettings.shareInstance.setValue(key: UserSettings.TOKEN, value:result.resultData.token)
                 UserSettings.shareInstance.setValue(key: UserSettings.USER_ID, value:result.resultData.userId)
                 UserSettings.shareInstance.setValue(key: UserSettings.USER_PHONE, value:result.resultData.mobile)
+                if let registerID =  result.resultData.currentDeviceId {
+                    UserSettings.shareInstance.setValue(key: UserSettings.DEVICE_ID, value:registerID)
+                }
+                if let nickname = result.resultData.nickname{
+                    
+                    UserSettings.shareInstance.setValue(key: UserSettings.USER_NICK_NAME, value:nickname)
+                }
+                if let avatar = result.resultData.avatar{
+                    
+                    UserSettings.shareInstance.setValue(key: UserSettings.USER_PHOTO, value:avatar)
+                }
                 
                 //完成回调
                 finishCallback()
@@ -105,7 +134,7 @@ class RegisterViewModel: BaseViewModel {
     
     func resetPassword(password:String,mobile:String,verificationCode:String,finishedCallback : @escaping () -> ()){
         let param=NSMutableDictionary()
-        param.setValue(password, forKey: "newPassword")
+        param.setValue(password.sha1(), forKey: "newPassword")
         param.setValue(mobile, forKey: "mobile")
         param.setValue(verificationCode, forKey: "verificationCode")
         self.loadData(action: Api.USER_RESET_PASSWORD, param: param) { (jsonString) in

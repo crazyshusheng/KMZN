@@ -118,8 +118,8 @@ extension CodeLoginViewController{
       
         registerVM.codeLogin(phone: phone, code: code, finishCallback: {
             
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
-            self.navigationController?.pushViewController(vc, animated: true)
+            self.dismiss(animated: true, completion: nil)
+            self.navigationController?.popToRootViewController(animated: true)
         })
     }
     

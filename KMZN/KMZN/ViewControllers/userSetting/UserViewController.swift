@@ -8,9 +8,10 @@
 
 import UIKit
 
-class UserViewController: UIViewController {
+class UserViewController: BasicViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var photoButton: UIButton!
     
     private let titles = [["通知消息"],["系统设置","检查更新"],["关于我们"]]
     
@@ -21,23 +22,12 @@ class UserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-          setupUI()
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
+        setupUI()
+        loadData()
         
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-        
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-        
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshUserVC), name: NOTIFY_USERVC_DEVICE, object: nil)
     }
 
-    
 
     @IBAction func login(_ sender: Any) {
         
@@ -46,10 +36,19 @@ class UserViewController: UIViewController {
             let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
             let loginVC = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
             navigationController?.pushViewController(loginVC, animated: true)
+        }else{
+            
+            let setVC = storyboard?.instantiateViewController(withIdentifier: "SettingUserVC") as! SettingUserViewController
+            navigationController?.pushViewController(setVC, animated: true)
         }
         
     }
     
+    @IBAction func setUserInfo(_ sender: Any) {
+        
+        let setVC = storyboard?.instantiateViewController(withIdentifier: "SettingUserVC") as! SettingUserViewController
+        navigationController?.pushViewController(setVC, animated: true)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -64,22 +63,45 @@ extension UserViewController{
     
     func setupUI(){
         
-        if UserSettings.shareInstance.isLogin(){
-            userBtn.setTitle(UserSettings.shareInstance.getStringValue(key: UserSettings.USER_PHONE), for: .normal)
-                tipLabel.isHidden = true
-        }else{
-            
-            userBtn.setTitle("登录", for: .normal)
-            tipLabel.isHidden = false
-        }
-        
-        
         
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
-       
+        
     }
+    
+    func loadData(){
+        
+        if UserSettings.shareInstance.isLogin(){
+            
+            if let nickname = UserSettings.shareInstance.getStringValue(key: UserSettings.USER_NICK_NAME){
+                userBtn.setTitle(nickname, for: .normal)
+            }else{
+                userBtn.setTitle(UserSettings.shareInstance.getStringValue(key: UserSettings.USER_PHONE), for: .normal)
+            }
+            tipLabel.isHidden = true
+            
+            if let photo =  UserSettings.shareInstance.getStringValue(key: UserSettings.USER_PHOTO){
+                
+                self.photoButton.kf.setImage(with: URL.init(string: photo), for: .normal)
+            }
+            
+        }else{
+            userBtn.setTitle("登录", for: .normal)
+            tipLabel.isHidden = false
+        }
+        
+    }
+    
+    
+    
+    @objc func refreshUserVC(){
+    
+         loadData()
+    }
+    
+    
+    
     
 }
 

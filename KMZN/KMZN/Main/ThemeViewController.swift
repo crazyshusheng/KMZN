@@ -14,27 +14,31 @@ class ThemeViewController: UIViewController {
         super.viewDidLoad()
         
        
+        
 
         //返回按钮颜色
         self.navigationController?.navigationBar.tintColor = UIColor.black
         
-
+        
+        navigationController?.navigationBar.isTranslucent = false
        
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
         
         self.tabBarController?.tabBar.isHidden = true
-       
+        
+        
+    
     }
     
     
     override func viewWillDisappear(_ animated: Bool) {
         
         self.tabBarController?.tabBar.isHidden = false
-        
+       
   
     }
     

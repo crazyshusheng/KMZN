@@ -51,5 +51,23 @@ class ManagerDetailViewModel: BaseViewModel {
         }
         
     }
+    
+    func updateName(name:String,passID:Int,finishCallback: @escaping() ->()) {
+        
+        let param=NSMutableDictionary()
+        
+        
+        param.setValue(name, forKey: "name")
+        param.setValue(passID, forKey: "id")
+        
+        loadData(action: Api.DEVICE_UPDATE_NAME, param: param) { (jStr) in
+            
+            finishCallback()
+            
+        }
+        
+    }
+    
+    
 }
 

@@ -13,10 +13,13 @@ import ObjectMapper
 class ManagerDetailViewController: ThemeViewController {
     
     
+    @IBOutlet weak var nameView: UIView!
+    
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var detailLabel: UILabel!
 
+    @IBOutlet weak var deleteButton: UIButton!
     var detailType = 1
     var recordInfo:RecondListInfo!
     fileprivate var viewModel = ManagerDetailViewModel()
@@ -66,8 +69,56 @@ extension ManagerDetailViewController{
         detailLabel.text = (detailType == 4) ? String(recordInfo.userId) : recordInfo.password
         let webSocket = KMWebSocket.sharedInstance()
         webSocket.webSocketDelegate = self
+        
+        if recordInfo.role == 0 {
+            
+            nameView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showAlertView)))
+            deleteButton.isHidden = false
+            
+        }else{
+            
+            deleteButton.isHidden = true
+        }
+        
+      
+        
+        
+        
+        
+    }
+    
+    @objc func showAlertView(){
+        
+        if detailType != 4 {
+            
+            let pswAlertView = KWAlertView.init(frame: self.view.bounds)
+            let label = pswAlertView.BGView.viewWithTag(10) as! UILabel
+            label.text = "修改名称"
+            pswAlertView.delegate = self
+            self.view.addSubview(pswAlertView)
+        }
+        
+        
+    }
+    
+}
+
+extension ManagerDetailViewController:KWAlertViewDelegate {
+    
+    func passwordCompleteInAlertView(alertView: KWAlertView, name: String) {
+        
+        alertView.removeFromSuperview()
+        
+        self.viewModel.updateName(name: name, passID: self.recordInfo.recordID) {
+            
+            Utils.showHUD(info: "修改成功")
+            self.nameLabel.text = name
+            let vc = self.navigationController?.viewControllers[2] as? ManagerPWDViewController
+            vc?.isRefresh = true
+        }
     }
 }
+
 
 extension ManagerDetailViewController:KMWebSocketDelegate{
     

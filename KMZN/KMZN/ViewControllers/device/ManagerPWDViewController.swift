@@ -13,7 +13,7 @@ class ManagerPWDViewController: ThemeViewController {
     @IBOutlet weak var tableView: UITableView!
     var titleName:String?
     var typeID:Int!
-    var deviceID:String!
+    var deviceInfo:DeviceInfo!
     var dataList = [RecondListInfo]()
     var listType = 1
     var isRefresh = false
@@ -54,7 +54,11 @@ extension ManagerPWDViewController{
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
         navigationItem.title = titleName
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: #imageLiteral(resourceName: "添加设备"), style: .plain, target: self, action: #selector(addRecord))
+        
+        if deviceInfo.role == 0 {
+            
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: #imageLiteral(resourceName: "添加设备"), style: .plain, target: self, action: #selector(addRecord))
+        }
     }
     
     func getInfoList(){
@@ -69,13 +73,15 @@ extension ManagerPWDViewController{
                 
                 listType = 2
             }
-            viewModel.getDeviceInfo(deviceID: deviceID, passType: String(listType)) {
+            viewModel.getDeviceInfo(deviceID: deviceInfo.deviceId, passType: String(listType)) {
                 
                 self.dataList =  self.viewModel.recordList
                 self.tableView.reloadData()
             }
         case  4:
-            viewModel.getDeviceUsers(deviceID: deviceID) {
+            
+            listType = 4
+            viewModel.getDeviceUsers(deviceID: deviceInfo.deviceId) {
                 
                 self.dataList =  self.viewModel.recordList
                 self.tableView.reloadData()
@@ -88,9 +94,10 @@ extension ManagerPWDViewController{
     
     @objc func addRecord(){
         
+        
         let vc = storyboard?.instantiateViewController(withIdentifier: "AddPwdVC") as! AddPwdViewController
         vc.type = listType
-        vc.deviceID = self.deviceID
+        vc.deviceID = self.deviceInfo.deviceId
         navigationController?.pushViewController(vc, animated: true)
         
     }

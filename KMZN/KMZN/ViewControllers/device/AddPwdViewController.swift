@@ -25,6 +25,7 @@ class AddPwdViewController: ThemeViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+       
         // Do any additional setup after loading the view.
     }
 
@@ -42,15 +43,18 @@ class AddPwdViewController: ThemeViewController {
 
 extension AddPwdViewController{
     
+    
     func setupUI(){
         
         if type == 1{
             navigationItem.title = "添加密码"
             pwdLabel.text = "密码"
+            pwdTextField.placeholder = "输入密码"
         }else if type == 4 {
             
             navigationItem.title = "添加成员"
             pwdLabel.text = "手机号"
+            pwdTextField.placeholder = "输入手机号"
         }
         
         let webSocket = KMWebSocket.sharedInstance()
@@ -94,6 +98,11 @@ extension AddPwdViewController{
             }
             
             viewModel.addUserDevice(deviceId: deviceID, name: name, mobile: pwd) {
+                
+                let vc = self.navigationController?.viewControllers[2] as? ManagerPWDViewController
+                vc?.isRefresh = true
+                
+                self.navigationController?.popViewController(animated: true)
                 
             }
             

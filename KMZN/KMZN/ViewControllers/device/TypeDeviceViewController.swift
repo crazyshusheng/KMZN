@@ -7,16 +7,28 @@
 //
 
 import UIKit
+import Kingfisher
+
 
 class TypeDeviceViewController: ThemeViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    var dataList = [ProductTypeInfo]()
+    
+    var productViewModel = ProductListViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
-        // Do any additional setup after loading the view.
+        productViewModel.getUserDevices {
+            
+            self.dataList = self.productViewModel.infoList
+            self.tableView.reloadData()
+        }
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,6 +67,15 @@ extension TypeDeviceViewController: UITableViewDataSource,UITableViewDelegate{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "type_device_cell")
         
+        if dataList.count > 0 {
+            
+            let imageView =  cell?.viewWithTag(10) as? UIImageView
+            
+            imageView?.kf.setImage(with: URL.init(string: dataList[indexPath.row].image))
+            
+            (cell?.viewWithTag(11) as? UILabel)?.text = "型号" + dataList[indexPath.row].modelNumber
+        }
+        
     
         return cell!
         
@@ -67,7 +88,7 @@ extension TypeDeviceViewController: UITableViewDataSource,UITableViewDelegate{
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 2
+        return dataList.count
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -80,8 +101,9 @@ extension TypeDeviceViewController: UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
        
-        
-       
+        let addDeviceVC = storyboard?.instantiateViewController(withIdentifier: "AddDeviceVC") as! AddDeviceViewController
+       addDeviceVC.productInfo = self.dataList[indexPath.row]
+       navigationController?.pushViewController(addDeviceVC, animated: true)
         
         
     }

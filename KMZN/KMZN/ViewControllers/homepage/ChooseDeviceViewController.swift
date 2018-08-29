@@ -15,11 +15,15 @@ class ChooseDeviceViewController: ThemeViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    
+    var viewModel = DeviceListViewModel()
+    var dataList = [DeviceInfo]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupUI()
-     
+        
         // Do any additional setup after loading the view.
     }
 
@@ -37,6 +41,13 @@ class ChooseDeviceViewController: ThemeViewController {
         tableView.register(UINib.init(nibName: "DeviceInfoCell", bundle: nil), forCellReuseIdentifier: KMDeviceCellID)
         tableView.tableFooterView = UIView()
         tableView.reloadData()
+        
+        
+        viewModel.getUserDevices(isSort: true, finishedCallback: {
+            
+            self.dataList = self.viewModel.infoList
+            self.tableView.reloadData()
+        })
     }
 
 }
@@ -58,25 +69,42 @@ extension ChooseDeviceViewController: UITableViewDataSource,UITableViewDelegate{
         cell.layer.borderColor = UIColor.darkGray.cgColor
         cell.selectionStyle = .none
         
+        if dataList.count > 0 {
+            
+            cell.deviceInfo = dataList[indexPath.section]
+        }
+
         return cell
         
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+     
        return 1
-       
     }
+    
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 2
+        return dataList.count
         
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        
+        if section == 0 || section == 1{
+            
+             return 40
+        }else{
+            
+            return 5
+        }
+        
+       
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
         let view=UIView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 40))
         view.backgroundColor=UIColor.white
         let headView=UILabel(frame: CGRect(x: 10, y: 0, width: SCREEN_WIDTH-10, height: 40))
@@ -95,11 +123,30 @@ extension ChooseDeviceViewController: UITableViewDataSource,UITableViewDelegate{
     }
     
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-      
+        guard  indexPath.section != 0 else {
+            
+            return
+        }
         
+        let alert = UIAlertController.init(title:
+            "切换到" + dataList[indexPath.section].name , message: "", preferredStyle: .alert)
+        let cancelAction = UIAlertAction.init(title: "取消", style: .cancel, handler: nil)
+        
+        let firstAction = UIAlertAction.init(title: "确定", style: .default) { (nil) in
+            
+            self.viewModel.chooseCurrentDevice(deviceId: self.dataList[indexPath.section].deviceId, finishedCallback: {
+                
+                NotificationCenter.default.post(name: NOTIFY_HOMEVC_REFRESH, object: nil)
+                self.navigationController?.popViewController(animated: true)
+            })
+            
+        }
+        
+        alert.addAction(cancelAction)
+        alert.addAction(firstAction)
+        self.present(alert, animated: true, completion: nil)
         
     }
     

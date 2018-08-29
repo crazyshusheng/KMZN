@@ -49,7 +49,7 @@ class Utils {
     }
     
     
-    //有效的密码 6-20为字母或数字组合
+    
     class func isVailedPassword(password:String)->Bool{
         do {
             
@@ -57,7 +57,7 @@ class Utils {
             // - 2、创建正则表达式对象
             let regex = try NSRegularExpression(pattern: pattern, options: NSRegularExpression.Options.caseInsensitive)
             // - 3、开始匹配
-            let matchs = regex.matches(in: password, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, password.characters.count))
+            let matchs = regex.matches(in: password, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, password.count))
             
             return matchs.count>0
             
@@ -68,6 +68,28 @@ class Utils {
     }
     
     
+    class func isVailedIMCode(code:String)->Bool{
+        do {
+            
+            let pattern="^[0-9]{6,15}$"
+            // - 2、创建正则表达式对象
+            let regex = try NSRegularExpression(pattern: pattern, options: NSRegularExpression.Options.caseInsensitive)
+            // - 3、开始匹配
+            let matchs = regex.matches(in: code, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, code.count))
+            
+            return matchs.count>0
+            
+        }catch {
+            
+        }
+        return false
+    }
+    
+    
+    
+    
+    
+    
     //有效的用户名 2-10个汉字
     class func isVailedUsername(username:String)->Bool{
         do {
@@ -76,7 +98,7 @@ class Utils {
             // - 2、创建正则表达式对象
             let regex = try NSRegularExpression(pattern: pattern, options: NSRegularExpression.Options.caseInsensitive)
             // - 3、开始匹配
-            let matchs = regex.matches(in: username, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, username.characters.count))
+            let matchs = regex.matches(in: username, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, username.count))
             
             return matchs.count>0
             
@@ -95,7 +117,7 @@ class Utils {
             // - 2、创建正则表达式对象
             let regex = try NSRegularExpression(pattern: pattern, options: NSRegularExpression.Options.caseInsensitive)
             // - 3、开始匹配
-            let matchs = regex.matches(in: phone, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, phone.characters.count))
+            let matchs = regex.matches(in: phone, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, phone.count))
             
             return matchs.count>0
             

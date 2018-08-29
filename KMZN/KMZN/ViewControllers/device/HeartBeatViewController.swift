@@ -14,6 +14,9 @@ class HeartBeatViewController: ThemeViewController {
     
     @IBOutlet weak var seconBtn: UIButton!
     
+    fileprivate var viewModel = HeartBeatViewModel()
+    
+    var deviceInfo:DeviceInfo!
     
     var beatType = 0
     
@@ -37,6 +40,13 @@ class HeartBeatViewController: ThemeViewController {
     
     
     @IBAction func confirm(_ sender: Any) {
+        
+        beatType =  (firstBtn.isSelected) ? 0 : 1
+        
+        viewModel.setHeartBeat(deviceId: deviceInfo.deviceId, heartBeat: beatType) {
+            
+            self.navigationController?.popViewController(animated: true)
+        }
         
     }
     

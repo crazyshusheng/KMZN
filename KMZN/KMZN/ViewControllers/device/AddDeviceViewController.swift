@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Kingfisher
 
 class AddDeviceViewController: ThemeViewController {
+    
+    @IBOutlet weak var lockImageView: UIImageView!
     
     @IBOutlet weak var eiTextField: UITextField!
     
@@ -16,16 +19,19 @@ class AddDeviceViewController: ThemeViewController {
     
     @IBOutlet weak var nameTextField: UITextField!
     
-    fileprivate let viewModel = AddDeviceViewModel.init()
+    
+    
+    let viewModel = AddDeviceViewModel.init()
+    
+    var productInfo: ProductTypeInfo!
+    var lockInfo :LockDetailInfo!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
-        
-     
+        setupUI()
     }
-    
-
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -33,16 +39,64 @@ class AddDeviceViewController: ThemeViewController {
     }
     
     
+    func setupUI(){
+        
+       
+        
+        lockImageView?.kf.setImage(with: URL.init(string: productInfo.image))
+        
+    }
+    
 
     @IBAction func addDevice(_ sender: Any) {
         
         
         addDevice()
         
-//        showPwdAlertView()
+       
+    }
+    
+    
+    @IBAction func imeiQRCode(_ sender: Any) {
+        
+        let qrVc = QRCodeViewController()
+        qrVc.codeType = 0
+        qrVc.delegate = self
+        navigationController?.pushViewController(qrVc, animated: true)
+        
+    }
+    
+    
+    @IBAction func imseQRCode(_ sender: Any) {
+        
+        let qrVc = QRCodeViewController()
+        qrVc.codeType = 1
+        qrVc.delegate = self
+        navigationController?.pushViewController(qrVc, animated: true)
+        
     }
     
 }
+
+extension AddDeviceViewController:QRCodeViewControllerDelegate {
+    
+    func scanInfo(codeInfo: String, type: Int) {
+        
+        
+        if type == 0{
+            
+            eiTextField.text = codeInfo
+        }else{
+            
+            siTextField.text = codeInfo
+        }
+        
+        
+    }
+    
+}
+
+
 
 extension AddDeviceViewController {
     
@@ -64,15 +118,15 @@ extension AddDeviceViewController {
         let siCode = siTextField.text!
         let name = nameTextField.text!
         
-        if(eiCode.isEmpty){
+        if(eiCode.isEmpty || !Utils.isVailedIMCode(code: eiCode)){
             
-            Utils.showHUD(info:"请输入IMEI序列号")
+            Utils.showHUD(info:"请输入正确的IMEI序列号")
             
             return
         }
-        if(siCode.isEmpty){
+        if(siCode.isEmpty || !Utils.isVailedIMCode(code: siCode)){
             
-            Utils.showHUD(info:"请输入IMSI序列号")
+            Utils.showHUD(info:"请输入正确的IMSI序列号")
             
             return
         }
@@ -82,8 +136,20 @@ extension AddDeviceViewController {
             return
         }
     
-        viewModel.addDevice(imei: eiCode, imsi: siCode, name: name) {
+        viewModel.addDevice(imei: eiCode, imsi: siCode, name: name, modelNumber: productInfo.modelNumber) {
             
+            self.lockInfo = self.viewModel.lockInfo
+            
+            
+            
+            if !self.viewModel.lockInfo.masterPasswordSet{
+                
+                self.showPwdAlertView()
+                
+            }else{
+                
+                self.navigationController?.popToRootViewController(animated: true)
+            }
             
         }
     }
@@ -97,6 +163,11 @@ extension AddDeviceViewController:PasswordAlertViewDelegate {
     func passwordCompleteInAlertView(alertView: PasswordAlertView, password: String) {
         
         alertView.removeFromSuperview()
-        print(password)
+        
+        viewModel.setDeviceMasterPwd(deviceID: self.lockInfo.deviceId, pwd: password, name: self.lockInfo.name) {
+            
+             self.navigationController?.popToRootViewController(animated: true)
+        }
+    
     }
 }

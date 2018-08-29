@@ -19,6 +19,27 @@ class DeviceInfoCell: UITableViewCell {
     
     @IBOutlet weak var stateLabel: UILabel!
     
+    
+    
+    
+    var deviceInfo: DeviceInfo! {
+        
+        didSet{
+            
+           infoLabel.text = deviceInfo.name
+           
+            stateButton.isSelected = (deviceInfo.online == 1) ? true : false
+            stateLabel.text = (deviceInfo.online == 1) ? "正常运行" : "已离线"
+            
+        }
+        
+        
+    }
+    
+    
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

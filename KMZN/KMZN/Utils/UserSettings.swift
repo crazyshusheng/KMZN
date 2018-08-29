@@ -21,20 +21,19 @@ class UserSettings{
     static let USER_ID = "userId" //用户id String类型
     static let USER_PHONE = "phone" //用户姓名
     static let USER_PASSWORD = "user_password" //用户密码
+    static let USER_PHOTO = "user_photo"
+    static let USER_NICK_NAME = "user_nickname"
     
     static let DEVICE_ID = "deviceId"
     static let DEVICE_IMEI = "imei"
     static let DEVICE_IMSI = "imsi"
     
+    
     static let VERSION = "appVersion" //版本号
     static let USER_THIRDTYPE = "thirdPartyType"
     static let USER_THIRDID = "thirdPartyId"
     
-    
-    
-    
-   
-    
+
     private init(){
         
         userDefaults = UserDefaults.standard
@@ -43,7 +42,7 @@ class UserSettings{
     
     
     func setValue(key:String,value:Any){
-        
+    
         userDefaults.set(value, forKey: key)
     }
     
@@ -66,7 +65,17 @@ class UserSettings{
     }
 
     
-  
+   
+    func clearUserInfo(){
+        
+        let array = [UserSettings.TOKEN,UserSettings.DEVICE_ID,UserSettings.USER_PHOTO,UserSettings.USER_NICK_NAME]
+      
+        for key in array {
+            
+            userDefaults.removeObject(forKey: key)
+        }
+        
+    }
     
  
     

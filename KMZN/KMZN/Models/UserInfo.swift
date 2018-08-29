@@ -15,9 +15,10 @@ class UserInfo :BaseMappable {
     var userId:Int!
     var password:String!
     var mobile:String!
-    var photoUrl:String!
+    var avatar:String!
+    var nickname:String!
     var token:String!
-
+    var currentDeviceId:String!
     
     override func mapping(map: Map) {
         
@@ -25,7 +26,9 @@ class UserInfo :BaseMappable {
         token <- map["token"]
         password <- map["password"]
         mobile <- map["mobile"]
-        photoUrl <- map["photoUrl"]
+        avatar <- map["avatar"]
+        nickname <- map["name"]
+        currentDeviceId <- map["currentDeviceId"]
 
     }
 }

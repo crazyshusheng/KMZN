@@ -42,6 +42,7 @@ class AddPwdViewModel: BaseViewModel {
         
         loadData(action: Api.DEVICE_ADDUSER_DEVICE, param: param) { (jStr) in
             
+            Utils.showHUD(info: "添加成功")
             finishCallback()
             
         }

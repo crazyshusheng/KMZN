@@ -26,6 +26,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFj-p1-cGy">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
                                         <state key="normal" backgroundImage="unlock_bg"/>
+                                        <connections>
+                                            <action selector="addDevice:" destination="Cvh-h8-CGo" eventType="touchUpInside" id="75J-uK-gdK"/>
+                                        </connections>
                                     </button>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="device_add" translatesAutoresizingMaskIntoConstraints="NO" id="zlf-KD-Q2o">
                                         <rect key="frame" x="65" y="55" width="30" height="30"/>
@@ -65,13 +68,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="前门锁" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7F-ci-Dkz">
-                                                <rect key="frame" x="15" y="62" width="73" height="29"/>
+                                                <rect key="frame" x="15" y="50" width="73" height="29"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="欢迎回家，陈先生" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajT-M5-6aM">
-                                                <rect key="frame" x="15" y="101" width="122.5" height="18"/>
+                                                <rect key="frame" x="15" y="89" width="122.5" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -97,7 +100,6 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="8Ze-6V-KJc" firstAttribute="top" secondItem="Mtx-Xx-sHH" secondAttribute="top" constant="62" id="5V1-2S-vyQ"/>
-                                            <constraint firstItem="x7F-ci-Dkz" firstAttribute="top" secondItem="Mtx-Xx-sHH" secondAttribute="top" constant="62" id="EKq-zA-fzb"/>
                                             <constraint firstAttribute="height" constant="150" id="GjZ-q4-PpY"/>
                                             <constraint firstItem="x7F-ci-Dkz" firstAttribute="leading" secondItem="Mtx-Xx-sHH" secondAttribute="leading" constant="15" id="YEk-y0-Idm"/>
                                             <constraint firstItem="ajT-M5-6aM" firstAttribute="top" secondItem="x7F-ci-Dkz" secondAttribute="bottom" constant="10" id="a6M-49-p0I"/>
@@ -247,6 +249,9 @@
                                                 <state key="normal" title="点击开锁" backgroundImage="unlock_bg_select">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="openLock:" destination="Cvh-h8-CGo" eventType="touchUpInside" id="FMc-in-6ce"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -319,6 +324,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="x7F-ci-Dkz" firstAttribute="top" secondItem="iL0-9i-TPA" secondAttribute="top" constant="30" id="3C9-my-bNi"/>
                             <constraint firstItem="43U-mE-tUf" firstAttribute="bottom" secondItem="iL0-9i-TPA" secondAttribute="bottom" id="NuJ-jl-485"/>
                             <constraint firstItem="43U-mE-tUf" firstAttribute="leading" secondItem="iL0-9i-TPA" secondAttribute="leading" id="SGh-h3-gAN"/>
                             <constraint firstItem="43U-mE-tUf" firstAttribute="top" secondItem="LKF-is-Xb7" secondAttribute="top" id="YJF-5n-XB4"/>
@@ -330,10 +336,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="PEk-IS-JHd"/>
                     <connections>
+                        <outlet property="addAdeviceView" destination="5Ia-Fv-igH" id="PQm-wO-IY3"/>
                         <outlet property="batteryLabel" destination="7ZC-lH-M5W" id="aLl-yY-5ky"/>
+                        <outlet property="homeView" destination="43U-mE-tUf" id="PYY-rN-jLZ"/>
+                        <outlet property="nameLabel" destination="x7F-ci-Dkz" id="NmT-DD-KOa"/>
                         <outlet property="signalLabel" destination="iJc-lr-P8N" id="ugo-vZ-U9w"/>
                         <outlet property="statusLabel" destination="kxR-o6-GNm" id="rzm-TC-Ly1"/>
                         <outlet property="typeLabel" destination="ife-MP-TpL" id="gqe-dx-H58"/>
+                        <outlet property="welcomeLabel" destination="ajT-M5-6aM" id="klB-RC-sOB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eZ1-WV-twn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -521,8 +531,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dln-gP-snP">
-                                <rect key="frame" x="15" y="30" width="345" height="637"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dln-gP-snP">
+                                <rect key="frame" x="15" y="0.0" width="345" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -530,7 +540,7 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Dln-gP-snP" secondAttribute="trailing" constant="15" id="CdN-aW-fbh"/>
                             <constraint firstItem="Dln-gP-snP" firstAttribute="leading" secondItem="MKR-hS-YM9" secondAttribute="leading" constant="15" id="PbA-pg-bj8"/>
-                            <constraint firstItem="Dln-gP-snP" firstAttribute="top" secondItem="MKR-hS-YM9" secondAttribute="top" constant="30" id="aSi-t2-aXb"/>
+                            <constraint firstItem="Dln-gP-snP" firstAttribute="top" secondItem="MKR-hS-YM9" secondAttribute="top" id="aSi-t2-aXb"/>
                             <constraint firstItem="Dln-gP-snP" firstAttribute="bottom" secondItem="iV1-hB-NFu" secondAttribute="bottom" id="mWd-FH-E9P"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iV1-hB-NFu"/>

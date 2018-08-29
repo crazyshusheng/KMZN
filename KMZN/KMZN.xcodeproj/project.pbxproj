@@ -35,6 +35,7 @@
 		294075EE2105B7C100ACECEB /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294075ED2105B7C000ACECEB /* UIColor+extension.swift */; };
 		294075F42105C82C00ACECEB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294075F32105C82C00ACECEB /* RegisterViewController.swift */; };
 		294075F62105C84700ACECEB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294075F52105C84700ACECEB /* LoginViewController.swift */; };
+		2942F72221300C9100530120 /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2942F72121300C9100530120 /* ProductListViewModel.swift */; };
 		294E6BD8211AE87900FEED8C /* Homepage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 294E6BD7211AE87900FEED8C /* Homepage.storyboard */; };
 		294E6BDA211AEB0200FEED8C /* Device.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 294E6BD9211AEB0200FEED8C /* Device.storyboard */; };
 		294E6BDC211AEB6100FEED8C /* Setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 294E6BDB211AEB6100FEED8C /* Setup.storyboard */; };
@@ -62,8 +63,18 @@
 		29623F8B212AB5F800CBE772 /* AddPwdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29623F8A212AB5F800CBE772 /* AddPwdViewController.swift */; };
 		29623F8D212ABAD600CBE772 /* UnlockRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29623F8C212ABAD600CBE772 /* UnlockRecordViewModel.swift */; };
 		29623F8F212ABD8100CBE772 /* UnlockTypeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29623F8E212ABD8100CBE772 /* UnlockTypeInfo.swift */; };
+		296C84A92133D45B008DC91A /* ProductTypeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296C84A82133D45B008DC91A /* ProductTypeInfo.swift */; };
+		296C84AB2133E0CB008DC91A /* DateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296C84AA2133E0CA008DC91A /* DateTransform.swift */; };
+		296C84AD2133E77C008DC91A /* LockDetailInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296C84AC2133E77C008DC91A /* LockDetailInfo.swift */; };
+		296C84AF2133EA6C008DC91A /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296C84AE2133EA6C008DC91A /* QRCodeViewController.swift */; };
 		2979D66C2106BE6E00FF0E44 /* CodeLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2979D66B2106BE6E00FF0E44 /* CodeLoginViewController.swift */; };
 		2979D66E2106BEAF00FF0E44 /* ResetPwdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2979D66D2106BEAF00FF0E44 /* ResetPwdViewController.swift */; };
+		29B4AB7F2134ED3A003DE40B /* String-Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B4AB7E2134ED3A003DE40B /* String-Extras.swift */; };
+		29B4AB8321353D3C003DE40B /* HeartBeatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B4AB8221353D3C003DE40B /* HeartBeatViewModel.swift */; };
+		29CB9AB4212E9BF300D4C33C /* KWAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CB9AB3212E9BF300D4C33C /* KWAlertView.swift */; };
+		29CB9AB6212E9F8600D4C33C /* DeviceListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CB9AB5212E9F8600D4C33C /* DeviceListViewModel.swift */; };
+		29FA980D2136721100EF28BF /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FA980C2136721100EF28BF /* BasicViewController.swift */; };
+		29FA980F21368A2A00EF28BF /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FA980E21368A2A00EF28BF /* UserInfoViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +107,7 @@
 		294075ED2105B7C000ACECEB /* UIColor+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
 		294075F32105C82C00ACECEB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		294075F52105C84700ACECEB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2942F72121300C9100530120 /* ProductListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModel.swift; sourceTree = "<group>"; };
 		294E6BD7211AE87900FEED8C /* Homepage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Homepage.storyboard; sourceTree = "<group>"; };
 		294E6BD9211AEB0200FEED8C /* Device.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Device.storyboard; sourceTree = "<group>"; };
 		294E6BDB211AEB6100FEED8C /* Setup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setup.storyboard; sourceTree = "<group>"; };
@@ -123,8 +135,19 @@
 		29623F8A212AB5F800CBE772 /* AddPwdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPwdViewController.swift; sourceTree = "<group>"; };
 		29623F8C212ABAD600CBE772 /* UnlockRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockRecordViewModel.swift; sourceTree = "<group>"; };
 		29623F8E212ABD8100CBE772 /* UnlockTypeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockTypeInfo.swift; sourceTree = "<group>"; };
+		296C84A82133D45B008DC91A /* ProductTypeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTypeInfo.swift; sourceTree = "<group>"; };
+		296C84AA2133E0CA008DC91A /* DateTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTransform.swift; sourceTree = "<group>"; };
+		296C84AC2133E77C008DC91A /* LockDetailInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockDetailInfo.swift; sourceTree = "<group>"; };
+		296C84AE2133EA6C008DC91A /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		2979D66B2106BE6E00FF0E44 /* CodeLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeLoginViewController.swift; sourceTree = "<group>"; };
 		2979D66D2106BEAF00FF0E44 /* ResetPwdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPwdViewController.swift; sourceTree = "<group>"; };
+		29B4AB7E2134ED3A003DE40B /* String-Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String-Extras.swift"; sourceTree = "<group>"; };
+		29B4AB802134EE96003DE40B /* KMZN-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KMZN-Bridging-Header.h"; sourceTree = "<group>"; };
+		29B4AB8221353D3C003DE40B /* HeartBeatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartBeatViewModel.swift; sourceTree = "<group>"; };
+		29CB9AB3212E9BF300D4C33C /* KWAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KWAlertView.swift; sourceTree = "<group>"; };
+		29CB9AB5212E9F8600D4C33C /* DeviceListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListViewModel.swift; sourceTree = "<group>"; };
+		29FA980C2136721100EF28BF /* BasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
+		29FA980E21368A2A00EF28BF /* UserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
 		31000842390331D2A80109DA /* Pods-KMZN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KMZN.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KMZN/Pods-KMZN.debug.xcconfig"; sourceTree = "<group>"; };
 		95530961FAB0509454A37F5A /* Pods_KMZN.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KMZN.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A65219BE89C4CDB29A4C1B81 /* Pods-KMZN.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KMZN.release.xcconfig"; path = "Pods/Target Support Files/Pods-KMZN/Pods-KMZN.release.xcconfig"; sourceTree = "<group>"; };
@@ -150,6 +173,7 @@
 				290A46D0211C310B00D37A37 /* UnlockRecordCell.swift */,
 				29623F88212AA85900CBE772 /* DeviceManagerCell.swift */,
 				29623F7A212A6C0600CBE772 /* PasswordAlertView.swift */,
+				29CB9AB3212E9BF300D4C33C /* KWAlertView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -165,6 +189,7 @@
 				29623F8A212AB5F800CBE772 /* AddPwdViewController.swift */,
 				2937410B212550C50086529E /* ManagerDetailViewController.swift */,
 				2954B8B6211E8D7600905ECD /* HeartBeatViewController.swift */,
+				296C84AE2133EA6C008DC91A /* QRCodeViewController.swift */,
 			);
 			path = device;
 			sourceTree = "<group>";
@@ -214,6 +239,7 @@
 				294075DC2105B10400ACECEB /* Assets.xcassets */,
 				294075DE2105B10400ACECEB /* LaunchScreen.storyboard */,
 				290A46C3211BE1A400D37A37 /* ThemeViewController.swift */,
+				29FA980C2136721100EF28BF /* BasicViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -231,8 +257,10 @@
 			isa = PBXGroup;
 			children = (
 				294075ED2105B7C000ACECEB /* UIColor+extension.swift */,
+				29B4AB7E2134ED3A003DE40B /* String-Extras.swift */,
 				290A46D2211D3C9700D37A37 /* ButtonWithUpImage.swift */,
 				290A46DB211D764400D37A37 /* ButtonWithRightImage.swift */,
+				29B4AB802134EE96003DE40B /* KMZN-Bridging-Header.h */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -278,6 +306,7 @@
 				294EA7B521081C2F007F9E5B /* UserSettings.swift */,
 				294EA7B721081DF8007F9E5B /* HttpWrapper.swift */,
 				293741092123B9F60086529E /* KMWebSocket.swift */,
+				296C84AA2133E0CA008DC91A /* DateTransform.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -287,12 +316,16 @@
 			children = (
 				294EA7C121086A33007F9E5B /* BaseViewModel.swift */,
 				294EA7C321086F15007F9E5B /* RegisterViewModel.swift */,
+				2942F72121300C9100530120 /* ProductListViewModel.swift */,
+				29CB9AB5212E9F8600D4C33C /* DeviceListViewModel.swift */,
 				29623F7C212A717600CBE772 /* AddDeviceViewModel.swift */,
 				29623F8C212ABAD600CBE772 /* UnlockRecordViewModel.swift */,
 				29623F7E212A8F5100CBE772 /* DeviceInfoViewModel.swift */,
 				29623F82212A9CB900CBE772 /* RecordListViewModel.swift */,
 				293439EA212BEFF50022B4E0 /* ManagerDetailViewModel.swift */,
 				293439EC212C039D0022B4E0 /* AddPwdViewModel.swift */,
+				29B4AB8221353D3C003DE40B /* HeartBeatViewModel.swift */,
+				29FA980E21368A2A00EF28BF /* UserInfoViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -305,6 +338,8 @@
 				29623F86212AA68700CBE772 /* PageRow.swift */,
 				290FD08D2109675C00A615B4 /* UserInfo.swift */,
 				29623F80212A954600CBE772 /* DeviceInfo.swift */,
+				296C84A82133D45B008DC91A /* ProductTypeInfo.swift */,
+				296C84AC2133E77C008DC91A /* LockDetailInfo.swift */,
 				29623F84212AA54E00CBE772 /* RecondListInfo.swift */,
 				29623F8E212ABD8100CBE772 /* UnlockTypeInfo.swift */,
 			);
@@ -372,6 +407,7 @@
 				TargetAttributes = {
 					294075D12105B10400ACECEB = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -435,6 +471,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-KMZN/Pods-KMZN-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
@@ -442,6 +479,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
@@ -478,25 +516,32 @@
 			files = (
 				2979D66E2106BEAF00FF0E44 /* ResetPwdViewController.swift in Sources */,
 				293439EB212BEFF50022B4E0 /* ManagerDetailViewModel.swift in Sources */,
+				296C84AB2133E0CB008DC91A /* DateTransform.swift in Sources */,
 				29623F7B212A6C0600CBE772 /* PasswordAlertView.swift in Sources */,
 				290A46D3211D3C9700D37A37 /* ButtonWithUpImage.swift in Sources */,
 				294EA7C421086F15007F9E5B /* RegisterViewModel.swift in Sources */,
 				290A46CD211C2E6600D37A37 /* TemporaryPwdViewController.swift in Sources */,
 				290A46E0211D896500D37A37 /* AddDeviceViewController.swift in Sources */,
+				296C84A92133D45B008DC91A /* ProductTypeInfo.swift in Sources */,
 				29623F85212AA54E00CBE772 /* RecondListInfo.swift in Sources */,
 				290A46CF211C30DE00D37A37 /* UnlockRecordViewController.swift in Sources */,
+				29CB9AB6212E9F8600D4C33C /* DeviceListViewModel.swift in Sources */,
 				294EA7C0210827A0007F9E5B /* BaseMappable.swift in Sources */,
 				2954B8B7211E8D7600905ECD /* HeartBeatViewController.swift in Sources */,
 				294EA7B821081DF8007F9E5B /* HttpWrapper.swift in Sources */,
 				29623F7D212A717600CBE772 /* AddDeviceViewModel.swift in Sources */,
 				293439ED212C039D0022B4E0 /* AddPwdViewModel.swift in Sources */,
+				29FA980F21368A2A00EF28BF /* UserInfoViewModel.swift in Sources */,
 				294EA7C221086A33007F9E5B /* BaseViewModel.swift in Sources */,
 				294E6BDF211AEE6800FEED8C /* HomeViewController.swift in Sources */,
 				290FD08E2109675C00A615B4 /* UserInfo.swift in Sources */,
 				294075F62105C84700ACECEB /* LoginViewController.swift in Sources */,
 				29623F8F212ABD8100CBE772 /* UnlockTypeInfo.swift in Sources */,
+				29CB9AB4212E9BF300D4C33C /* KWAlertView.swift in Sources */,
+				296C84AD2133E77C008DC91A /* LockDetailInfo.swift in Sources */,
 				290A46DE211D846100D37A37 /* TypeDeviceViewController.swift in Sources */,
 				2954B8B5211E883800905ECD /* ManagerPWDViewController.swift in Sources */,
+				296C84AF2133EA6C008DC91A /* QRCodeViewController.swift in Sources */,
 				2979D66C2106BE6E00FF0E44 /* CodeLoginViewController.swift in Sources */,
 				294075D82105B10400ACECEB /* StartViewController.swift in Sources */,
 				290A46D1211C310B00D37A37 /* UnlockRecordCell.swift in Sources */,
@@ -510,6 +555,7 @@
 				294EA7C82108744B007F9E5B /* Utils.swift in Sources */,
 				294EA7B621081C2F007F9E5B /* UserSettings.swift in Sources */,
 				290A46C4211BE1A400D37A37 /* ThemeViewController.swift in Sources */,
+				29B4AB7F2134ED3A003DE40B /* String-Extras.swift in Sources */,
 				294075F42105C82C00ACECEB /* RegisterViewController.swift in Sources */,
 				290A46D8211D666A00D37A37 /* ManagerDeviceViewController.swift in Sources */,
 				2961937C21211406006BA9F1 /* UserViewController.swift in Sources */,
@@ -520,6 +566,9 @@
 				2937410C212550C50086529E /* ManagerDetailViewController.swift in Sources */,
 				290A46D6211D5E7B00D37A37 /* DeviceViewController.swift in Sources */,
 				294075D62105B10400ACECEB /* AppDelegate.swift in Sources */,
+				29B4AB8321353D3C003DE40B /* HeartBeatViewModel.swift in Sources */,
+				2942F72221300C9100530120 /* ProductListViewModel.swift in Sources */,
+				29FA980D2136721100EF28BF /* BasicViewController.swift in Sources */,
 				29623F8D212ABAD600CBE772 /* UnlockRecordViewModel.swift in Sources */,
 				29623F7F212A8F5100CBE772 /* DeviceInfoViewModel.swift in Sources */,
 				290A46CB211C224F00D37A37 /* DeviceInfoCell.swift in Sources */,
@@ -662,6 +711,7 @@
 			baseConfigurationReference = 31000842390331D2A80109DA /* Pods-KMZN.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TKP3ERZA96;
@@ -671,6 +721,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.liveRadio.KMZN;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "KMZN/Extensions/KMZN-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -681,6 +733,7 @@
 			baseConfigurationReference = A65219BE89C4CDB29A4C1B81 /* Pods-KMZN.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TKP3ERZA96;
@@ -690,6 +743,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.liveRadio.KMZN;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "KMZN/Extensions/KMZN-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -44,7 +44,7 @@ class StartViewController: UIViewController {
     func setupViews(){
         
         registerBtn.layer.borderWidth = 1
-        registerBtn.layer.borderColor = THEME_RED_COLOR.cgColor
+        registerBtn.layer.borderColor = THEME_BG_COLOR.cgColor
         
         //去掉返回按钮文字
         self.navigationItem.backBarButtonItem = UIBarButtonItem.init(title: "", style: .plain, target: self, action: nil)
