@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
+
 
 class ThemeViewController: UIViewController {
 
@@ -59,3 +61,22 @@ class ThemeViewController: UIViewController {
 
 
 }
+
+extension ThemeViewController:DZNEmptyDataSetSource{
+    
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        return #imageLiteral(resourceName: "没有记录")
+    }
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let attrs=[kCTFontAttributeName:UIFont.systemFont(ofSize: 15),kCTForegroundColorAttributeName:UIColor.colorWithCustom(r: 0x99, g: 0x99, b: 0x99)]
+        return NSAttributedString(string: "还没有任何记录", attributes: attrs as [NSAttributedStringKey : Any])
+    }
+    func backgroundColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
+        
+        return UIColor.white
+    }
+    
+}
+
+
+

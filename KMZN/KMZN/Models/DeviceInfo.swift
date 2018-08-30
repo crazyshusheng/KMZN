@@ -21,6 +21,7 @@ class DeviceInfo: BaseMappable {
     var online:Int?
     var role:Int?
     var upadateTime:Date!
+    var modelNumber:String!
     
     override func mapping(map: Map) {
         
@@ -32,6 +33,7 @@ class DeviceInfo: BaseMappable {
         deviceId <- map["deviceId"]
         name <- map["name"]
         role <- map["role"]
+        modelNumber <- map["modelNumber"]
     }
     
 

@@ -23,7 +23,7 @@ class DeviceManagerCell: UITableViewCell {
             if type == 4 {
                 
                 nameLabel.text = managerInfo.name
-                delLabel.text = (managerInfo.role == 1) ? "管理员" : "成员"
+                delLabel.text = (managerInfo.role == 0) ? "管理员" : "成员"
             }else{
                 
                 nameLabel.text = managerInfo.name

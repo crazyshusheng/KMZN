@@ -30,6 +30,7 @@ class UserInfoViewModel: BaseViewModel {
         
         loadData(action: Api.USER_NAME_INFO, param: param) { (jsonStr) in
             
+            UserSettings.shareInstance.setValue(key: UserSettings.USER_NICK_NAME, value:name )
             
             finishedCallback()
         }

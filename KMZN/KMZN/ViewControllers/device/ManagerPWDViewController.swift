@@ -53,6 +53,9 @@ extension ManagerPWDViewController{
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
+        tableView.emptyDataSetSource = self
+        
+        
         navigationItem.title = titleName
         
         if deviceInfo.role == 0 {

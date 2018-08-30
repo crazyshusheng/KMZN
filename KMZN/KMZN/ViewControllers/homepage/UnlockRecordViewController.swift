@@ -54,7 +54,7 @@ extension UnlockRecordViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
-       
+        tableView.emptyDataSetSource = self
     }
     
     func getDataList(){

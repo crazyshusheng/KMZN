@@ -38,6 +38,7 @@ class ChooseDeviceViewController: ThemeViewController {
         self.navigationItem.title = "切换设备"
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.emptyDataSetSource = self
         tableView.register(UINib.init(nibName: "DeviceInfoCell", bundle: nil), forCellReuseIdentifier: KMDeviceCellID)
         tableView.tableFooterView = UIView()
         tableView.reloadData()

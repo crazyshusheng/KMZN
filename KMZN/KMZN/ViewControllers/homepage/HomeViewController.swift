@@ -42,7 +42,7 @@ class HomeViewController: BasicViewController {
         deviceVM.viewController = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(isRefreshUI), name: NOTIFY_HOMEVC_REFRESH, object: nil)
-        
+        addAdeviceView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addDevice)))
     
     }
     
@@ -55,7 +55,7 @@ class HomeViewController: BasicViewController {
     }
     
     
-    @IBAction func addDevice(_ sender: Any) {
+    @objc func addDevice() {
         
         
         let storyboard = UIStoryboard.init(name: "Device", bundle: nil)
@@ -115,12 +115,21 @@ extension HomeViewController {
                 
                 self.deviceInfo = self.deviceVM.deviceInfo
                 self.nameLabel.text = self.deviceInfo.name
-                self.welcomeLabel.text = "欢迎回家"
+                
+                if let name = UserSettings.shareInstance.getStringValue(key: UserSettings.USER_NICK_NAME){
+                    
+                      self.welcomeLabel.text = "欢迎回家," + name
+                }else{
+                    
+                    self.welcomeLabel.text = "欢迎回家"
+                }
+            
                 if let battery = self.deviceInfo.battery {
                     
                     self.batteryLabel.text = String(battery)
                 }
                 self.statusLabel.text = (self.deviceInfo.online == 1) ? "正常运行" : "已离线"
+                self.typeLabel.text = self.deviceInfo.modelNumber
             }
         }else {
         

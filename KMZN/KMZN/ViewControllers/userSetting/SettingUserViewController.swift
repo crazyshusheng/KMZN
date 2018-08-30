@@ -35,13 +35,28 @@ class SettingUserViewController: ThemeViewController {
     
     @IBAction func signOut(_ sender: Any) {
         
-        UserSettings.shareInstance.clearUserInfo()
         
-        UserSettings.shareInstance.setValue(key: UserSettings.IS_LOGIN, value: false)
-        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-        let startvc = storyBoard.instantiateViewController(withIdentifier: "startNVC")
-        self.present(startvc, animated: false)
         
+        let alert = UIAlertController.init(title:
+            "退出登录", message: "你确定?", preferredStyle: .alert)
+        let cancelAction = UIAlertAction.init(title: "取消", style: .cancel, handler: nil)
+        
+        let firstAction = UIAlertAction.init(title: "确定", style: .default) { (nil) in
+            
+            
+            UserSettings.shareInstance.clearUserInfo()
+            
+            UserSettings.shareInstance.setValue(key: UserSettings.IS_LOGIN, value: false)
+            let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+            let startvc = storyBoard.instantiateViewController(withIdentifier: "startNVC")
+            self.present(startvc, animated: false)
+            
+            }
+
+        alert.addAction(cancelAction)
+        alert.addAction(firstAction)
+        self.present(alert, animated: true, completion: nil)
+
     }
     
     @IBAction func getUserPhoto(_ sender: Any) {
@@ -64,6 +79,8 @@ extension SettingUserViewController{
         if let photo =  UserSettings.shareInstance.getStringValue(key: UserSettings.USER_PHOTO){
             
             self.photoImageView.kf.setImage(with: URL.init(string: photo))
+        }else{
+            self.photoImageView.image = #imageLiteral(resourceName: "头像")
         }
         
         
@@ -78,7 +95,7 @@ extension SettingUserViewController{
 
     @objc func refreshUserSettingVC(){
         
-        navigationController?.popViewController(animated: false)
+        navigationController?.popViewController(animated: true)
     }
     
     
@@ -117,7 +134,7 @@ extension SettingUserViewController{
         
         let pswAlertView = KWAlertView.init(frame: self.view.bounds)
         let label = pswAlertView.BGView.viewWithTag(10) as! UILabel
-        label.text = "修改设备名称"
+        label.text = "修改用户名"
         pswAlertView.delegate = self
         self.view.addSubview(pswAlertView)
         
@@ -199,6 +216,7 @@ extension SettingUserViewController: UITableViewDataSource,UITableViewDelegate{
             
         case (0,0):
             if let nickname = UserSettings.shareInstance.getStringValue(key: UserSettings.USER_NICK_NAME){
+                print(nickname)
                 detail = nickname
             }else{
                 detail = ""
@@ -210,6 +228,7 @@ extension SettingUserViewController: UITableViewDataSource,UITableViewDelegate{
         default:
             break
         }
+        
         
         detailLabel.text = detail
         return cell!
@@ -273,6 +292,8 @@ extension SettingUserViewController:KWAlertViewDelegate {
         self.viewModel.updateUserNickname(name: name) {
             
             self.tableView.reloadData()
+            NotificationCenter.default.post(name: NOTIFY_USERVC_DEVICE, object: nil)
+            NotificationCenter.default.post(name: NOTIFY_HOMEVC_REFRESH, object: nil)
         }
     }
 }
