@@ -20,11 +20,12 @@ class ManagerDeviceViewController: ThemeViewController {
     
     @IBOutlet weak var deviceButton: ButtonWithRightImage!
     
-    private let titles = ["密码管理","指纹管理","卡片管理","心跳时间","开锁记录","报警记录","设备成员"]
+    private let titles = ["密码管理","指纹管理","卡片管理","心跳时间","开锁记录","报警记录","设备成员","修改密码","删除设备"]
     fileprivate let viewModel = DeviceInfoViewModel.init()
     
     var deviceInfo = DeviceInfo()
     var deviceID = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,7 @@ class ManagerDeviceViewController: ThemeViewController {
     
     @IBAction func changeDeviceName(_ sender: Any) {
         
+       
         showKWAlertView()
     }
     
@@ -77,13 +79,24 @@ extension ManagerDeviceViewController{
         
         let pswAlertView = KWAlertView.init(frame: self.view.bounds)
         let label = pswAlertView.BGView.viewWithTag(10) as! UILabel
-        label.text = "修改设备名称"
+        
         pswAlertView.delegate = self
+        
+        label.text = "修改设备名称"
+    
         self.view.addSubview(pswAlertView)
         
     }
     
     
+    func showPwdAlertView(){
+        
+        let alertView = PasswordAlertView.init(frame: self.view.bounds)
+        let label = alertView.BGView.viewWithTag(10) as! UILabel
+        alertView.delegate = self
+        label.text = "验证管理员密码"
+        self.view.addSubview(alertView)
+    }
 
     
 }
@@ -98,9 +111,28 @@ extension ManagerDeviceViewController:KWAlertViewDelegate {
             
             Utils.showHUD(info: "修改成功")
             self.deviceButton.setTitle(name, for: .normal)
+            NotificationCenter.default.post(name: NOTIFY_DEVICEVC_DEVICE, object: self)
+        }
+       
+    }
+}
+
+
+extension ManagerDeviceViewController:PasswordAlertViewDelegate {
+    
+    func passwordCompleteInAlertView(alertView: PasswordAlertView, password: String) {
+        
+        alertView.removeFromSuperview()
+        
+        self.viewModel.deleteDevice(deviceID: deviceInfo.deviceId, masterPassword: password) {
+            
+            Utils.showHUD(info: "设备已删除")
+            NotificationCenter.default.post(name: NOTIFY_DEVICEVC_DEVICE, object: self)
+            self.navigationController?.popViewController(animated: true)
         }
     }
 }
+
 
 
 
@@ -130,7 +162,7 @@ extension ManagerDeviceViewController:UICollectionViewDelegate,UICollectionViewD
      */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 7
+        return titles.count
         
     }
     
@@ -180,8 +212,34 @@ extension ManagerDeviceViewController:UICollectionViewDelegate,UICollectionViewD
             recordVC.type = indexPath.row - 3
             recordVC.deviceID = deviceID
             navigationController?.pushViewController(recordVC, animated: true)
+        case 8:
             
-    
+            if deviceInfo.role == 0 {
+                
+                showPwdAlertView()
+                
+            }else{
+                
+                Utils.showHUD(info: "没有管理员权限")
+            }
+        case 7:
+            
+            if deviceInfo.role == 0 {
+        
+                let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "ResetPwdVC") as! ResetPwdViewController
+                vc.type = 2
+                vc.deviceID = deviceInfo.deviceId
+                navigationController?.pushViewController(vc, animated: true)
+                
+            }else{
+                
+                Utils.showHUD(info: "没有管理员权限")
+            }
+            
+            
+
+
         default:
             break
         }

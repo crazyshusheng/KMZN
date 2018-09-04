@@ -25,7 +25,7 @@ class SettingUserViewController: ThemeViewController {
         super.viewDidLoad()
           setupUI()
        
-         NotificationCenter.default.addObserver(self, selector: #selector(refreshUserSettingVC), name: NOTIFY_USERVC_DEVICE, object: nil)
+         NotificationCenter.default.addObserver(self, selector: #selector(refreshUserSettingVC), name: NOTIFY_SETTING_DEVICE, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -172,9 +172,13 @@ extension SettingUserViewController:UIImagePickerControllerDelegate,UINavigation
                 
                 let url = self.viewModel.photoUrl
                 
-                self.photoImageView.kf.setImage(with: URL.init(string: url))
+                print(url)
                 
                 UserSettings.shareInstance.setValue(key: UserSettings.USER_PHOTO, value: url)
+                
+                self.photoImageView.kf.setImage(with: URL.init(string: url))
+                
+                
                 
                 NotificationCenter.default.post(name: NOTIFY_USERVC_DEVICE, object: nil)
             })
@@ -271,6 +275,7 @@ extension SettingUserViewController: UITableViewDataSource,UITableViewDelegate{
         case (1,1):
             let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "ResetPwdVC") as! ResetPwdViewController
+            vc.type = 1
             navigationController?.pushViewController(vc, animated: true)
         default:
             break

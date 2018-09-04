@@ -14,7 +14,7 @@ class AddDeviceViewModel: BaseViewModel {
     lazy var lockInfo = LockDetailInfo()
     
     
-    func addDevice(imei:String,imsi:String,name:String,modelNumber:String,finishedCallback : @escaping () -> ()){
+    func addDevice(imei:String,imsi:String,name:String,modelNumber:String, masterPassword:String,finishedCallback : @escaping () -> ()){
     
          let param=NSMutableDictionary()
     
@@ -24,6 +24,7 @@ class AddDeviceViewModel: BaseViewModel {
          param.setValue(imsi, forKey: "imsi")
          param.setValue(name, forKey: "name")
          param.setValue(modelNumber, forKey: "modelNumber")
+         param.setValue(masterPassword, forKey: "masterPassword")
     
           print(param)
     
@@ -47,15 +48,15 @@ class AddDeviceViewModel: BaseViewModel {
     }
     
     
-    func setDeviceMasterPwd(deviceID:String,pwd:String,name:String,finishedCallback : @escaping () -> ()){
+    func checkDeviceBind(imei:String,finishedCallback : @escaping () -> ()){
     
         let param=NSMutableDictionary()
-        param.setValue(deviceID, forKey: "deviceId")
-        param.setValue(pwd, forKey: "masterPassword")
+        param.setValue(imei, forKey: "imei")
+      
         
-        loadData(action: Api.DEVICE_MASTER_PWD, param: param) { (jsonStr) in
+        loadData(action: Api.DEVICE_CHECK_BIND, param: param) { (jsonStr) in
         
-            Utils.showHUD(info: "设置成功")
+            
             finishedCallback()
         }
     }

@@ -59,9 +59,10 @@ extension AppDelegate {
         
         //设置 指示框 后面View是否可操作
         SVProgressHUD.setDefaultMaskType(.none)
-        SVProgressHUD.setMinimumDismissTimeInterval(1.5)
+        SVProgressHUD.setMinimumDismissTimeInterval(2)
         SVProgressHUD.setFadeOutAnimationDuration(0.5)
         SVProgressHUD.setDefaultStyle(.dark)
+        SVProgressHUD.setBackgroundColor(UIColor.lightGray)
     }
     
 }

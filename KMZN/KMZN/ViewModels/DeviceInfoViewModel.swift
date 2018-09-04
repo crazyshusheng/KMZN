@@ -70,7 +70,23 @@ class DeviceInfoViewModel: BaseViewModel {
         
     }
     
-
+    
+    // 删除设备
+    func deleteDevice(deviceID:String,masterPassword:String,finishedCallback : @escaping () -> ()){
+        
+        let param=NSMutableDictionary()
+        
+        param.setValue(deviceID, forKey: "deviceId")
+        param.setValue(masterPassword, forKey: "masterPassword")
+        
+        loadData(action: Api.DEVICE_OPENLOCK, param: param) { (jsonStr) in
+            
+            finishedCallback()
+            
+        }
+        
+    }
+  
     
 
 }

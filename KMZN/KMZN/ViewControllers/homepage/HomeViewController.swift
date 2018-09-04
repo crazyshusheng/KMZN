@@ -167,6 +167,10 @@ extension HomeViewController:PasswordAlertViewDelegate {
         
         alertView.removeFromSuperview()
         
+        guard  deviceInfo != nil  else {
+            return
+        }
+    
         self.deviceVM.openLock(deviceID: self.deviceInfo.deviceId, masterPassword: password) {
             
             

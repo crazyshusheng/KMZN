@@ -30,7 +30,7 @@ class UserInfoViewModel: BaseViewModel {
         
         loadData(action: Api.USER_NAME_INFO, param: param) { (jsonStr) in
             
-            UserSettings.shareInstance.setValue(key: UserSettings.USER_NICK_NAME, value:name )
+            
             
             finishedCallback()
         }
@@ -49,7 +49,9 @@ class UserInfoViewModel: BaseViewModel {
         
         if errorCode == "00" && message!.count > 15 {
             
+            
             photoUrl = message!
+            UserSettings.shareInstance.setValue(key: UserSettings.USER_PHOTO, value:photoUrl )
         }
         
     }

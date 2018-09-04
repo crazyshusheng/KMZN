@@ -95,7 +95,7 @@ extension LoginViewController{
            NotificationCenter.default.post(name: NOTIFY_HOMEVC_REFRESH, object: self)
            NotificationCenter.default.post(name: NOTIFY_DEVICEVC_DEVICE, object: self)
            NotificationCenter.default.post(name: NOTIFY_USERVC_DEVICE, object: self)
-            
+           NotificationCenter.default.post(name: NOTIFY_SETTING_DEVICE, object: self)
             
            self.dismiss(animated: true, completion: nil)
            self.navigationController?.popToRootViewController(animated: true)

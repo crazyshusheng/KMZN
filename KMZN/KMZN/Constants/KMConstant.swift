@@ -40,8 +40,10 @@ public let ALERT_TYPE:Dictionary<String,String> = ["1":"低电压报警","2":"�
 
 //MARK: 通知常量
 
-public let NOTIFY_HOMEVC_REFRESH = NSNotification.Name("homeVCRefresh")  //
+public let NOTIFY_HOMEVC_REFRESH = NSNotification.Name("homeVCReferesh")  //
 
 public let NOTIFY_DEVICEVC_DEVICE = NSNotification.Name("deviceVCReresh")  //
 
 public let NOTIFY_USERVC_DEVICE = NSNotification.Name("userVCReresh") //
+
+public let NOTIFY_SETTING_DEVICE = NSNotification.Name("settingVCReresh")

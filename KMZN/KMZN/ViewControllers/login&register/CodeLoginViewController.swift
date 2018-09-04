@@ -64,9 +64,26 @@ class CodeLoginViewController: UIViewController {
     }
     
     @IBAction func sendCode(_ sender: Any) {
+        
+    
+        let phone = phoneTextField.text!
+        if(Utils.isVailedPhone(phone: phone)){
+            
+            registerVM.sendCode(phone: phone, finishCallback: {
+                
+                self.isCounting = true
+            })
+            
+        }else{
+            
+        }
+        
     }
     
     @IBAction func login(_ sender: Any) {
+        
+        registerUser()
+        
     }
     
 

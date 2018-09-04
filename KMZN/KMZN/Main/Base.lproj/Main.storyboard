@@ -209,7 +209,7 @@
                                     <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="lls-i3-VKA" kind="show" id="pR6-il-uhv"/>
+                                    <segue destination="lls-i3-VKA" kind="show" id="t0n-LL-4kp"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -382,7 +382,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bfg-7G-jiq" secondAttribute="trailing" constant="20" symbolic="YES" id="0nz-6o-SaV"/>
                             <constraint firstItem="JSH-VU-8Ou" firstAttribute="trailing" secondItem="dgP-kY-dC6" secondAttribute="trailing" id="16t-Aw-Hb3"/>
                             <constraint firstItem="bfg-7G-jiq" firstAttribute="top" secondItem="dgP-kY-dC6" secondAttribute="top" constant="32" id="2N3-CJ-s5n"/>
                             <constraint firstItem="JSH-VU-8Ou" firstAttribute="leading" secondItem="dgP-kY-dC6" secondAttribute="leading" id="4W5-Pc-5Vc"/>
@@ -400,6 +399,7 @@
                         <outlet property="codeTextField" destination="MuT-Ka-N6H" id="leh-lf-fVq"/>
                         <outlet property="phoneTextField" destination="2oD-pO-GQK" id="ZR3-Kh-aVU"/>
                         <outlet property="pwdTextField" destination="7SX-Nj-RTK" id="Thb-qx-8Dr"/>
+                        <outlet property="titleLabel" destination="bfg-7G-jiq" id="Vfq-BX-wK7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o2w-L7-0ld" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -677,7 +677,7 @@
         <scene sceneID="4ut-Z5-fqe">
             <objects>
                 <viewController id="lls-i3-VKA" customClass="CodeLoginViewController" customModule="KMZN" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" userInteractionEnabled="NO" contentMode="scaleToFill" id="Msa-fH-QgE">
+                    <view key="view" contentMode="scaleToFill" id="Msa-fH-QgE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -864,7 +864,7 @@
         <image name="tabbar_mine_select" width="21" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Xkp-1S-GLP"/>
+        <segue reference="f5U-Eu-ocx"/>
         <segue reference="Vmx-jp-sEH"/>
     </inferredMetricsTieBreakers>
 </document>

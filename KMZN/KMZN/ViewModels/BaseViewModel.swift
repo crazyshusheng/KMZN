@@ -63,9 +63,11 @@ extension BaseViewModel {
           
             if  let result=CommonResult<BaseMappable>(JSONString: jsonString){
                 if(result.success){
+                    
+                    self.error(errorCode: result.code, message:result.message)
                     //请求数据成功，处理
                     loadSuccess(jsonString)
-                    self.error(errorCode: result.code, message:result.message)
+                    
                     
                 }else{
                     self.error(errorCode: result.code, message:result.message)

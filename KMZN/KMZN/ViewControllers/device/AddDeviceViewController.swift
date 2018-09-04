@@ -51,7 +51,7 @@ class AddDeviceViewController: ThemeViewController {
     @IBAction func addDevice(_ sender: Any) {
         
         
-        addDevice()
+        addDevice(type: 1, pwd: "")
         
        
     }
@@ -111,8 +111,11 @@ extension AddDeviceViewController {
         
     }
     
+ 
     
-    func addDevice(){
+    
+    
+    func addDevice(type:Int,pwd:String){
         
         let eiCode = eiTextField.text!
         let siCode = siTextField.text!
@@ -135,23 +138,23 @@ extension AddDeviceViewController {
             Utils.showHUD(info:"请输入设备名称")
             return
         }
-    
-        viewModel.addDevice(imei: eiCode, imsi: siCode, name: name, modelNumber: productInfo.modelNumber) {
+        
+        if type == 1 {
             
-            self.lockInfo = self.viewModel.lockInfo
-            
-            
-            
-            if !self.viewModel.lockInfo.masterPasswordSet{
+            viewModel.checkDeviceBind(imei: eiCode) {
                 
                 self.showPwdAlertView()
-                
-            }else{
-                
-                self.navigationController?.popToRootViewController(animated: true)
             }
+        }else if type == 2 {
             
+            viewModel.addDevice(imei: eiCode, imsi: siCode, name: name, modelNumber: productInfo.modelNumber, masterPassword: pwd) {
+                
+                 self.navigationController?.popToRootViewController(animated: true)
+            }
         }
+        
+    
+        
     }
 
 }
@@ -164,10 +167,7 @@ extension AddDeviceViewController:PasswordAlertViewDelegate {
         
         alertView.removeFromSuperview()
         
-        viewModel.setDeviceMasterPwd(deviceID: self.lockInfo.deviceId, pwd: password, name: self.lockInfo.name) {
-            
-             self.navigationController?.popToRootViewController(animated: true)
-        }
+        addDevice(type: 2, pwd: password)
     
     }
 }

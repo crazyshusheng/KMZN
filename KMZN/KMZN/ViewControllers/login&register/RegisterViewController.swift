@@ -139,7 +139,7 @@ extension RegisterViewController{
         }
         if(pwd.isEmpty || !Utils.isVailedPassword(password: pwd) ){
             
-            Utils.showHUD(info:"请输入密码")
+            Utils.showHUD(info:"密码为六位及以上数字和字母组成")
             return
         }
         

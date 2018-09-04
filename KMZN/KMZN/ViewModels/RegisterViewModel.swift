@@ -141,10 +141,45 @@ class RegisterViewModel: BaseViewModel {
             
             //完成回调
             finishedCallback()
-            Utils.showHUD(info: "修改密码成功")
+            Utils.showHUD(info: "密码已重置")
         }
         
     }
 
+    //修改密码
+    func updatePassword(password:String,newPassword:String,finishedCallback : @escaping () -> ()){
+        let param=NSMutableDictionary()
+        param.setValue(password.sha1(), forKey: "password")
+        param.setValue(newPassword.sha1(), forKey: "newPassword")
+   
+        self.loadData(action: Api.USER_UPDATE_PASSWORD, param: param) { (jsonString) in
+            
+            //完成回调
+            finishedCallback()
+            Utils.showHUD(info: "密码已修改")
+        }
+        
+    }
+    
+    
+    //修改密码
+    func updateMasterPassword(masterPassword:String,deviceId:String,mobile:String,verificationCode:String,finishedCallback : @escaping () -> ()){
+        
+        let param=NSMutableDictionary()
+        param.setValue(masterPassword, forKey: "masterPassword")
+        param.setValue(deviceId, forKey: "deviceId")
+        param.setValue(mobile, forKey: "mobile")
+        param.setValue(verificationCode, forKey: "verificationCode")
+        
+        self.loadData(action: Api.DEVICE_UPDATE_MASTERPWD, param: param) { (jsonString) in
+            
+            //完成回调
+            finishedCallback()
+            Utils.showHUD(info: "管理员密码已修改")
+        }
+        
+    }
+    
+    
 
 }

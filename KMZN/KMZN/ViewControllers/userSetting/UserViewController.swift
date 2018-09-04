@@ -82,7 +82,7 @@ extension UserViewController{
             tipLabel.isHidden = true
             
             if let photo =  UserSettings.shareInstance.getStringValue(key: UserSettings.USER_PHOTO){
-
+                print(photo)
                 self.photoButton.kf.setImage(with: URL.init(string: photo), for: .normal)
             }else{
                 

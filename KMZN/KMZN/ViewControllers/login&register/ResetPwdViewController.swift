@@ -18,6 +18,11 @@ class ResetPwdViewController: UIViewController {
     
     @IBOutlet weak var codeButton: UIButton!
     
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    var type = 0  // 0 忘记密码，1 修改密码 2.修改管理员密码
+    
+    var deviceID = ""
     
     var registerVM = RegisterViewModel()
     
@@ -69,6 +74,20 @@ class ResetPwdViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if type == 1 {
+            
+            phoneTextField.placeholder = "请输入原密码"
+            codeTextField.placeholder = "请输入新密码"
+            codeTextField.isSecureTextEntry = true
+            pwdTextField.placeholder = "确认新密码"
+            codeButton.isHidden = true
+            titleLabel.text = "修改密码"
+        }else if type == 2 {
+            
+            titleLabel.text = "修改管理员密码"
+        }
+
+        
         // Do any additional setup after loading the view.
     }
     
@@ -92,7 +111,17 @@ class ResetPwdViewController: UIViewController {
     
     @IBAction func confirm(_ sender: Any) {
         
-        changePwd()
+        if type == 1 {
+            
+            updateUserPwd()
+            
+        }else if type == 0 {
+            
+            changePwd(type: 0)
+        }else if type == 2{
+            changePwd(type: 2)
+            
+        }
     }
     
 
@@ -117,11 +146,14 @@ class ResetPwdViewController: UIViewController {
 
 extension ResetPwdViewController{
     
-    func changePwd(){
+    
+    
+    func changePwd(type:Int){
         
         let phone = phoneTextField.text!
         let code = codeTextField.text!
         let pwd = pwdTextField.text!
+        
         
         if(phone.isEmpty || !Utils.isVailedPhone(phone: phone)){
             
@@ -137,16 +169,65 @@ extension ResetPwdViewController{
         }
         if(pwd.isEmpty || !Utils.isVailedPassword(password: pwd) ){
             
-            Utils.showHUD(info:"请输入密码")
+            Utils.showHUD(info:"密码为六位及以上数字和字母组成")
             return
         }
         
-        registerVM.resetPassword(password: pwd, mobile: phone, verificationCode: code) {
+        
+        if type == 0 {
             
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
-            self.navigationController?.pushViewController(vc, animated: true)
+            registerVM.resetPassword(password: pwd, mobile: phone, verificationCode: code) {
+                
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
+                self.navigationController?.pushViewController(vc, animated: true)
+                
+            }
+        }else if type == 2 {
+            
+            registerVM.updateMasterPassword(masterPassword: pwd, deviceId: deviceID, mobile: phone, verificationCode: code) {
+                
+                self.navigationController?.popViewController(animated: true)
+            }
             
         }
+        
+       
+        
     }
+    
+    func updateUserPwd(){
+        
+        
+        let phone = phoneTextField.text!
+        let code = codeTextField.text!
+        let pwd = pwdTextField.text!
+        
+        
+        if(phone.isEmpty || !Utils.isVailedPassword(password: pwd)){
+            
+            Utils.showHUD(info:"请输入原密码")
+            
+            return
+        }
+        if(code.isEmpty || !Utils.isVailedPassword(password: pwd)){
+            
+            Utils.showHUD(info:"密码为六位及以上数字和字母组成")
+            
+            return
+        }
+        if(pwd.isEmpty || pwd != code ){
+            
+            Utils.showHUD(info:"密码不一致")
+            return
+        }
+        
+        registerVM.updatePassword(password: phone, newPassword: code) {
+            
+            self.navigationController?.popViewController(animated: true)
+        }
+        
+    }
+    
+    
     
 }
