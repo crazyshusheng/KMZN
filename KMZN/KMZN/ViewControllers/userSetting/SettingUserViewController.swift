@@ -45,8 +45,8 @@ class SettingUserViewController: ThemeViewController {
             
             
             UserSettings.shareInstance.clearUserInfo()
+ 
             
-            UserSettings.shareInstance.setValue(key: UserSettings.IS_LOGIN, value: false)
             let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
             let startvc = storyBoard.instantiateViewController(withIdentifier: "startNVC")
             self.present(startvc, animated: false)
@@ -297,6 +297,7 @@ extension SettingUserViewController:KWAlertViewDelegate {
         self.viewModel.updateUserNickname(name: name) {
             
             self.tableView.reloadData()
+            
             NotificationCenter.default.post(name: NOTIFY_USERVC_DEVICE, object: nil)
             NotificationCenter.default.post(name: NOTIFY_HOMEVC_REFRESH, object: nil)
         }

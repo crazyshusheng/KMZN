@@ -19,7 +19,7 @@ class AddPwdViewModel: BaseViewModel {
         
         param.setValue(deviceId, forKey: "deviceId")
         param.setValue(name, forKey: "name")
-        param.setValue(password.sha1(), forKey: "password")
+        param.setValue(password, forKey: "password")
         
         loadData(action: Api.DEVICE_ADD_PWD, param: param) { (jStr) in
             

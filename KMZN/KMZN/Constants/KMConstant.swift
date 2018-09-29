@@ -18,8 +18,6 @@ public let NAVIGATION_BAR_HEIGHT:CGFloat = IS_IPHONE_X ? 88 : 64
 public let DATE_FORMAT_YYYY_MM_DD="yyyy-MM-dd" //日期格式化
 public let DATE_FORMAT_YYYY_MM_DD_HH_MM="yyyy-MM-dd hh:mm" //日期格式化
 
-
-
 /**
  请求结果状态码
  */
@@ -40,10 +38,11 @@ public let ALERT_TYPE:Dictionary<String,String> = ["1":"低电压报警","2":"�
 
 //MARK: 通知常量
 
-public let NOTIFY_HOMEVC_REFRESH = NSNotification.Name("homeVCReferesh")  //
+public let NOTIFY_HOMEVC_REFRESH = NSNotification.Name("homeVCReferesh")  //首页刷新通知
 
-public let NOTIFY_DEVICEVC_DEVICE = NSNotification.Name("deviceVCReresh")  //
+public let NOTIFY_DEVICEVC_DEVICE = NSNotification.Name("deviceVCReresh")
 
-public let NOTIFY_USERVC_DEVICE = NSNotification.Name("userVCReresh") //
+
+public let NOTIFY_USERVC_DEVICE = NSNotification.Name("userVCReresh")
 
 public let NOTIFY_SETTING_DEVICE = NSNotification.Name("settingVCReresh")

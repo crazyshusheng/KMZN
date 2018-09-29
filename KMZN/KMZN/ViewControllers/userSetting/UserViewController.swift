@@ -74,10 +74,14 @@ extension UserViewController{
         
         if UserSettings.shareInstance.isLogin(){
             
-            if let nickname = UserSettings.shareInstance.getStringValue(key: UserSettings.USER_NICK_NAME){
-                userBtn.setTitle(nickname, for: .normal)
-            }else{
-                userBtn.setTitle(UserSettings.shareInstance.getStringValue(key: UserSettings.USER_PHONE), for: .normal)
+            userBtn.setTitle(UserSettings.shareInstance.getStringValue(key: UserSettings.USER_PHONE), for: .normal)
+            
+            if let nickname = UserSettings.shareInstance.getStringValue(key: UserSettings.USER_NICK_NAME) {
+                
+                if nickname.count > 0 {
+                    
+                    userBtn.setTitle(nickname, for: .normal)
+                }
             }
             tipLabel.isHidden = true
             
@@ -160,7 +164,24 @@ extension UserViewController: UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
       
-        
+        switch  (indexPath.section,indexPath.row) {
+            
+            
+            
+        case (1,0):
+            
+            let aboutVC = storyboard?.instantiateViewController(withIdentifier: "SystemSetupVC") as! SystemSetupViewController
+            navigationController?.pushViewController(aboutVC, animated: true)
+            
+            
+        case (2,0):
+            
+            let aboutVC = storyboard?.instantiateViewController(withIdentifier: "AboutUsVC") as! AboutUsViewController
+            navigationController?.pushViewController(aboutVC, animated: true)
+            
+        default:
+            break
+        }
         
         
         

@@ -75,6 +75,8 @@ class UserSettings{
             userDefaults.removeObject(forKey: key)
         }
         
+       userDefaults.setValue(false, forKey: UserSettings.IS_LOGIN)
+       
     }
     
  

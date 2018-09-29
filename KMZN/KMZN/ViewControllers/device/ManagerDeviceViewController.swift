@@ -20,7 +20,8 @@ class ManagerDeviceViewController: ThemeViewController {
     
     @IBOutlet weak var deviceButton: ButtonWithRightImage!
     
-    private let titles = ["密码管理","指纹管理","卡片管理","心跳时间","开锁记录","报警记录","设备成员","修改密码","删除设备"]
+    private var titles = ["密码管理","指纹管理","卡片管理","设备成员","开锁记录","报警记录","删除设备"]
+
     fileprivate let viewModel = DeviceInfoViewModel.init()
     
     var deviceInfo = DeviceInfo()
@@ -34,6 +35,7 @@ class ManagerDeviceViewController: ThemeViewController {
         self.navigationController?.navigationBar.isTranslucent = false
     }
     
+
 
 
     override func didReceiveMemoryWarning() {
@@ -56,6 +58,14 @@ extension ManagerDeviceViewController{
         
         collectionView.delegate = self
         collectionView.dataSource = self
+//        
+//        if deviceInfo.role != 0 {
+//            
+//            titles.remove(at: 6)
+//            titles.remove(at: 7)
+//            titles.remove(at: 8)
+//        }
+    
     }
     
     func getDeviceInfo(){
@@ -76,6 +86,12 @@ extension ManagerDeviceViewController{
     }
     
     func showKWAlertView(){
+        
+        
+        guard deviceInfo.role == 0 else {
+            
+            return
+        }
         
         let pswAlertView = KWAlertView.init(frame: self.view.bounds)
         let label = pswAlertView.BGView.viewWithTag(10) as! UILabel
@@ -184,7 +200,7 @@ extension ManagerDeviceViewController:UICollectionViewDelegate,UICollectionViewD
         //某个Cell被选择的事件处理
         switch (indexPath.row) {
             
-        case 0,1,2,6:
+        case 0,1,2,3:
             
             var title:String?
             var type = indexPath.row + 1
@@ -202,17 +218,18 @@ extension ManagerDeviceViewController:UICollectionViewDelegate,UICollectionViewD
             managerVC.titleName = title
             managerVC.deviceInfo = deviceInfo
             managerVC.typeID = type
+            print(type)
             navigationController?.pushViewController(managerVC, animated: true)
-        case 3:
-            let heartVC = storyboard?.instantiateViewController(withIdentifier: "HeartBeatVC") as! HeartBeatViewController
-            heartVC.deviceInfo = deviceInfo
-            navigationController?.pushViewController(heartVC, animated: true)
+//        case 6:
+//            let heartVC = storyboard?.instantiateViewController(withIdentifier: "HeartBeatVC") as! HeartBeatViewController
+//            heartVC.deviceInfo = deviceInfo
+//            navigationController?.pushViewController(heartVC, animated: true)
         case 4,5:
             let recordVC = UIStoryboard.init(name: "Homepage", bundle: nil).instantiateViewController(withIdentifier: "UnlockRecordVC") as! UnlockRecordViewController
             recordVC.type = indexPath.row - 3
             recordVC.deviceID = deviceID
             navigationController?.pushViewController(recordVC, animated: true)
-        case 8:
+        case 6:
             
             if deviceInfo.role == 0 {
                 
@@ -222,23 +239,21 @@ extension ManagerDeviceViewController:UICollectionViewDelegate,UICollectionViewD
                 
                 Utils.showHUD(info: "没有管理员权限")
             }
-        case 7:
-            
-            if deviceInfo.role == 0 {
-        
-                let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "ResetPwdVC") as! ResetPwdViewController
-                vc.type = 2
-                vc.deviceID = deviceInfo.deviceId
-                navigationController?.pushViewController(vc, animated: true)
-                
-            }else{
-                
-                Utils.showHUD(info: "没有管理员权限")
-            }
-            
-            
-
+//        case 7:
+//
+//            if deviceInfo.role == 0 {
+//
+//                let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+//                let vc = storyboard.instantiateViewController(withIdentifier: "ResetPwdVC") as! ResetPwdViewController
+//                vc.type = 2
+//                vc.deviceID = deviceInfo.deviceId
+//                navigationController?.pushViewController(vc, animated: true)
+//
+//            }else{
+//
+//                Utils.showHUD(info: "没有管理员权限")
+//            }
+//
 
         default:
             break

@@ -71,6 +71,8 @@
 		2979D66E2106BEAF00FF0E44 /* ResetPwdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2979D66D2106BEAF00FF0E44 /* ResetPwdViewController.swift */; };
 		29B4AB7F2134ED3A003DE40B /* String-Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B4AB7E2134ED3A003DE40B /* String-Extras.swift */; };
 		29B4AB8321353D3C003DE40B /* HeartBeatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B4AB8221353D3C003DE40B /* HeartBeatViewModel.swift */; };
+		29BD6EA021465B1600109E02 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BD6E9F21465B1600109E02 /* AboutUsViewController.swift */; };
+		29BD6EA22146641700109E02 /* SystemSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BD6EA12146641700109E02 /* SystemSetupViewController.swift */; };
 		29CB9AB4212E9BF300D4C33C /* KWAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CB9AB3212E9BF300D4C33C /* KWAlertView.swift */; };
 		29CB9AB6212E9F8600D4C33C /* DeviceListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CB9AB5212E9F8600D4C33C /* DeviceListViewModel.swift */; };
 		29FA980D2136721100EF28BF /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FA980C2136721100EF28BF /* BasicViewController.swift */; };
@@ -144,6 +146,8 @@
 		29B4AB7E2134ED3A003DE40B /* String-Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String-Extras.swift"; sourceTree = "<group>"; };
 		29B4AB802134EE96003DE40B /* KMZN-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KMZN-Bridging-Header.h"; sourceTree = "<group>"; };
 		29B4AB8221353D3C003DE40B /* HeartBeatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartBeatViewModel.swift; sourceTree = "<group>"; };
+		29BD6E9F21465B1600109E02 /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
+		29BD6EA12146641700109E02 /* SystemSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemSetupViewController.swift; sourceTree = "<group>"; };
 		29CB9AB3212E9BF300D4C33C /* KWAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KWAlertView.swift; sourceTree = "<group>"; };
 		29CB9AB5212E9F8600D4C33C /* DeviceListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListViewModel.swift; sourceTree = "<group>"; };
 		29FA980C2136721100EF28BF /* BasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
@@ -351,6 +355,8 @@
 			children = (
 				2961937B21211406006BA9F1 /* UserViewController.swift */,
 				2961937D21211DF0006BA9F1 /* SettingUserViewController.swift */,
+				29BD6E9F21465B1600109E02 /* AboutUsViewController.swift */,
+				29BD6EA12146641700109E02 /* SystemSetupViewController.swift */,
 			);
 			path = userSetting;
 			sourceTree = "<group>";
@@ -541,6 +547,7 @@
 				29623F8F212ABD8100CBE772 /* UnlockTypeInfo.swift in Sources */,
 				29CB9AB4212E9BF300D4C33C /* KWAlertView.swift in Sources */,
 				296C84AD2133E77C008DC91A /* LockDetailInfo.swift in Sources */,
+				29BD6EA22146641700109E02 /* SystemSetupViewController.swift in Sources */,
 				290A46DE211D846100D37A37 /* TypeDeviceViewController.swift in Sources */,
 				2954B8B5211E883800905ECD /* ManagerPWDViewController.swift in Sources */,
 				296C84AF2133EA6C008DC91A /* QRCodeViewController.swift in Sources */,
@@ -561,6 +568,7 @@
 				294075F42105C82C00ACECEB /* RegisterViewController.swift in Sources */,
 				290A46D8211D666A00D37A37 /* ManagerDeviceViewController.swift in Sources */,
 				2961937C21211406006BA9F1 /* UserViewController.swift in Sources */,
+				29BD6EA021465B1600109E02 /* AboutUsViewController.swift in Sources */,
 				294075EB2105B6AA00ACECEB /* KMConstant.swift in Sources */,
 				290A46DC211D764400D37A37 /* ButtonWithRightImage.swift in Sources */,
 				294EA7BD21082724007F9E5B /* CommonResult.swift in Sources */,

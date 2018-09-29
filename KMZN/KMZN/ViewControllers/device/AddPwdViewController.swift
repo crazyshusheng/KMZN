@@ -122,6 +122,8 @@ extension AddPwdViewController:KMWebSocketDelegate{
     
     func websocketDidReceiveMessage(socket: KMWebSocket, text: String) {
         
+        print(text)
+        
         navigationController?.popViewController(animated: true)
         
         if let result = CommonResult<BaseMappable>(JSONString:text){

@@ -126,7 +126,7 @@ extension ChooseDeviceViewController: UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        guard  indexPath.section != 0 else {
+        guard  UserSettings.shareInstance.getStringValue(key: UserSettings.DEVICE_ID) != dataList[indexPath.section].deviceId else {
             
             return
         }

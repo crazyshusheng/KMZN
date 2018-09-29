@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
 
 class BasicViewController: UIViewController {
 
@@ -42,4 +43,21 @@ class BasicViewController: UIViewController {
     
 
 
+}
+
+
+extension BasicViewController:DZNEmptyDataSetSource{
+    
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        return #imageLiteral(resourceName: "空设备")
+    }
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let attrs=[kCTFontAttributeName:UIFont.systemFont(ofSize: 15),kCTForegroundColorAttributeName:UIColor.colorWithCustom(r: 0x99, g: 0x99, b: 0x99)]
+        return NSAttributedString(string: "暂无记录", attributes: attrs as [NSAttributedStringKey : Any])
+    }
+    func backgroundColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
+        
+        return UIColor.white
+    }
+    
 }

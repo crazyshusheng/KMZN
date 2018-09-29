@@ -87,7 +87,7 @@ public class KMWebSocket:NSObject,WebSocketDelegate{
     
     public func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
         
-        print("接受到消息了")
+        print("接受到消息了\(text)")
         webSocketDelegate?.websocketDidReceiveMessage!(socket: self, text: text)
     }
     

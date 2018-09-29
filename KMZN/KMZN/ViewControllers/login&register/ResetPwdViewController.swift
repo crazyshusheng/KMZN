@@ -80,6 +80,11 @@ class ResetPwdViewController: UIViewController {
             codeTextField.placeholder = "请输入新密码"
             codeTextField.isSecureTextEntry = true
             pwdTextField.placeholder = "确认新密码"
+            
+            pwdTextField.keyboardType = .default
+            phoneTextField.keyboardType = .default
+            codeTextField.keyboardType = .default
+            
             codeButton.isHidden = true
             titleLabel.text = "修改密码"
         }else if type == 2 {

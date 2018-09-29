@@ -78,5 +78,27 @@ class DeviceListViewModel: BaseViewModel {
     }
     
     
+    //验证管理员密码
+    
+    
+    
+    
+    func checkDeviceMangerPWD(deviceId:String,masterPassword:String,finishedCallback : @escaping () -> ()){
+        
+        let param=NSMutableDictionary()
+        
+        
+        param.setValue(deviceId, forKey: "deviceId")
+        param.setValue(masterPassword, forKey: "masterPassword")
+        
+        loadData(action: Api.DEVICE_CKECK_PWD, param: param) { (jsonStr) in
+            
+
+            finishedCallback()
+            
+        }
+    }
+    
+    
 
 }

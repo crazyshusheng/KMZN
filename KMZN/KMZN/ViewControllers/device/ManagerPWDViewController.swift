@@ -32,9 +32,12 @@ class ManagerPWDViewController: ThemeViewController {
         super.viewWillAppear(animated)
         
         if isRefresh{
+            
              getInfoList()
              isRefresh = false
         }
+        
+        
         
     }
 
@@ -58,10 +61,14 @@ extension ManagerPWDViewController{
         
         navigationItem.title = titleName
         
-        if deviceInfo.role == 0 {
+        if typeID == 1 || typeID == 4 {
             
             self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: #imageLiteral(resourceName: "添加设备"), style: .plain, target: self, action: #selector(addRecord))
+        }else{
+            
+            self.navigationItem.rightBarButtonItems?.removeAll()
         }
+       
     }
     
     func getInfoList(){

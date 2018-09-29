@@ -14,6 +14,28 @@ class DeviceInfoViewModel: BaseViewModel {
     lazy var deviceInfo = DeviceInfo()
     
     
+    
+    //获取所有设备
+    func getDeviceLists(finishedCallback : @escaping () -> ()){
+        
+        loadData(action: Api.DEVICE_GET_USERDEVICE, param: nil) { (jsonStr) in
+            
+            if let result = CommonResult<PageRow<DeviceInfo>>(JSONString: jsonStr){
+                
+                guard result.resultData.list.count > 0 else{
+                    
+                    return
+                }
+                
+                self.deviceInfo = result.resultData.list.first!
+                finishedCallback()
+                
+            }
+        }
+    }
+    
+    
+    
     //获取设备信息
     func getDeviceInfo(deviceID:String,finishedCallback : @escaping () -> ()){
         
@@ -65,7 +87,7 @@ class DeviceInfoViewModel: BaseViewModel {
         loadData(action: Api.DEVICE_OPENLOCK, param: param) { (jsonStr) in
             
             finishedCallback()
-            Utils.showHUD(info: "开锁成功")
+           
         }
         
     }

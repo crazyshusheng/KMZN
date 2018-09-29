@@ -26,9 +26,11 @@ class HomeViewController: BasicViewController {
     
     @IBOutlet weak var batteryLabel: UILabel!
     
-    @IBOutlet weak var signalLabel: UILabel!
+    @IBOutlet weak var signalImageView: UIImageView!
+    
     
     var deviceVM =  DeviceInfoViewModel()
+    
     var deviceInfo = DeviceInfo()
    
     
@@ -37,10 +39,13 @@ class HomeViewController: BasicViewController {
         
         super.viewDidLoad()
         
+        
         setupUI()
         
         deviceVM.viewController = self
         
+        
+       
         NotificationCenter.default.addObserver(self, selector: #selector(isRefreshUI), name: NOTIFY_HOMEVC_REFRESH, object: nil)
         addAdeviceView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addDevice)))
     
@@ -84,6 +89,9 @@ class HomeViewController: BasicViewController {
     @IBAction func openLock(_ sender: Any) {
         
         showPwdAlertView()
+        
+        let socket = KMWebSocket.sharedInstance()
+        socket.webSocketDelegate = self
     }
     
 }
@@ -102,11 +110,17 @@ extension HomeViewController {
             
             //webSocket链接
             let webSocket = KMWebSocket.sharedInstance()
+
             webSocket.connectSever()
             
+        
+           
+           
         }
         
         if let deviceID = UserSettings.shareInstance.getStringValue(key: UserSettings.DEVICE_ID){
+            
+            print(deviceID)
             
             homeView.isHidden = false
             addAdeviceView.isHidden = true
@@ -126,15 +140,37 @@ extension HomeViewController {
             
                 if let battery = self.deviceInfo.battery {
                     
-                    self.batteryLabel.text = String(battery)
+                    self.batteryLabel.text = String(battery) + "%"
                 }
                 self.statusLabel.text = (self.deviceInfo.online == 1) ? "正常运行" : "已离线"
                 self.typeLabel.text = self.deviceInfo.modelNumber
+                
+                if let signal = self.deviceInfo.signal {
+                    
+                    let name = "信号图标" + String((signal / 21)  + 1 )
+                    print(name)
+                    self.signalImageView.image  = UIImage.init(named: name)
+                }
+                
+                
+                
             }
         }else {
-        
+            
             homeView.isHidden = true
             addAdeviceView.isHidden = false
+            
+            deviceVM.getDeviceLists {
+                
+                if self.deviceVM.deviceInfo.deviceId != nil {
+                    
+                    UserSettings.shareInstance.setValue(key: UserSettings.DEVICE_ID, value: self.deviceVM.deviceInfo.deviceId)
+                     self.setupUI()
+                }
+
+            }
+            
+            
         }
         
     }
@@ -167,7 +203,8 @@ extension HomeViewController:PasswordAlertViewDelegate {
         
         alertView.removeFromSuperview()
         
-        guard  deviceInfo != nil  else {
+        guard  deviceInfo.deviceId != nil  else {
+            
             return
         }
     
@@ -177,4 +214,22 @@ extension HomeViewController:PasswordAlertViewDelegate {
         }
     }
 }
+
+
+extension HomeViewController:KMWebSocketDelegate{
+    
+    
+    func websocketDidReceiveMessage(socket: KMWebSocket, text: String) {
+        
+        
+        print(text)
+        
+        if let result = CommonResult<BaseMappable>(JSONString:text){
+            
+            Utils.showHUD(info: result.message)
+        }
+        
+    }
+}
+
 

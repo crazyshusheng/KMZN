@@ -13,7 +13,10 @@ class DeviceViewController: BasicViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var viewModel = DeviceListViewModel()
+    
     var dataList = [DeviceInfo]()
+    
+    var deviceInfo = DeviceInfo()
     
     
     override func viewDidLoad() {
@@ -54,6 +57,7 @@ extension DeviceViewController{
         tableView.dataSource = self
         tableView.register(UINib.init(nibName: "DeviceInfoCell", bundle: nil), forCellReuseIdentifier: KMDeviceCellID)
         tableView.tableFooterView = UIView()
+        tableView.emptyDataSetSource = self
     
     }
     
@@ -69,6 +73,16 @@ extension DeviceViewController{
     @objc func refreshDeviceUI(){
         
          loadData()
+    }
+    
+    
+    func showPwdAlertView(){
+        
+        let alertView = PasswordAlertView.init(frame: self.view.bounds)
+        let label = alertView.BGView.viewWithTag(10) as! UILabel
+        alertView.delegate = self
+        label.text = "验证管理员密码"
+        self.view.addSubview(alertView)
     }
     
 }
@@ -126,17 +140,30 @@ extension DeviceViewController: UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         
+        deviceInfo = dataList[indexPath.section]
         
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ManagerDeviceVC") as! ManagerDeviceViewController
-        vc.deviceID = dataList[indexPath.section].deviceId
-        vc.deviceInfo = dataList[indexPath.section]
-        navigationController?.pushViewController(vc, animated: true)
+        showPwdAlertView()
         
-        
+
     }
     
     
 }
 
+extension DeviceViewController:PasswordAlertViewDelegate {
+    
+    func passwordCompleteInAlertView(alertView: PasswordAlertView, password: String) {
+        
+        alertView.removeFromSuperview()
+        
+        self.viewModel.checkDeviceMangerPWD(deviceId: deviceInfo.deviceId, masterPassword: password) {
+            
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "ManagerDeviceVC") as! ManagerDeviceViewController
+            vc.deviceID = self.deviceInfo.deviceId
+            vc.deviceInfo = self.deviceInfo
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+}
 
 
