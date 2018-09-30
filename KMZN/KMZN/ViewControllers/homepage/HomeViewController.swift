@@ -44,7 +44,8 @@ class HomeViewController: BasicViewController {
         
         deviceVM.viewController = self
         
-        
+        let socket = KMWebSocket.sharedInstance()
+        socket.webSocketDelegate = self
        
         NotificationCenter.default.addObserver(self, selector: #selector(isRefreshUI), name: NOTIFY_HOMEVC_REFRESH, object: nil)
         addAdeviceView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addDevice)))
@@ -90,8 +91,7 @@ class HomeViewController: BasicViewController {
         
         showPwdAlertView()
         
-        let socket = KMWebSocket.sharedInstance()
-        socket.webSocketDelegate = self
+        
     }
     
 }
@@ -228,6 +228,16 @@ extension HomeViewController:KMWebSocketDelegate{
             
             Utils.showHUD(info: result.message)
         }
+        
+    }
+    
+    
+    func websocketDidConnect(sock: KMWebSocket){
+        
+        
+    }
+    
+    func websocketDidDisconnect(socket: KMWebSocket, error: Error?){
         
     }
 }

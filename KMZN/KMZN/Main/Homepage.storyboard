@@ -381,16 +381,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="573"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WAB-GZ-TkQ">
-                                        <rect key="frame" x="30" y="150" width="315" height="44"/>
+                                        <rect key="frame" x="30" y="100" width="315" height="44"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="OPB-fE-gdI"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PV3-eY-9dr" customClass="ButtonWithUpImage" customModule="KMZN" customModuleProvider="target">
                                         <rect key="frame" x="50" y="463" width="80" height="80"/>
@@ -416,6 +411,16 @@
                                             <color key="titleColor" red="0.90980392156862744" green="0.25882352941176467" blue="0.25882352941176467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="37T-pL-GdL">
+                                        <rect key="frame" x="106" y="30" width="163" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="v6O-6h-e8q"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="一次性密码"/>
+                                            <segment title="周期性密码"/>
+                                        </segments>
+                                    </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -424,9 +429,11 @@
                                     <constraint firstAttribute="trailing" secondItem="WAB-GZ-TkQ" secondAttribute="trailing" constant="30" id="RcE-3U-Qba"/>
                                     <constraint firstItem="WAB-GZ-TkQ" firstAttribute="centerX" secondItem="Xnf-ma-2B1" secondAttribute="centerX" id="aYD-L3-uD4"/>
                                     <constraint firstItem="WcB-T9-VrI" firstAttribute="centerY" secondItem="PV3-eY-9dr" secondAttribute="centerY" id="cjd-H3-bfE"/>
-                                    <constraint firstItem="WAB-GZ-TkQ" firstAttribute="top" secondItem="Xnf-ma-2B1" secondAttribute="top" constant="150" id="eMa-U9-5go"/>
+                                    <constraint firstItem="WAB-GZ-TkQ" firstAttribute="top" secondItem="Xnf-ma-2B1" secondAttribute="top" constant="100" id="eMa-U9-5go"/>
                                     <constraint firstItem="WAB-GZ-TkQ" firstAttribute="leading" secondItem="Xnf-ma-2B1" secondAttribute="leading" constant="30" id="kwA-sQ-N2O"/>
+                                    <constraint firstItem="37T-pL-GdL" firstAttribute="centerX" secondItem="Xnf-ma-2B1" secondAttribute="centerX" id="lep-iv-v0m"/>
                                     <constraint firstAttribute="bottom" secondItem="PV3-eY-9dr" secondAttribute="bottom" constant="30" id="rXH-5a-yfh"/>
+                                    <constraint firstItem="37T-pL-GdL" firstAttribute="top" secondItem="Xnf-ma-2B1" secondAttribute="top" constant="30" id="s8Z-EI-tIP"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -444,6 +451,7 @@
                     </view>
                     <connections>
                         <outlet property="pwdView" destination="WAB-GZ-TkQ" id="KIN-P0-O7h"/>
+                        <outlet property="segmentControl" destination="37T-pL-GdL" id="Ey3-nj-9ig"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iVL-go-lvs" userLabel="First Responder" sceneMemberID="firstResponder"/>

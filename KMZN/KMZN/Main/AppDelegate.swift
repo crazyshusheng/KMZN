@@ -63,6 +63,8 @@ extension AppDelegate {
         SVProgressHUD.setFadeOutAnimationDuration(0.5)
         SVProgressHUD.setDefaultStyle(.dark)
         SVProgressHUD.setBackgroundColor(UIColor.lightGray)
+        
+        HttpWrapper.shareInstance.reachability.startMonitoring()
     }
     
 }

@@ -49,7 +49,7 @@ extension AddPwdViewController{
         if type == 1{
             navigationItem.title = "添加密码"
             pwdLabel.text = "密码"
-            pwdTextField.placeholder = "输入密码"
+            pwdTextField.placeholder = "输入六位数字密码"
         }else if type == 4 {
             
             navigationItem.title = "添加成员"
@@ -79,7 +79,7 @@ extension AddPwdViewController{
             
             if(pwd.isEmpty || pwd.count != 6){
                 
-                Utils.showHUD(info:"请输入6位数密码")
+                Utils.showHUD(info:"密码为六位数字")
                 
                 return
             }

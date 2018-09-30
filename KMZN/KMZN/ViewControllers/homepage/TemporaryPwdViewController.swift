@@ -10,7 +10,8 @@ import UIKit
 
 class TemporaryPwdViewController: ThemeViewController {
     
-
+    @IBOutlet weak var segmentControl: UISegmentedControl!
+    
     @IBOutlet weak var pwdView: UIView!
     
     var textField:UITextField!
@@ -38,12 +39,13 @@ extension TemporaryPwdViewController{
         pwdView.layer.cornerRadius = 12
         pwdView.layer.borderWidth = 0.6
         pwdView.layer.borderColor = UIColor.gray.cgColor
-        
+
         for i in 0 ..< 6 {
             
             let pswLabel = UILabel.init(frame: CGRect.init(x: Int(pwdView.frame.size.width)/6 * i, y: 0, width: Int(pwdView.frame.size.width)/6, height: Int(pwdView.frame.size.height)))
             pswLabel.textAlignment = .center
             pswLabel.backgroundColor = UIColor.clear
+            pswLabel.textColor = THEME_BG_COLOR
             pswLabel.isUserInteractionEnabled = true
             pwdLabelArray.add(pswLabel)
             
@@ -58,20 +60,29 @@ extension TemporaryPwdViewController{
                 
             }
         }
-        
-        let textFiled = UITextField.init(frame: pwdView.frame)
-        textFiled.backgroundColor = UIColor.clear
+        textField = UITextField.init(frame: CGRect.init(x: 0, y: 0, width: pwdView.frame.size.width, height: pwdView.frame.size.height))
+        textField.backgroundColor = UIColor.clear
         //设置代理
-        textFiled.delegate = self
+        textField.delegate = self
         //监听编辑状态的变化
-        textFiled.addTarget(self, action: #selector(textFiledValueChanged(textField:)), for: .editingChanged)
-        textFiled.tintColor = UIColor.clear
-        textFiled.textColor = UIColor.clear
-        textFiled.becomeFirstResponder()
+        textField.addTarget(self, action: #selector(textFiledValueChanged(textField:)), for: .editingChanged)
+        textField.tintColor = UIColor.white
+        textField.textColor = UIColor.white
+        textField.becomeFirstResponder()
+        
         //设置键盘类型为数字键盘
-        textFiled.keyboardType = .numberPad
-        self.textField = textFiled
-        pwdView.addSubview(self.textField)
+        textField.keyboardType = .numberPad
+        pwdView.addSubview(textField)
+        
+        
+        segmentControl.layer.cornerRadius=20
+        segmentControl.tintColor = THEME_BG_COLOR
+        
+        segmentControl.addTarget(self, action: #selector(selectChange), for: UIControlEvents.valueChanged)
+        
+    }
+    
+    @objc func selectChange(){
         
         
     }
@@ -96,12 +107,14 @@ extension TemporaryPwdViewController{
             
             label.text = String(pwd[pwd.index(pwd.startIndex, offsetBy: i)])
         }
-        
-    
     }
     
     
-  
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        
+        self.textField.endEditing(true)
+    }
     
  
     

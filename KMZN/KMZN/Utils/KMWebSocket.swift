@@ -48,6 +48,11 @@ public class KMWebSocket:NSObject,WebSocketDelegate{
         
         if let token = UserSettings.shareInstance.getStringValue(key: UserSettings.TOKEN){
             
+            guard token.count > 0 else {
+                
+                return
+            }
+            
           let urlStr = WB_URL + "?token=\(token)"
           if let url = URL.init(string: urlStr){
             
