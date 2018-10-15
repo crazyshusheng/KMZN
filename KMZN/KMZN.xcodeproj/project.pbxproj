@@ -69,10 +69,14 @@
 		296C84AF2133EA6C008DC91A /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296C84AE2133EA6C008DC91A /* QRCodeViewController.swift */; };
 		2979D66C2106BE6E00FF0E44 /* CodeLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2979D66B2106BE6E00FF0E44 /* CodeLoginViewController.swift */; };
 		2979D66E2106BEAF00FF0E44 /* ResetPwdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2979D66D2106BEAF00FF0E44 /* ResetPwdViewController.swift */; };
+		298AAA11216C90BC003C671A /* TimeSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298AAA10216C90BC003C671A /* TimeSelectView.swift */; };
+		29994ABF216EFEF30023BD61 /* PwdDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29994ABE216EFEF30023BD61 /* PwdDetailViewController.swift */; };
+		29994AC3216EFF1B0023BD61 /* PwdListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29994AC2216EFF1B0023BD61 /* PwdListViewController.swift */; };
 		29B4AB7F2134ED3A003DE40B /* String-Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B4AB7E2134ED3A003DE40B /* String-Extras.swift */; };
 		29B4AB8321353D3C003DE40B /* HeartBeatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B4AB8221353D3C003DE40B /* HeartBeatViewModel.swift */; };
 		29BD6EA021465B1600109E02 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BD6E9F21465B1600109E02 /* AboutUsViewController.swift */; };
 		29BD6EA22146641700109E02 /* SystemSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BD6EA12146641700109E02 /* SystemSetupViewController.swift */; };
+		29C3A8AF21748FB3000FC25F /* TemporaryPWDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C3A8AE21748FB3000FC25F /* TemporaryPWDViewModel.swift */; };
 		29CB9AB4212E9BF300D4C33C /* KWAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CB9AB3212E9BF300D4C33C /* KWAlertView.swift */; };
 		29CB9AB6212E9F8600D4C33C /* DeviceListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CB9AB5212E9F8600D4C33C /* DeviceListViewModel.swift */; };
 		29FA980D2136721100EF28BF /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FA980C2136721100EF28BF /* BasicViewController.swift */; };
@@ -143,11 +147,15 @@
 		296C84AE2133EA6C008DC91A /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		2979D66B2106BE6E00FF0E44 /* CodeLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeLoginViewController.swift; sourceTree = "<group>"; };
 		2979D66D2106BEAF00FF0E44 /* ResetPwdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPwdViewController.swift; sourceTree = "<group>"; };
+		298AAA10216C90BC003C671A /* TimeSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSelectView.swift; sourceTree = "<group>"; };
+		29994ABE216EFEF30023BD61 /* PwdDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PwdDetailViewController.swift; sourceTree = "<group>"; };
+		29994AC2216EFF1B0023BD61 /* PwdListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PwdListViewController.swift; sourceTree = "<group>"; };
 		29B4AB7E2134ED3A003DE40B /* String-Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String-Extras.swift"; sourceTree = "<group>"; };
 		29B4AB802134EE96003DE40B /* KMZN-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KMZN-Bridging-Header.h"; sourceTree = "<group>"; };
 		29B4AB8221353D3C003DE40B /* HeartBeatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartBeatViewModel.swift; sourceTree = "<group>"; };
 		29BD6E9F21465B1600109E02 /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		29BD6EA12146641700109E02 /* SystemSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemSetupViewController.swift; sourceTree = "<group>"; };
+		29C3A8AE21748FB3000FC25F /* TemporaryPWDViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryPWDViewModel.swift; sourceTree = "<group>"; };
 		29CB9AB3212E9BF300D4C33C /* KWAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KWAlertView.swift; sourceTree = "<group>"; };
 		29CB9AB5212E9F8600D4C33C /* DeviceListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListViewModel.swift; sourceTree = "<group>"; };
 		29FA980C2136721100EF28BF /* BasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +186,7 @@
 				29623F88212AA85900CBE772 /* DeviceManagerCell.swift */,
 				29623F7A212A6C0600CBE772 /* PasswordAlertView.swift */,
 				29CB9AB3212E9BF300D4C33C /* KWAlertView.swift */,
+				298AAA10216C90BC003C671A /* TimeSelectView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -298,6 +307,8 @@
 				294E6BDE211AEE6800FEED8C /* HomeViewController.swift */,
 				290A46C5211BE27500D37A37 /* ChooseDeviceViewController.swift */,
 				290A46CC211C2E6600D37A37 /* TemporaryPwdViewController.swift */,
+				29994ABE216EFEF30023BD61 /* PwdDetailViewController.swift */,
+				29994AC2216EFF1B0023BD61 /* PwdListViewController.swift */,
 				290A46CE211C30DE00D37A37 /* UnlockRecordViewController.swift */,
 			);
 			path = homepage;
@@ -330,6 +341,7 @@
 				293439EC212C039D0022B4E0 /* AddPwdViewModel.swift */,
 				29B4AB8221353D3C003DE40B /* HeartBeatViewModel.swift */,
 				29FA980E21368A2A00EF28BF /* UserInfoViewModel.swift */,
+				29C3A8AE21748FB3000FC25F /* TemporaryPWDViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -527,10 +539,12 @@
 				296C84AB2133E0CB008DC91A /* DateTransform.swift in Sources */,
 				29623F7B212A6C0600CBE772 /* PasswordAlertView.swift in Sources */,
 				290A46D3211D3C9700D37A37 /* ButtonWithUpImage.swift in Sources */,
+				29994AC3216EFF1B0023BD61 /* PwdListViewController.swift in Sources */,
 				294EA7C421086F15007F9E5B /* RegisterViewModel.swift in Sources */,
 				290A46CD211C2E6600D37A37 /* TemporaryPwdViewController.swift in Sources */,
 				290A46E0211D896500D37A37 /* AddDeviceViewController.swift in Sources */,
 				296C84A92133D45B008DC91A /* ProductTypeInfo.swift in Sources */,
+				298AAA11216C90BC003C671A /* TimeSelectView.swift in Sources */,
 				29623F85212AA54E00CBE772 /* RecondListInfo.swift in Sources */,
 				290A46CF211C30DE00D37A37 /* UnlockRecordViewController.swift in Sources */,
 				29CB9AB6212E9F8600D4C33C /* DeviceListViewModel.swift in Sources */,
@@ -564,6 +578,7 @@
 				294EA7C82108744B007F9E5B /* Utils.swift in Sources */,
 				294EA7B621081C2F007F9E5B /* UserSettings.swift in Sources */,
 				290A46C4211BE1A400D37A37 /* ThemeViewController.swift in Sources */,
+				29C3A8AF21748FB3000FC25F /* TemporaryPWDViewModel.swift in Sources */,
 				29B4AB7F2134ED3A003DE40B /* String-Extras.swift in Sources */,
 				294075F42105C82C00ACECEB /* RegisterViewController.swift in Sources */,
 				290A46D8211D666A00D37A37 /* ManagerDeviceViewController.swift in Sources */,
@@ -574,6 +589,7 @@
 				294EA7BD21082724007F9E5B /* CommonResult.swift in Sources */,
 				29623F87212AA68700CBE772 /* PageRow.swift in Sources */,
 				2937410C212550C50086529E /* ManagerDetailViewController.swift in Sources */,
+				29994ABF216EFEF30023BD61 /* PwdDetailViewController.swift in Sources */,
 				290A46D6211D5E7B00D37A37 /* DeviceViewController.swift in Sources */,
 				294075D62105B10400ACECEB /* AppDelegate.swift in Sources */,
 				29B4AB8321353D3C003DE40B /* HeartBeatViewModel.swift in Sources */,

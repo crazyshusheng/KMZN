@@ -38,7 +38,8 @@ class Api{
     static let DEVICE_OPENLOCK = "/device/openLock" //远程开锁
     static let DEVICE_LOCK_RECORD = "/record/getLockRecord" //开锁记录查询
     static let DEVICE_ALERT_RECORD = "/record/getAlertRecord" //报警记录查询
-    
+    static let TEMPORARY_ONCE_PWD = "/pass/addTemporaryOncePassword"
+    static let TEMMPORARY_REPEAT_PWD = "/pass/addTemporaryRepeatPassword"
     
     static let DEVICE_GET_PASSLIST = "/pass/getPassList" //获取通行证(密码，指纹，卡)列表
     static let DEVICE_ADD_PWD = "/pass/addPassword" //添加密码
