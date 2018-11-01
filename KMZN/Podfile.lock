@@ -15,7 +15,25 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - DZNEmptyDataSet (1.8.1)
+  - JCore (1.2.5)
+  - JPush (3.1.1.1):
+    - JCore (~> 1.2.5)
   - Kingfisher (4.8.0)
+  - mob_sharesdk (4.2.0):
+    - mob_sharesdk/ShareSDK (= 4.2.0)
+    - MOBFoundation
+  - mob_sharesdk/ShareSDK (4.2.0):
+    - MOBFoundation
+  - mob_sharesdk/ShareSDKPlatforms/Copy (4.2.0):
+    - mob_sharesdk/ShareSDK
+    - MOBFoundation
+  - mob_sharesdk/ShareSDKPlatforms/SMS (4.2.0):
+    - mob_sharesdk/ShareSDK
+    - MOBFoundation
+  - mob_sharesdk/ShareSDKPlatforms/WeChat (4.2.0):
+    - mob_sharesdk/ShareSDK
+    - MOBFoundation
+  - MOBFoundation (3.1.9)
   - ObjectMapper (3.1.0)
   - Starscream (3.0.5)
   - SVProgressHUD (2.1.2)
@@ -23,7 +41,12 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - DZNEmptyDataSet
+  - JPush
   - Kingfisher
+  - mob_sharesdk
+  - mob_sharesdk/ShareSDKPlatforms/Copy
+  - mob_sharesdk/ShareSDKPlatforms/SMS
+  - mob_sharesdk/ShareSDKPlatforms/WeChat
   - ObjectMapper (~> 3.1.0)
   - Starscream
   - SVProgressHUD
@@ -31,11 +54,15 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  JCore: 14706de2640b25fb77dbd02332696491407f37c9
+  JPush: 25dd9013fbe106082c14f9f30a82364ee98852fb
   Kingfisher: 976d828df2b24834c6a3f2fc4d82cdbd26552be1
+  mob_sharesdk: fc8a9aab921c08e5e88a5b1f36229c6d406a2ff8
+  MOBFoundation: 11500153c10d83e4ac341f6ad6301b3998ce6db2
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   Starscream: faf918b2f2eff7d5dd21180646bf015a669673bd
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
 
-PODFILE CHECKSUM: 3630f3235e327d6c8b2eaca7228ac6fa63a66b7b
+PODFILE CHECKSUM: 42b8b4be10ebb0cf3da9989d9a5e949e4af37abc
 
 COCOAPODS: 1.3.0.rc.1

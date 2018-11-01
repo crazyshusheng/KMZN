@@ -10,5 +10,11 @@ target 'KMZN' do
  pod 'Starscream'
  pod 'Kingfisher' 
  pod 'DZNEmptyDataSet'
+ pod 'JPush'
+ 
+ pod 'mob_sharesdk'
+ pod 'mob_sharesdk/ShareSDKPlatforms/WeChat'
+ pod 'mob_sharesdk/ShareSDKPlatforms/Copy'
+ pod 'mob_sharesdk/ShareSDKPlatforms/SMS'
 
 end

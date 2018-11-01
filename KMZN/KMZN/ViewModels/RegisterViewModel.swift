@@ -83,7 +83,7 @@ class RegisterViewModel: BaseViewModel {
                     UserSettings.shareInstance.setValue(key: UserSettings.USER_PHOTO, value:avatar)
                 }
                 
-                
+                 JPUSHService.setAlias(String(result.resultData.userId), completion: nil, seq: 0)
                 
                 finishCallBack()
             }

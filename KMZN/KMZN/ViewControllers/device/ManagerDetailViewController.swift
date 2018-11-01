@@ -49,7 +49,7 @@ class ManagerDetailViewController: ThemeViewController {
             }
         }else{
             
-            viewModel.deletePasswordRecord(recordId: recordInfo.recordID, passId: recordInfo.passId, passType: recordInfo.passType, deviceId: recordInfo.deviceId) {
+            viewModel.deletePasswordRecord(recordId: recordInfo.recordID,deviceId:recordInfo.deviceId) {
                 
                  
             }
@@ -65,21 +65,26 @@ extension ManagerDetailViewController{
     
     func setupUI(){
         
-        nameLabel.text = recordInfo.name
+        if recordInfo.name != nil {
+            
+            nameLabel.text = recordInfo.name
+        }else{
+            
+            nameLabel.text = String(recordInfo.passId)
+        }
+        
+        
+        
+        
         detailLabel.text = (detailType == 4) ? String(recordInfo.userId) : recordInfo.password
         let webSocket = KMWebSocket.sharedInstance()
         webSocket.webSocketDelegate = self
         
-        if recordInfo.role == 0 {
-            
-            nameView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showAlertView)))
-            deleteButton.isHidden = false
-            
-        }else{
-            
-            deleteButton.isHidden = true
-        }
         
+        
+        nameView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showAlertView)))
+        deleteButton.isHidden = false
+  
       
         
         

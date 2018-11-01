@@ -14,7 +14,7 @@ class AddDeviceViewModel: BaseViewModel {
     lazy var lockInfo = LockDetailInfo()
     
     
-    func addDevice(imei:String,imsi:String,name:String,modelNumber:String, masterPassword:String,finishedCallback : @escaping () -> ()){
+    func addDevice(imei:String,imsi:String,name:String,modelNumber:String, finishedCallback : @escaping () -> ()){
     
          let param=NSMutableDictionary()
     
@@ -24,7 +24,7 @@ class AddDeviceViewModel: BaseViewModel {
          param.setValue(imsi, forKey: "imsi")
          param.setValue(name, forKey: "name")
          param.setValue(modelNumber, forKey: "modelNumber")
-         param.setValue(masterPassword, forKey: "masterPassword")
+        
     
           print(param)
     

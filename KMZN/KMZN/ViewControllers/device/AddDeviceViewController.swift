@@ -139,19 +139,11 @@ extension AddDeviceViewController {
             return
         }
         
-        if type == 1 {
+        viewModel.addDevice(imei: eiCode, imsi: siCode, name: name, modelNumber: productInfo.modelNumber) {
             
-            viewModel.checkDeviceBind(imei: eiCode) {
-                
-                self.showPwdAlertView()
-            }
-        }else if type == 2 {
-            
-            viewModel.addDevice(imei: eiCode, imsi: siCode, name: name, modelNumber: productInfo.modelNumber, masterPassword: pwd) {
-                
-                 self.navigationController?.popToRootViewController(animated: true)
-            }
+            self.navigationController?.popToRootViewController(animated: true)
         }
+    
         
     
         

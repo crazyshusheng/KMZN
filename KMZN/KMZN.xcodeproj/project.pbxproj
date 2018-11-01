@@ -20,6 +20,8 @@
 		290A46DC211D764400D37A37 /* ButtonWithRightImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290A46DB211D764400D37A37 /* ButtonWithRightImage.swift */; };
 		290A46DE211D846100D37A37 /* TypeDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290A46DD211D846100D37A37 /* TypeDeviceViewController.swift */; };
 		290A46E0211D896500D37A37 /* AddDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290A46DF211D896500D37A37 /* AddDeviceViewController.swift */; };
+		290B0966218045FE007D9ECC /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290B0965218045FE007D9ECC /* MessageViewController.swift */; };
+		290B096821804710007D9ECC /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290B096721804710007D9ECC /* MessageViewModel.swift */; };
 		290F351CD2545C033A4B6BC2 /* Pods_KMZN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95530961FAB0509454A37F5A /* Pods_KMZN.framework */; };
 		290FD08E2109675C00A615B4 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290FD08D2109675C00A615B4 /* UserInfo.swift */; };
 		293439EB212BEFF50022B4E0 /* ManagerDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293439EA212BEFF50022B4E0 /* ManagerDetailViewModel.swift */; };
@@ -63,12 +65,16 @@
 		29623F8B212AB5F800CBE772 /* AddPwdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29623F8A212AB5F800CBE772 /* AddPwdViewController.swift */; };
 		29623F8D212ABAD600CBE772 /* UnlockRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29623F8C212ABAD600CBE772 /* UnlockRecordViewModel.swift */; };
 		29623F8F212ABD8100CBE772 /* UnlockTypeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29623F8E212ABD8100CBE772 /* UnlockTypeInfo.swift */; };
+		2965A4B1217872FC005FB02C /* deviceActiveView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2965A4B0217872FC005FB02C /* deviceActiveView.xib */; };
+		2965A4B3217874E5005FB02C /* DeviceActiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2965A4B2217874E5005FB02C /* DeviceActiveView.swift */; };
+		2965A4B521787FBD005FB02C /* device_active.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2965A4B421787FBD005FB02C /* device_active.gif */; };
 		296C84A92133D45B008DC91A /* ProductTypeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296C84A82133D45B008DC91A /* ProductTypeInfo.swift */; };
-		296C84AB2133E0CB008DC91A /* DateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296C84AA2133E0CA008DC91A /* DateTransform.swift */; };
 		296C84AD2133E77C008DC91A /* LockDetailInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296C84AC2133E77C008DC91A /* LockDetailInfo.swift */; };
 		296C84AF2133EA6C008DC91A /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296C84AE2133EA6C008DC91A /* QRCodeViewController.swift */; };
+		29795DD1217D72B4004AB0E5 /* KMDataTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29795DD0217D72B4004AB0E5 /* KMDataTransform.swift */; };
 		2979D66C2106BE6E00FF0E44 /* CodeLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2979D66B2106BE6E00FF0E44 /* CodeLoginViewController.swift */; };
 		2979D66E2106BEAF00FF0E44 /* ResetPwdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2979D66D2106BEAF00FF0E44 /* ResetPwdViewController.swift */; };
+		297A2F29217D5DC900CF96CA /* TemporaryPwdInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297A2F28217D5DC900CF96CA /* TemporaryPwdInfo.swift */; };
 		298AAA11216C90BC003C671A /* TimeSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298AAA10216C90BC003C671A /* TimeSelectView.swift */; };
 		29994ABF216EFEF30023BD61 /* PwdDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29994ABE216EFEF30023BD61 /* PwdDetailViewController.swift */; };
 		29994AC3216EFF1B0023BD61 /* PwdListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29994AC2216EFF1B0023BD61 /* PwdListViewController.swift */; };
@@ -97,6 +103,8 @@
 		290A46DB211D764400D37A37 /* ButtonWithRightImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonWithRightImage.swift; sourceTree = "<group>"; };
 		290A46DD211D846100D37A37 /* TypeDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeDeviceViewController.swift; sourceTree = "<group>"; };
 		290A46DF211D896500D37A37 /* AddDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeviceViewController.swift; sourceTree = "<group>"; };
+		290B0965218045FE007D9ECC /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		290B096721804710007D9ECC /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
 		290FD08D2109675C00A615B4 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		293439EA212BEFF50022B4E0 /* ManagerDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerDetailViewModel.swift; sourceTree = "<group>"; };
 		293439EC212C039D0022B4E0 /* AddPwdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPwdViewModel.swift; sourceTree = "<group>"; };
@@ -141,12 +149,16 @@
 		29623F8A212AB5F800CBE772 /* AddPwdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPwdViewController.swift; sourceTree = "<group>"; };
 		29623F8C212ABAD600CBE772 /* UnlockRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockRecordViewModel.swift; sourceTree = "<group>"; };
 		29623F8E212ABD8100CBE772 /* UnlockTypeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockTypeInfo.swift; sourceTree = "<group>"; };
+		2965A4B0217872FC005FB02C /* deviceActiveView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = deviceActiveView.xib; sourceTree = "<group>"; };
+		2965A4B2217874E5005FB02C /* DeviceActiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActiveView.swift; sourceTree = "<group>"; };
+		2965A4B421787FBD005FB02C /* device_active.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = device_active.gif; sourceTree = "<group>"; };
 		296C84A82133D45B008DC91A /* ProductTypeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTypeInfo.swift; sourceTree = "<group>"; };
-		296C84AA2133E0CA008DC91A /* DateTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTransform.swift; sourceTree = "<group>"; };
 		296C84AC2133E77C008DC91A /* LockDetailInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockDetailInfo.swift; sourceTree = "<group>"; };
 		296C84AE2133EA6C008DC91A /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
+		29795DD0217D72B4004AB0E5 /* KMDataTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMDataTransform.swift; sourceTree = "<group>"; };
 		2979D66B2106BE6E00FF0E44 /* CodeLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeLoginViewController.swift; sourceTree = "<group>"; };
 		2979D66D2106BEAF00FF0E44 /* ResetPwdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPwdViewController.swift; sourceTree = "<group>"; };
+		297A2F28217D5DC900CF96CA /* TemporaryPwdInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryPwdInfo.swift; sourceTree = "<group>"; };
 		298AAA10216C90BC003C671A /* TimeSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSelectView.swift; sourceTree = "<group>"; };
 		29994ABE216EFEF30023BD61 /* PwdDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PwdDetailViewController.swift; sourceTree = "<group>"; };
 		29994AC2216EFF1B0023BD61 /* PwdListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PwdListViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +170,7 @@
 		29C3A8AE21748FB3000FC25F /* TemporaryPWDViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryPWDViewModel.swift; sourceTree = "<group>"; };
 		29CB9AB3212E9BF300D4C33C /* KWAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KWAlertView.swift; sourceTree = "<group>"; };
 		29CB9AB5212E9F8600D4C33C /* DeviceListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListViewModel.swift; sourceTree = "<group>"; };
+		29E8AEBA218AE5F100E33520 /* KMZN.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KMZN.entitlements; sourceTree = "<group>"; };
 		29FA980C2136721100EF28BF /* BasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
 		29FA980E21368A2A00EF28BF /* UserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
 		31000842390331D2A80109DA /* Pods-KMZN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KMZN.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KMZN/Pods-KMZN.debug.xcconfig"; sourceTree = "<group>"; };
@@ -187,6 +200,8 @@
 				29623F7A212A6C0600CBE772 /* PasswordAlertView.swift */,
 				29CB9AB3212E9BF300D4C33C /* KWAlertView.swift */,
 				298AAA10216C90BC003C671A /* TimeSelectView.swift */,
+				2965A4B0217872FC005FB02C /* deviceActiveView.xib */,
+				2965A4B2217874E5005FB02C /* DeviceActiveView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -228,6 +243,7 @@
 		294075D42105B10400ACECEB /* KMZN */ = {
 			isa = PBXGroup;
 			children = (
+				29E8AEBA218AE5F100E33520 /* KMZN.entitlements */,
 				294075E12105B10400ACECEB /* Info.plist */,
 				294EA7BE21082764007F9E5B /* Models */,
 				294EA7B121081226007F9E5B /* Utils */,
@@ -262,6 +278,7 @@
 			children = (
 				294075EA2105B6AA00ACECEB /* KMConstant.swift */,
 				294EA7B921081F6A007F9E5B /* Api.swift */,
+				2965A4B421787FBD005FB02C /* device_active.gif */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -307,8 +324,8 @@
 				294E6BDE211AEE6800FEED8C /* HomeViewController.swift */,
 				290A46C5211BE27500D37A37 /* ChooseDeviceViewController.swift */,
 				290A46CC211C2E6600D37A37 /* TemporaryPwdViewController.swift */,
-				29994ABE216EFEF30023BD61 /* PwdDetailViewController.swift */,
 				29994AC2216EFF1B0023BD61 /* PwdListViewController.swift */,
+				29994ABE216EFEF30023BD61 /* PwdDetailViewController.swift */,
 				290A46CE211C30DE00D37A37 /* UnlockRecordViewController.swift */,
 			);
 			path = homepage;
@@ -321,7 +338,7 @@
 				294EA7B521081C2F007F9E5B /* UserSettings.swift */,
 				294EA7B721081DF8007F9E5B /* HttpWrapper.swift */,
 				293741092123B9F60086529E /* KMWebSocket.swift */,
-				296C84AA2133E0CA008DC91A /* DateTransform.swift */,
+				29795DD0217D72B4004AB0E5 /* KMDataTransform.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -342,6 +359,7 @@
 				29B4AB8221353D3C003DE40B /* HeartBeatViewModel.swift */,
 				29FA980E21368A2A00EF28BF /* UserInfoViewModel.swift */,
 				29C3A8AE21748FB3000FC25F /* TemporaryPWDViewModel.swift */,
+				290B096721804710007D9ECC /* MessageViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -358,6 +376,7 @@
 				296C84AC2133E77C008DC91A /* LockDetailInfo.swift */,
 				29623F84212AA54E00CBE772 /* RecondListInfo.swift */,
 				29623F8E212ABD8100CBE772 /* UnlockTypeInfo.swift */,
+				297A2F28217D5DC900CF96CA /* TemporaryPwdInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -369,6 +388,7 @@
 				2961937D21211DF0006BA9F1 /* SettingUserViewController.swift */,
 				29BD6E9F21465B1600109E02 /* AboutUsViewController.swift */,
 				29BD6EA12146641700109E02 /* SystemSetupViewController.swift */,
+				290B0965218045FE007D9ECC /* MessageViewController.swift */,
 			);
 			path = userSetting;
 			sourceTree = "<group>";
@@ -427,6 +447,11 @@
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -457,6 +482,8 @@
 				294E6BDC211AEB6100FEED8C /* Setup.storyboard in Resources */,
 				294E6BD8211AE87900FEED8C /* Homepage.storyboard in Resources */,
 				294075E02105B10400ACECEB /* LaunchScreen.storyboard in Resources */,
+				2965A4B1217872FC005FB02C /* deviceActiveView.xib in Resources */,
+				2965A4B521787FBD005FB02C /* device_active.gif in Resources */,
 				294075DD2105B10400ACECEB /* Assets.xcassets in Resources */,
 				294E6BDA211AEB0200FEED8C /* Device.storyboard in Resources */,
 				294075DB2105B10400ACECEB /* Main.storyboard in Resources */,
@@ -472,9 +499,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-KMZN/Pods-KMZN-resources.sh",
+				"${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/Required/ShareSDK.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -536,7 +566,6 @@
 			files = (
 				2979D66E2106BEAF00FF0E44 /* ResetPwdViewController.swift in Sources */,
 				293439EB212BEFF50022B4E0 /* ManagerDetailViewModel.swift in Sources */,
-				296C84AB2133E0CB008DC91A /* DateTransform.swift in Sources */,
 				29623F7B212A6C0600CBE772 /* PasswordAlertView.swift in Sources */,
 				290A46D3211D3C9700D37A37 /* ButtonWithUpImage.swift in Sources */,
 				29994AC3216EFF1B0023BD61 /* PwdListViewController.swift in Sources */,
@@ -548,8 +577,10 @@
 				29623F85212AA54E00CBE772 /* RecondListInfo.swift in Sources */,
 				290A46CF211C30DE00D37A37 /* UnlockRecordViewController.swift in Sources */,
 				29CB9AB6212E9F8600D4C33C /* DeviceListViewModel.swift in Sources */,
+				2965A4B3217874E5005FB02C /* DeviceActiveView.swift in Sources */,
 				294EA7C0210827A0007F9E5B /* BaseMappable.swift in Sources */,
 				2954B8B7211E8D7600905ECD /* HeartBeatViewController.swift in Sources */,
+				290B0966218045FE007D9ECC /* MessageViewController.swift in Sources */,
 				294EA7B821081DF8007F9E5B /* HttpWrapper.swift in Sources */,
 				29623F7D212A717600CBE772 /* AddDeviceViewModel.swift in Sources */,
 				293439ED212C039D0022B4E0 /* AddPwdViewModel.swift in Sources */,
@@ -565,6 +596,7 @@
 				290A46DE211D846100D37A37 /* TypeDeviceViewController.swift in Sources */,
 				2954B8B5211E883800905ECD /* ManagerPWDViewController.swift in Sources */,
 				296C84AF2133EA6C008DC91A /* QRCodeViewController.swift in Sources */,
+				290B096821804710007D9ECC /* MessageViewModel.swift in Sources */,
 				2979D66C2106BE6E00FF0E44 /* CodeLoginViewController.swift in Sources */,
 				294075D82105B10400ACECEB /* StartViewController.swift in Sources */,
 				290A46D1211C310B00D37A37 /* UnlockRecordCell.swift in Sources */,
@@ -584,10 +616,12 @@
 				290A46D8211D666A00D37A37 /* ManagerDeviceViewController.swift in Sources */,
 				2961937C21211406006BA9F1 /* UserViewController.swift in Sources */,
 				29BD6EA021465B1600109E02 /* AboutUsViewController.swift in Sources */,
+				29795DD1217D72B4004AB0E5 /* KMDataTransform.swift in Sources */,
 				294075EB2105B6AA00ACECEB /* KMConstant.swift in Sources */,
 				290A46DC211D764400D37A37 /* ButtonWithRightImage.swift in Sources */,
 				294EA7BD21082724007F9E5B /* CommonResult.swift in Sources */,
 				29623F87212AA68700CBE772 /* PageRow.swift in Sources */,
+				297A2F29217D5DC900CF96CA /* TemporaryPwdInfo.swift in Sources */,
 				2937410C212550C50086529E /* ManagerDetailViewController.swift in Sources */,
 				29994ABF216EFEF30023BD61 /* PwdDetailViewController.swift in Sources */,
 				290A46D6211D5E7B00D37A37 /* DeviceViewController.swift in Sources */,
@@ -738,13 +772,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = KMZN/KMZN.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TKP3ERZA96;
 				INFOPLIST_FILE = KMZN/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.liveRadio.KMZN;
+				PRODUCT_BUNDLE_IDENTIFIER = com.enjoycare.hgzn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "KMZN/Extensions/KMZN-Bridging-Header.h";
@@ -760,13 +795,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = KMZN/KMZN.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TKP3ERZA96;
 				INFOPLIST_FILE = KMZN/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.liveRadio.KMZN;
+				PRODUCT_BUNDLE_IDENTIFIER = com.enjoycare.hgzn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "KMZN/Extensions/KMZN-Bridging-Header.h";

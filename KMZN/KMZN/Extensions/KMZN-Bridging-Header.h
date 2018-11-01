@@ -5,3 +5,12 @@
 #import <CommonCrypto/CommonDigest.h>
 
 #import <CommonCrypto/CommonHMAC.h>
+
+
+#include "JPUSHService.h"
+
+
+//ShareSDK
+#import <ShareSDK/ShareSDK.h>
+#import "WXApi.h"
+#import <ShareSDKConnector/ShareSDKConnector.h>

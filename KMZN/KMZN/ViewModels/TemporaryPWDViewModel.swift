@@ -11,6 +11,8 @@ import UIKit
 class TemporaryPWDViewModel: BaseViewModel {
     
     
+    var recordList = [TemporaryPwdInfo]()
+    
     func addTemporaryOncePassword(deviceId:String,masterPassword:String,password:String,finishedCallback : @escaping () -> ()){
         
         let param = NSMutableDictionary()
@@ -22,13 +24,13 @@ class TemporaryPWDViewModel: BaseViewModel {
         loadData(action: Api.TEMPORARY_ONCE_PWD, param: param) { (jsonStr) in
             
            
-            
+            finishedCallback()
         }
     }
     
     
     
-    func addTemporaryRepeatPassword(deviceId:String,masterPassword:String,password:String,beginTime:String,endTime:String,repeatWeek:String,name:String,finishedCallback : @escaping () -> ()){
+    func addTemporaryRepeatPassword(deviceId:String,masterPassword:String,password:String,beginTime:String,endTime:String,repeatWeek:String,name:String?,finishedCallback : @escaping () -> ()){
         
         let param = NSMutableDictionary()
         let pwdBeaginTime = beginTime + ":00"
@@ -41,13 +43,38 @@ class TemporaryPWDViewModel: BaseViewModel {
         param.setValue(repeatWeek, forKey: "repeatWeek")
         param.setValue(name, forKey: "name")
         
-        loadData(action: Api.TEMMPORARY_REPEAT_PWD, param: param) { (jsonStr) in
+        loadData(action: Api.TEMPORARY_REPEAT_PWD, param: param) { (jsonStr) in
             
             
-            
+            finishedCallback()
         }
     }
     
+    
+    func getTemporaryPasswordList(deviceId:String,temporaryType:String?,finishedCallback : @escaping () -> ()){
+        
+        let param = NSMutableDictionary()
+        
+        param.setValue(deviceId, forKey: "deviceId")
+        
+        if temporaryType != nil{
+            
+            param.setValue(temporaryType, forKey: "temporaryType")
+        }
+        
+        loadData(action: Api.TEMPORARY_LIST_PWD, param: param) { (jsonStr) in
+            
+            if let result = CommonResult<PageRow<TemporaryPwdInfo>>(JSONString: jsonStr){
+                
+                self.recordList = result.resultData.list
+                
+                
+                
+                finishedCallback()
+            }
+            
+        }
+    }
     
 
 }

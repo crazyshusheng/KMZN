@@ -17,13 +17,14 @@ class UnlockTypeInfo: BaseMappable {
     var operateId:Int!
     var operateType:Int!
     var time:String!
-    
+    var name:String!
     var alertType:Int!
     
     override func mapping(map: Map) {
         
         
         eventType <- map["eventType"]
+        name <- map["name"]
         recondID <- map["id"]
         operateId <- map["operateId"]
         operateType <- map["operateType"]

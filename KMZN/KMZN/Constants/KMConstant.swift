@@ -18,6 +18,9 @@ public let NAVIGATION_BAR_HEIGHT:CGFloat = IS_IPHONE_X ? 88 : 64
 public let DATE_FORMAT_YYYY_MM_DD="yyyy-MM-dd" //日期格式化
 public let DATE_FORMAT_YYYY_MM_DD_HH_MM="yyyy-MM-dd hh:mm" //日期格式化
 
+
+public var DEVICE_TOKEN:String! //设备通知码
+
 /**
  请求结果状态码
  */
@@ -34,7 +37,7 @@ public let RESULT_CODE_LOGIN_USER_STATUS_INVALID = -4// 用户状态异常（未
 
 
 public let UNLOCK_TYPE:Dictionary<String,String> = ["0":"命令开锁","1":"钥匙开锁","2":"指纹开锁","3":"IC卡开锁","4":"密码开锁"] //开锁类型
-public let ALERT_TYPE:Dictionary<String,String> = ["1":"低电压报警","2":"错误次数报警 ","3":"防撬报警"]
+public let ALERT_TYPE:Dictionary<String,String> = ["1":"低电压报警","2":"错误次数报警","3":"防撬报警"]
 
 //MARK: 通知常量
 

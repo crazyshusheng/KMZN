@@ -24,16 +24,24 @@ class UnlockRecordCell: UITableViewCell {
         
         didSet{
             
-            nameLabel.text = String(recordInfo.recondID)
+           
             timeLabel.text = recordInfo.time
             
             if recordInfo.operateType != nil {
                 
-                detLael.text = UNLOCK_TYPE[String(recordInfo.operateType)]
+                 detLael.text = recordInfo.name
+                
+                nameLabel.text = UNLOCK_TYPE[String(recordInfo.operateType)]
+                
+                
             }
             if recordInfo.alertType != nil {
                 
-                 detLael.text = ALERT_TYPE[String(recordInfo.alertType)]
+                
+                nameLabel.text = ALERT_TYPE[String(recordInfo.alertType)]
+                detLael.text = ""
+                photoImageView.image = UIImage.init(named: nameLabel.text!)
+                
             }
             
         }

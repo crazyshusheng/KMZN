@@ -550,8 +550,8 @@
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="oFs-3b-hpJ"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybu-WE-gEk">
-                                                <rect key="frame" x="15" y="13" width="14.5" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="详情" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybu-WE-gEk">
+                                                <rect key="frame" x="15" y="13" width="31" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -622,7 +622,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pc9-pj-vow" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1624.8" y="-249.62518740629687"/>
+            <point key="canvasLocation" x="1578" y="-256"/>
         </scene>
         <!--Add Pwd View Controller-->
         <scene sceneID="VLn-Z0-h9H">
@@ -933,7 +933,7 @@
         <image name="devcie_arrow" width="7" height="15"/>
         <image name="device_QR_code" width="18" height="18"/>
         <image name="device_add" width="40" height="40"/>
-        <image name="lock_icon" width="69" height="150"/>
+        <image name="lock_icon" width="73" height="149"/>
         <image name="密码管理" width="24" height="30"/>
         <image name="未选择" width="22" height="22"/>
         <image name="正常运行" width="178" height="178"/>

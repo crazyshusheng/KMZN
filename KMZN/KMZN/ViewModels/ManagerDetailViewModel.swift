@@ -13,20 +13,17 @@ class ManagerDetailViewModel: BaseViewModel {
     
 
     //删除通行证(密码，指纹，卡)列表
-    func deletePasswordRecord(recordId:Int,passId:Int,passType:Int,deviceId:String,finishCallback: @escaping() ->()) {
+    func deletePasswordRecord(recordId:Int,deviceId:String,finishCallback: @escaping() ->()) {
         
         let param=NSMutableDictionary()
         param.setValue(recordId, forKey: "id")
-        param.setValue(passId, forKey: "passId")
         param.setValue(deviceId, forKey: "deviceId")
-        param.setValue(passType, forKey: "passType")
         
-        
-        
-        
+     
+    
         loadData(action: Api.DEVICE_DELETE_PWD, param: param) { (jStr) in
             
-            if let result = CommonResult<BaseMappable>(JSONString:jStr){
+            if CommonResult<BaseMappable>(JSONString:jStr) != nil{
                 
                 finishCallback()
 

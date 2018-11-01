@@ -24,6 +24,12 @@ class Utils {
     }
     
     
+    class func getDateStr(date:Date,formatStr:String)->String {
+        
+        let format=DateFormatter()
+        format.dateFormat=formatStr
+        return format.string(from: date)
+    }
     
     // 日期类型格式化
     class func getDateStrFromTime(time:Int,formatStr:String="yyyy-MM-dd HH:mm:ss")->String {

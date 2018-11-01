@@ -86,6 +86,10 @@ extension AddPwdViewController{
             
             viewModel.addDevicePwd(deviceId: deviceID, name: name, password: pwd) {
                 
+                let vc = self.navigationController?.viewControllers[2] as? ManagerPWDViewController
+                vc?.isRefresh = true
+                
+                self.navigationController?.popViewController(animated: true)
             }
             
         }else if type == 4 {
@@ -129,6 +133,7 @@ extension AddPwdViewController:KMWebSocketDelegate{
         if let result = CommonResult<BaseMappable>(JSONString:text){
             
             Utils.showHUD(info: result.message)
+            
             let vc = self.navigationController?.viewControllers[2] as? ManagerPWDViewController
             vc?.isRefresh = true
         }

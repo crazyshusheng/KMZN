@@ -166,7 +166,10 @@ extension UserViewController: UITableViewDataSource,UITableViewDelegate{
       
         switch  (indexPath.section,indexPath.row) {
             
+        case (0,0):
             
+            let aboutVC = storyboard?.instantiateViewController(withIdentifier: "MessageVC") as! MessageViewController
+            navigationController?.pushViewController(aboutVC, animated: true)
             
         case (1,0):
             

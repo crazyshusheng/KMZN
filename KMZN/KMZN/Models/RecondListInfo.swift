@@ -13,7 +13,7 @@ import ObjectMapper
 class RecondListInfo: BaseMappable {
     
     
-    var createTime:Date!
+    var createTime:String!
     
     var deviceId:String!
     
@@ -41,7 +41,7 @@ class RecondListInfo: BaseMappable {
         passId <- map["passId"]
         passType <- map["passType"]
         status <- map["status"]
-        
+        createTime <- (map["createTime"])
     }
     
     

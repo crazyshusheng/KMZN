@@ -251,6 +251,74 @@
             </objects>
             <point key="canvasLocation" x="189.59999999999999" y="-297.30134932533736"/>
         </scene>
+        <!--通知消息-->
+        <scene sceneID="AQM-8Z-3QU">
+            <objects>
+                <viewController storyboardIdentifier="MessageVC" title="通知消息" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LTV-92-nGy" customClass="MessageViewController" customModule="KMZN" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SdK-ir-cCB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wEv-9y-PvO">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="message_cell" rowHeight="100" id="ocB-bz-H9L">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ocB-bz-H9L" id="Cdi-EL-wxr">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="系统通知" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4lr-Mo-I1c">
+                                                    <rect key="frame" x="20" y="16" width="57.5" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="前门在18:55通过临时密码打开" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1n-Ny-qsU">
+                                                    <rect key="frame" x="20" y="45" width="220.5" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018-08-23 17:55:12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUt-OP-vvg">
+                                                    <rect key="frame" x="236" y="78" width="129" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="MUt-OP-vvg" firstAttribute="trailing" secondItem="Cdi-EL-wxr" secondAttribute="trailingMargin" constant="5" id="4TG-7Q-1Y1"/>
+                                                <constraint firstItem="f1n-Ny-qsU" firstAttribute="leading" secondItem="Cdi-EL-wxr" secondAttribute="leadingMargin" constant="5" id="6Ec-2O-sey"/>
+                                                <constraint firstItem="4lr-Mo-I1c" firstAttribute="leading" secondItem="Cdi-EL-wxr" secondAttribute="leadingMargin" constant="5" id="DsH-bd-nq7"/>
+                                                <constraint firstItem="4lr-Mo-I1c" firstAttribute="top" secondItem="Cdi-EL-wxr" secondAttribute="topMargin" constant="5" id="PHF-Wi-XYE"/>
+                                                <constraint firstItem="f1n-Ny-qsU" firstAttribute="top" secondItem="4lr-Mo-I1c" secondAttribute="bottom" constant="12" id="bxQ-G5-Fhr"/>
+                                                <constraint firstItem="MUt-OP-vvg" firstAttribute="bottom" secondItem="Cdi-EL-wxr" secondAttribute="bottomMargin" constant="5" id="mNc-4j-VR8"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="wEv-9y-PvO" firstAttribute="leading" secondItem="g2f-oV-HVB" secondAttribute="leading" id="BpT-4w-7tf"/>
+                            <constraint firstItem="wEv-9y-PvO" firstAttribute="trailing" secondItem="g2f-oV-HVB" secondAttribute="trailing" id="Gph-Ny-9aa"/>
+                            <constraint firstItem="wEv-9y-PvO" firstAttribute="top" secondItem="SdK-ir-cCB" secondAttribute="top" id="LGX-1h-Mak"/>
+                            <constraint firstItem="wEv-9y-PvO" firstAttribute="bottom" secondItem="g2f-oV-HVB" secondAttribute="bottom" id="aAI-LG-EYK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="g2f-oV-HVB"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="wEv-9y-PvO" id="uP6-on-cB7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WKG-rw-kwA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="180" y="400.74962518740631"/>
+        </scene>
         <!--关于我们-->
         <scene sceneID="WDd-SX-CtN">
             <objects>

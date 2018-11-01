@@ -92,6 +92,22 @@ class DeviceInfoViewModel: BaseViewModel {
         
     }
     
+    // 验证开锁密码
+    func ckeckLockPassword(deviceID:String,masterPassword:String,finishedCallback : @escaping () -> ()){
+        
+        let param=NSMutableDictionary()
+        
+        param.setValue(deviceID, forKey: "deviceId")
+        param.setValue(masterPassword, forKey: "masterPassword")
+        
+        loadData(action: Api.TEMPORARY_CKECKLOCK_PWD, param: param) { (jsonStr) in
+            
+            finishedCallback()
+            
+        }
+        
+    }
+    
     
     // 删除设备
     func deleteDevice(deviceID:String,masterPassword:String,finishedCallback : @escaping () -> ()){

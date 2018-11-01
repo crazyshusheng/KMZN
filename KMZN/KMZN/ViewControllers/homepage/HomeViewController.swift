@@ -28,11 +28,13 @@ class HomeViewController: BasicViewController {
     
     @IBOutlet weak var signalImageView: UIImageView!
     
+    var activeView:UIView!
     
     var deviceVM =  DeviceInfoViewModel()
     
     var deviceInfo = DeviceInfo()
    
+    var alertType = 1
     
     override func viewDidLoad() {
        
@@ -74,23 +76,46 @@ class HomeViewController: BasicViewController {
     
     @IBAction func unlockRecord(_ sender: Any) {
         
-        guard deviceInfo.deviceId != nil  else {
-            
-            return
-        }
-        
     
         let recordVC = UIStoryboard.init(name: "Homepage", bundle: nil).instantiateViewController(withIdentifier: "UnlockRecordVC") as! UnlockRecordViewController
         recordVC.type = 1
-        recordVC.deviceID = deviceInfo.deviceId
+        
+        if let deviceId = deviceInfo.deviceId {
+            
+             recordVC.deviceID = deviceId
+        }
+       
         navigationController?.pushViewController(recordVC, animated: true)
     }
+    
+    @IBAction func creatTemporaryPwd(_ sender: Any) {
+        
+        alertType = 2
+        showPwdAlertView()
+        
+      
+    }
+    
+    @IBAction func showAlertList(_ sender: Any) {
+        
+        let recordVC = UIStoryboard.init(name: "Homepage", bundle: nil).instantiateViewController(withIdentifier: "UnlockRecordVC") as! UnlockRecordViewController
+        recordVC.type = 2
+        if let deviceId = deviceInfo.deviceId {
+            
+            recordVC.deviceID = deviceId
+        }
+        navigationController?.pushViewController(recordVC, animated: true)
+        
+        
+    }
+    
     
     
     @IBAction func openLock(_ sender: Any) {
         
+        alertType = 1
         showPwdAlertView()
-        
+      
         
     }
     
@@ -181,7 +206,7 @@ extension HomeViewController {
         
         let pswAlertView = PasswordAlertView.init(frame: self.view.bounds)
         let label = pswAlertView.BGView.viewWithTag(10) as! UILabel
-        label.text = "验证管理员密码"
+        label.text = "输入开锁密码"
         pswAlertView.delegate = self
         self.view.addSubview(pswAlertView)
         
@@ -203,15 +228,40 @@ extension HomeViewController:PasswordAlertViewDelegate {
         
         alertView.removeFromSuperview()
         
-        guard  deviceInfo.deviceId != nil  else {
+        
+        
+        if alertType == 1 {
             
-            return
+            
+            guard  deviceInfo.deviceId != nil  else {
+    
+                return
+            }
+            
+            self.deviceVM.openLock(deviceID: self.deviceInfo.deviceId, masterPassword: password) {
+                
+                //显示激活设备
+                 self.activeView = Bundle.main.loadNibNamed("deviceActiveView", owner: nil, options: nil)!.first as! DeviceActiveView
+                 self.activeView.frame = self.view.frame
+                 self.view.addSubview(self.activeView)
+            }
+            
+        }else if  alertType == 2{
+            
+            //验证开锁密码
+            
+            self.deviceVM.ckeckLockPassword(deviceID: self.deviceInfo.deviceId, masterPassword: password) {
+                
+                
+                let pwdVC = UIStoryboard.init(name: "Homepage", bundle: nil).instantiateViewController(withIdentifier: "TemporaryPwdVC") as! TemporaryPwdViewController
+                pwdVC.deviceID = self.deviceInfo.deviceId
+                pwdVC.lockPwd = password
+                self.navigationController?.pushViewController(pwdVC, animated: true)
+            }
+            
         }
     
-        self.deviceVM.openLock(deviceID: self.deviceInfo.deviceId, masterPassword: password) {
-            
-            
-        }
+        
     }
 }
 
@@ -223,6 +273,11 @@ extension HomeViewController:KMWebSocketDelegate{
         
         
         print(text)
+        
+        if activeView != nil {
+            
+            activeView.removeFromSuperview()
+        }
         
         if let result = CommonResult<BaseMappable>(JSONString:text){
             
