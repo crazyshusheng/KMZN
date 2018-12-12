@@ -21,6 +21,9 @@ class TemporaryPWDViewModel: BaseViewModel {
         param.setValue(masterPassword, forKey: "masterPassword")
         param.setValue(password, forKey: "password")
         
+         Utils.showStatus(info: "加载中...")
+        
+        
         loadData(action: Api.TEMPORARY_ONCE_PWD, param: param) { (jsonStr) in
             
            
@@ -42,6 +45,8 @@ class TemporaryPWDViewModel: BaseViewModel {
         param.setValue(pwdEndTime, forKey: "passwordEndTime")
         param.setValue(repeatWeek, forKey: "repeatWeek")
         param.setValue(name, forKey: "name")
+        
+         Utils.showStatus(info: "加载中...")
         
         loadData(action: Api.TEMPORARY_REPEAT_PWD, param: param) { (jsonStr) in
             

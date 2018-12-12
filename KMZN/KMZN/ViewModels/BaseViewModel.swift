@@ -23,14 +23,17 @@ extension BaseViewModel {
     
     func loadData(action:String,param:NSMutableDictionary?,loadSuccess:@escaping (String)->()){
         
+       
+        
         HttpWrapper.shareInstance.post(action: BASE_URL.appending(action), param: param, loadSuccess: { (resultData) in
+            
+            
             
             print(resultData)
             
              //json转对象
             if let result = CommonResult<BaseMappable>(JSONString:resultData){
             
-                
                 if result.success {
                   
                     loadSuccess(resultData)

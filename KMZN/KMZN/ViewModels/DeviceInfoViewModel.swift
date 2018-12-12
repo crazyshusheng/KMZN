@@ -117,7 +117,7 @@ class DeviceInfoViewModel: BaseViewModel {
         param.setValue(deviceID, forKey: "deviceId")
         param.setValue(masterPassword, forKey: "masterPassword")
         
-        loadData(action: Api.DEVICE_OPENLOCK, param: param) { (jsonStr) in
+        loadData(action: Api.DEVICE_DELETE_DEIVCE, param: param) { (jsonStr) in
             
             finishedCallback()
             

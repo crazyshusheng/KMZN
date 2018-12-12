@@ -73,7 +73,7 @@ extension TypeDeviceViewController: UITableViewDataSource,UITableViewDelegate{
             
             imageView?.kf.setImage(with: URL.init(string: dataList[indexPath.row].image))
             
-            (cell?.viewWithTag(11) as? UILabel)?.text = "型号" + dataList[indexPath.row].modelNumber
+            (cell?.viewWithTag(11) as? UILabel)?.text = "型号：" + dataList[indexPath.row].modelNumber
         }
         
     
@@ -91,11 +91,7 @@ extension TypeDeviceViewController: UITableViewDataSource,UITableViewDelegate{
         return dataList.count
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
-        return 15
-    }
-    
+
 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

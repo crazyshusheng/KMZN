@@ -77,7 +77,9 @@ class UserSettings{
     
        userDefaults.setValue(false, forKey: UserSettings.IS_LOGIN)
     
-       JPUSHService.setAlias("", completion: nil, seq: 0)
+        JPUSHService.deleteAlias(nil, seq: 0)
+            
+    
        
     }
     

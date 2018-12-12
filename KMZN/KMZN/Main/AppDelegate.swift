@@ -59,6 +59,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        
+        // 清除通知栏和角标
+        application.applicationIconBadgeNumber = 0
+        application.cancelAllLocalNotifications()
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -173,8 +177,9 @@ extension AppDelegate {
         SVProgressHUD.setDefaultMaskType(.none)
         SVProgressHUD.setMinimumDismissTimeInterval(2)
         SVProgressHUD.setFadeOutAnimationDuration(0.5)
-        SVProgressHUD.setDefaultStyle(.dark)
-        SVProgressHUD.setBackgroundColor(UIColor.lightGray)
+        SVProgressHUD.setDefaultStyle(.light)
+        SVProgressHUD.setBackgroundColor(UIColor.darkText)
+        SVProgressHUD.setForegroundColor(UIColor.white)
         
         HttpWrapper.shareInstance.reachability.startMonitoring()
     }

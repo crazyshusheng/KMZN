@@ -17,16 +17,22 @@ class LoginViewController: ThemeViewController {
     var registerVM = RegisterViewModel()
     
     
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
     override func viewWillDisappear(_ animated: Bool) {
         
-        //去掉返回按钮文字
-        self.navigationItem.backBarButtonItem = UIBarButtonItem.init(title: "", style: .plain, target: self, action: nil)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
 
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        setupViews()
         setDefautValue()
         // Do any additional setup after loading the view.
     }
@@ -48,6 +54,25 @@ class LoginViewController: ThemeViewController {
 }
 
 extension LoginViewController{
+    
+    
+    
+    func setupViews(){
+        
+        
+        
+        //去掉返回按钮文字
+        self.navigationItem.backBarButtonItem = UIBarButtonItem.init(title: "", style: .plain, target: self, action: nil)
+        
+        //返回按钮颜色
+        self.navigationController?.navigationBar.tintColor = UIColor.black
+        
+        //修改导航栏背景色
+        self.navigationController?.navigationBar.barTintColor = UIColor.white
+        
+        //消除阴影
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+    }
     
     
     
@@ -98,6 +123,22 @@ extension LoginViewController{
            NotificationCenter.default.post(name: NOTIFY_SETTING_DEVICE, object: self)
             
            self.dismiss(animated: true, completion: nil)
+            
+          
+            
+            
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(UInt64(5)*NSEC_PER_SEC))/Double(NSEC_PER_SEC)) {
+                
+                if let userID =  UserSettings.shareInstance.getUserID() {
+                    
+                    JPUSHService.setAlias(String(userID), completion: nil, seq: 1)
+                    
+                }
+            }
+            
+       
+            
            self.navigationController?.popToRootViewController(animated: true)
             
         }

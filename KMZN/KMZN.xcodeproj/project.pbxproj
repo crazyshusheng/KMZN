@@ -29,7 +29,6 @@
 		2937410A2123B9F60086529E /* KMWebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293741092123B9F60086529E /* KMWebSocket.swift */; };
 		2937410C212550C50086529E /* ManagerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2937410B212550C50086529E /* ManagerDetailViewController.swift */; };
 		294075D62105B10400ACECEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294075D52105B10400ACECEB /* AppDelegate.swift */; };
-		294075D82105B10400ACECEB /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294075D72105B10400ACECEB /* StartViewController.swift */; };
 		294075DB2105B10400ACECEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 294075D92105B10400ACECEB /* Main.storyboard */; };
 		294075DD2105B10400ACECEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 294075DC2105B10400ACECEB /* Assets.xcassets */; };
 		294075E02105B10400ACECEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 294075DE2105B10400ACECEB /* LaunchScreen.storyboard */; };
@@ -85,6 +84,8 @@
 		29C3A8AF21748FB3000FC25F /* TemporaryPWDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C3A8AE21748FB3000FC25F /* TemporaryPWDViewModel.swift */; };
 		29CB9AB4212E9BF300D4C33C /* KWAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CB9AB3212E9BF300D4C33C /* KWAlertView.swift */; };
 		29CB9AB6212E9F8600D4C33C /* DeviceListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CB9AB5212E9F8600D4C33C /* DeviceListViewModel.swift */; };
+		29DB6F2E219BC9A800EBD141 /* MessageListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DB6F2D219BC9A800EBD141 /* MessageListCell.swift */; };
+		29DB6F30219BCA6800EBD141 /* MessageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DB6F2F219BCA6800EBD141 /* MessageInfo.swift */; };
 		29FA980D2136721100EF28BF /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FA980C2136721100EF28BF /* BasicViewController.swift */; };
 		29FA980F21368A2A00EF28BF /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FA980E21368A2A00EF28BF /* UserInfoViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -112,7 +113,6 @@
 		2937410B212550C50086529E /* ManagerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerDetailViewController.swift; sourceTree = "<group>"; };
 		294075D22105B10400ACECEB /* KMZN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KMZN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		294075D52105B10400ACECEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		294075D72105B10400ACECEB /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		294075DA2105B10400ACECEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		294075DC2105B10400ACECEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		294075DF2105B10400ACECEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -170,6 +170,8 @@
 		29C3A8AE21748FB3000FC25F /* TemporaryPWDViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryPWDViewModel.swift; sourceTree = "<group>"; };
 		29CB9AB3212E9BF300D4C33C /* KWAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KWAlertView.swift; sourceTree = "<group>"; };
 		29CB9AB5212E9F8600D4C33C /* DeviceListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListViewModel.swift; sourceTree = "<group>"; };
+		29DB6F2D219BC9A800EBD141 /* MessageListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListCell.swift; sourceTree = "<group>"; };
+		29DB6F2F219BCA6800EBD141 /* MessageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInfo.swift; sourceTree = "<group>"; };
 		29E8AEBA218AE5F100E33520 /* KMZN.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KMZN.entitlements; sourceTree = "<group>"; };
 		29FA980C2136721100EF28BF /* BasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
 		29FA980E21368A2A00EF28BF /* UserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				298AAA10216C90BC003C671A /* TimeSelectView.swift */,
 				2965A4B0217872FC005FB02C /* deviceActiveView.xib */,
 				2965A4B2217874E5005FB02C /* DeviceActiveView.swift */,
+				29DB6F2D219BC9A800EBD141 /* MessageListCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -309,9 +312,8 @@
 		294075F22105C7E800ACECEB /* login&register */ = {
 			isa = PBXGroup;
 			children = (
-				294075D72105B10400ACECEB /* StartViewController.swift */,
-				294075F32105C82C00ACECEB /* RegisterViewController.swift */,
 				294075F52105C84700ACECEB /* LoginViewController.swift */,
+				294075F32105C82C00ACECEB /* RegisterViewController.swift */,
 				2979D66B2106BE6E00FF0E44 /* CodeLoginViewController.swift */,
 				2979D66D2106BEAF00FF0E44 /* ResetPwdViewController.swift */,
 			);
@@ -377,6 +379,7 @@
 				29623F84212AA54E00CBE772 /* RecondListInfo.swift */,
 				29623F8E212ABD8100CBE772 /* UnlockTypeInfo.swift */,
 				297A2F28217D5DC900CF96CA /* TemporaryPwdInfo.swift */,
+				29DB6F2F219BCA6800EBD141 /* MessageInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -569,6 +572,7 @@
 				29623F7B212A6C0600CBE772 /* PasswordAlertView.swift in Sources */,
 				290A46D3211D3C9700D37A37 /* ButtonWithUpImage.swift in Sources */,
 				29994AC3216EFF1B0023BD61 /* PwdListViewController.swift in Sources */,
+				29DB6F30219BCA6800EBD141 /* MessageInfo.swift in Sources */,
 				294EA7C421086F15007F9E5B /* RegisterViewModel.swift in Sources */,
 				290A46CD211C2E6600D37A37 /* TemporaryPwdViewController.swift in Sources */,
 				290A46E0211D896500D37A37 /* AddDeviceViewController.swift in Sources */,
@@ -596,9 +600,9 @@
 				290A46DE211D846100D37A37 /* TypeDeviceViewController.swift in Sources */,
 				2954B8B5211E883800905ECD /* ManagerPWDViewController.swift in Sources */,
 				296C84AF2133EA6C008DC91A /* QRCodeViewController.swift in Sources */,
+				29DB6F2E219BC9A800EBD141 /* MessageListCell.swift in Sources */,
 				290B096821804710007D9ECC /* MessageViewModel.swift in Sources */,
 				2979D66C2106BE6E00FF0E44 /* CodeLoginViewController.swift in Sources */,
-				294075D82105B10400ACECEB /* StartViewController.swift in Sources */,
 				290A46D1211C310B00D37A37 /* UnlockRecordCell.swift in Sources */,
 				29623F83212A9CB900CBE772 /* RecordListViewModel.swift in Sources */,
 				290A46C6211BE27500D37A37 /* ChooseDeviceViewController.swift in Sources */,

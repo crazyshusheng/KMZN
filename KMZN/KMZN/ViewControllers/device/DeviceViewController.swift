@@ -56,7 +56,7 @@ extension DeviceViewController{
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib.init(nibName: "DeviceInfoCell", bundle: nil), forCellReuseIdentifier: KMDeviceCellID)
-        tableView.tableFooterView = UIView()
+        tableView.separatorStyle = .none //去掉cell的分界线
         tableView.emptyDataSetSource = self
     
     }

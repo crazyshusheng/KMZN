@@ -17,9 +17,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock_icon" translatesAutoresizingMaskIntoConstraints="NO" id="j8p-Ae-gGk">
-                    <rect key="frame" x="35" y="10" width="60" height="150"/>
+                    <rect key="frame" x="35" y="15" width="60" height="140"/>
                     <constraints>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="rTe-ie-0Wq"/>
                         <constraint firstAttribute="width" constant="60" id="tmD-58-EoM"/>
                     </constraints>
                 </imageView>
@@ -49,11 +48,13 @@
                 <constraint firstItem="xJy-8H-XAJ" firstAttribute="trailing" secondItem="YJ9-Rw-qdn" secondAttribute="trailing" constant="100" id="0JJ-zt-eHf"/>
                 <constraint firstItem="UQ8-ZF-o2K" firstAttribute="leading" secondItem="j8p-Ae-gGk" secondAttribute="trailing" constant="50" id="9Nn-47-E5N"/>
                 <constraint firstItem="YJ9-Rw-qdn" firstAttribute="centerY" secondItem="j8p-Ae-gGk" secondAttribute="centerY" id="LRz-Zo-iWN"/>
+                <constraint firstItem="xJy-8H-XAJ" firstAttribute="bottom" secondItem="j8p-Ae-gGk" secondAttribute="bottom" constant="15" id="MYn-kA-cBv"/>
                 <constraint firstItem="j8p-Ae-gGk" firstAttribute="centerY" secondItem="xJy-8H-XAJ" secondAttribute="centerY" id="abZ-qh-Jja"/>
                 <constraint firstItem="rMh-0F-ICL" firstAttribute="leading" secondItem="YJ9-Rw-qdn" secondAttribute="trailing" constant="10" id="gsS-n5-H59"/>
                 <constraint firstItem="j8p-Ae-gGk" firstAttribute="leading" secondItem="xJy-8H-XAJ" secondAttribute="leading" constant="35" id="ijq-88-QIJ"/>
                 <constraint firstItem="UQ8-ZF-o2K" firstAttribute="centerY" secondItem="j8p-Ae-gGk" secondAttribute="centerY" id="pqO-W6-zN5"/>
                 <constraint firstItem="rMh-0F-ICL" firstAttribute="centerY" secondItem="YJ9-Rw-qdn" secondAttribute="centerY" id="syD-6Q-hph"/>
+                <constraint firstItem="j8p-Ae-gGk" firstAttribute="top" secondItem="xJy-8H-XAJ" secondAttribute="top" constant="15" id="wlk-Ix-tle"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="xJy-8H-XAJ"/>
@@ -75,6 +76,6 @@
     <resources>
         <image name="devcie_online" width="8" height="8"/>
         <image name="device_offline" width="8" height="8"/>
-        <image name="lock_icon" width="69" height="150"/>
+        <image name="lock_icon" width="73" height="149"/>
     </resources>
 </document>

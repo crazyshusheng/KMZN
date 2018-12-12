@@ -222,7 +222,7 @@ class PasswordAlertView: UIView,UITextFieldDelegate {
         
         let userInfos = Info.userInfo![UIKeyboardFrameEndUserInfoKey]
         let heigh = ((userInfos as AnyObject).cgRectValue.size.height)
-        self.BGView.center = CGPoint.init(x: self.BGView.center.x , y:ScreenH - heigh - self.BGView.frame.size.height/2 - 10)
+        self.BGView.center = CGPoint.init(x: self.BGView.center.x , y:self.frame.size.height - heigh - self.BGView.frame.size.height/2 - 10)
     }
     
     @objc func keyBoardWillHide(Info:NSNotification) {

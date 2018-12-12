@@ -14,11 +14,14 @@ class MessageViewController: ThemeViewController {
     
     fileprivate var viewModel = MessageViewModel()
     
+    fileprivate var dataList = [MessageInfo]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         viewModel.getMessagePushRecord{
             
+            self.dataList = self.viewModel.messageList
             self.tableView.reloadData()
         }
         // Do any additional setup after loading the view.
@@ -58,23 +61,34 @@ extension MessageViewController: UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "message_cell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "message_cell") as! MessageListCell
         
-       
+        cell.selectionStyle = .none
+        
+        if dataList.count > 0 {
+            
+            cell.messageInfo = dataList[indexPath.row]
+        }
         
         
-        
-        return cell!
+        return cell
         
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 3
+        return dataList.count
         
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        viewModel.getMessageDetail(recordId: dataList[indexPath.row].recordId) {
+            
+            self.dataList[indexPath.row].isCheck = "Y"
+            let indexpath = IndexPath.init(row: indexPath.row, section: indexPath.section)
+            self.tableView.reloadRows(at: [indexpath], with: .automatic)
+        }
         
     }
     

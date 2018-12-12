@@ -45,13 +45,15 @@ class ManagerDetailViewController: ThemeViewController {
             
             viewModel.deleteUserDevice(deviceId: recordInfo.deviceId, userId: recordInfo.userId) {
                 
-                
+                Utils.showHUD(info: "命令下发成功")
+                self.navigationController?.popViewController(animated: true)
             }
         }else{
             
             viewModel.deletePasswordRecord(recordId: recordInfo.recordID,deviceId:recordInfo.deviceId) {
                 
-                 
+                 Utils.showHUD(info: "命令下发成功")
+                 self.navigationController?.popViewController(animated: true)
             }
             
         }

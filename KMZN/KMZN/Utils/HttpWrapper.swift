@@ -17,6 +17,7 @@ class HttpWrapper {
     var manager:AFHTTPSessionManager!
     var reachability:AFNetworkReachabilityManager!
     var cookies:String!
+    
     private init(){
         manager = AFHTTPSessionManager()
         manager.responseSerializer=AFHTTPResponseSerializer()

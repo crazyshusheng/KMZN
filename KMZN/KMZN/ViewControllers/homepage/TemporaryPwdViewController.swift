@@ -47,6 +47,13 @@ class TemporaryPwdViewController: ThemeViewController {
     }
 
     
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(true)
+        
+        Utils.hiddleHUD()
+    }
+    
     
     @IBAction func setupPassword(_ sender: Any) {
         
@@ -54,7 +61,7 @@ class TemporaryPwdViewController: ThemeViewController {
         
         if pwd.isEmpty || pwd.count < 6 {
             
-            Utils.showHUD(info: "输入6~10位开锁密码")
+            Utils.showHUD(info: "输入6位开锁密码")
             return
         }
         
@@ -121,9 +128,9 @@ extension TemporaryPwdViewController{
         pwdView.layer.borderWidth = 0.6
         pwdView.layer.borderColor = UIColor.gray.cgColor
 
-        for i in 0 ..< 10{
+        for i in 0 ..< 6{
             
-            let pswLabel = UILabel.init(frame: CGRect.init(x: Int(pwdView.frame.size.width)/10 * i, y: 0, width: Int(pwdView.frame.size.width)/10, height: Int(pwdView.frame.size.height)))
+            let pswLabel = UILabel.init(frame: CGRect.init(x: Int(pwdView.frame.size.width)/6 * i, y: 0, width: Int(pwdView.frame.size.width)/6, height: Int(pwdView.frame.size.height)))
             pswLabel.textAlignment = .center
             pswLabel.backgroundColor = UIColor.clear
             pswLabel.textColor = THEME_BG_COLOR
@@ -138,7 +145,7 @@ extension TemporaryPwdViewController{
         textField.backgroundColor = UIColor.clear
         //设置代理
         textField.delegate = self
-        textField.placeholder = "密码为6~10数字"
+        textField.placeholder = "密码为6位数字"
         textField.textAlignment = .center
         textField.font = UIFont.systemFont(ofSize: 13)
         //监听编辑状态的变化
@@ -174,7 +181,8 @@ extension TemporaryPwdViewController{
             button.clipsToBounds = true
             button.setTitleColor(UIColor.colorWithCustom(r: 0x99, g: 0x99, b: 0x99), for: .normal)
             button.setTitleColor(THEME_BG_COLOR, for: .selected)
-            
+            button.layer.borderColor = THEME_BG_COLOR.cgColor
+            button.isSelected = true
             button.addTarget(self, action: #selector(weekDaySelected(sender:)), for: UIControlEvents.touchUpInside)
             weekDays.append(button)
         }
@@ -239,7 +247,7 @@ extension TemporaryPwdViewController{
         let pwd = textField.text!
         
         
-        guard  pwd.count <= 10 else {
+        guard  pwd.count <= 6 else {
             
             return
         }
@@ -300,7 +308,7 @@ extension TemporaryPwdViewController:UITextFieldDelegate{
    
         if string.count == 0 {//判断是是否为删除键
             return true
-        }else if (textField.text?.count)! >= 10 {
+        }else if (textField.text?.count)! >= 6 {
             //当输入的密码大于等于6位后就忽略
             return false
         } else {

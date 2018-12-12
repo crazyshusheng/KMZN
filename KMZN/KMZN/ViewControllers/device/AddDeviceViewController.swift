@@ -141,6 +141,9 @@ extension AddDeviceViewController {
         
         viewModel.addDevice(imei: eiCode, imsi: siCode, name: name, modelNumber: productInfo.modelNumber) {
             
+            
+             NotificationCenter.default.post(name: NOTIFY_DEVICEVC_DEVICE, object: self)
+            
             self.navigationController?.popToRootViewController(animated: true)
         }
     

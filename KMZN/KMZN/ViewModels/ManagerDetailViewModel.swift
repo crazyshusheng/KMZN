@@ -44,6 +44,7 @@ class ManagerDetailViewModel: BaseViewModel {
         loadData(action: Api.DEVICE_DELETE_DEVICE, param: param) { (jStr) in
             
             finishCallback()
+            
            
         }
         

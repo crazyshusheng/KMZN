@@ -34,6 +34,14 @@ class AddPwdViewController: ThemeViewController {
         addPassword()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(true)
+        
+        Utils.hiddleHUD()
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

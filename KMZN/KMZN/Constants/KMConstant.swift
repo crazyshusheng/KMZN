@@ -3,10 +3,10 @@ import Foundation
 import UIKit
 
 
-public let THEME_BG_COLOR = UIColor.colorWithCustom(r: 0x11, g: 0xAA, b: 0xee)
+public let THEME_BG_COLOR = UIColor.colorWithCustom(r: 50, g: 150, b: 255)
 
-public let BASE_URL = "http://39.108.7.110:8080/itlock-apiapp" //接口访问地址
-public let WB_URL = "ws://39.108.7.110:6381/websocket"  //websocket链接地址
+public let BASE_URL = "http://www.homehealth.top/itlock-apiapp" //接口访问地址
+public let WB_URL = "ws://www.homehealth.top:6381/websocket"  //websocket链接地址
 
 public let SCREEN_WIDTH: CGFloat = UIScreen.main.bounds.size.width
 public let SCREEN_HEIGHT: CGFloat = UIScreen.main.bounds.size.height

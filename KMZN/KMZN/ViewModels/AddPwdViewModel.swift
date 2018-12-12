@@ -21,6 +21,8 @@ class AddPwdViewModel: BaseViewModel {
         param.setValue(name, forKey: "name")
         param.setValue(password, forKey: "password")
         
+         Utils.showStatus(info: "加载中...")
+        
         loadData(action: Api.DEVICE_ADD_PWD, param: param) { (jStr) in
             
             finishCallback()
@@ -40,6 +42,8 @@ class AddPwdViewModel: BaseViewModel {
         param.setValue(deviceId, forKey: "deviceId")
         param.setValue(name, forKey: "name")
         param.setValue(mobile, forKey: "mobile")
+        
+         Utils.showStatus(info: "加载中...")
         
         loadData(action: Api.DEVICE_ADDUSER_DEVICE, param: param) { (jStr) in
             

@@ -62,7 +62,7 @@ class PwdDetailViewController: ThemeViewController {
             
             shareParames.ssdkSetupShareParams(byText: dataInfo.password,
                                               images : UIImage(named: "app_logo.png"),
-                                              url : NSURL(string:"http://mob.com") as URL?,
+                                              url : NSURL(string:"www.homehealth.top") as URL?,
                                               title : "临时密码",
                                               type : SSDKContentType.auto)
         }else{
@@ -113,6 +113,11 @@ extension PwdDetailViewController{
             nameLabel.text = "一次性密码"
             timeLabel.text = "10分钟"
         }else {
+            
+            guard dataInfo.repeatWeek != nil  else{
+                
+               return
+            }
             
             nameLabel.text = dataInfo.name
             

@@ -16,10 +16,14 @@ class RegisterViewModel: BaseViewModel {
     
     //注册
     func register(password:String,mobile:String,verificationCode:String,finishedCallback : @escaping () -> ()){
+        
+        Utils.showStatus(info: "加载中...")
+        
         let param=NSMutableDictionary()
         param.setValue(password.sha1(), forKey: "password")
         param.setValue(mobile, forKey: "mobile")
         param.setValue(verificationCode, forKey: "verificationCode")
+        
         self.loadData(action: Api.USER_REGISTER, param: param) { (jsonString) in
             
             //完成回调
@@ -50,6 +54,8 @@ class RegisterViewModel: BaseViewModel {
     
     //登录
     func login(phone:String,pwd:String,finishCallBack: @escaping() ->()){
+        
+        Utils.showStatus(info: "加载中...")
         
         let param=NSMutableDictionary()
         param.setValue(phone, forKey: "mobile")
@@ -82,8 +88,6 @@ class RegisterViewModel: BaseViewModel {
                     
                     UserSettings.shareInstance.setValue(key: UserSettings.USER_PHOTO, value:avatar)
                 }
-                
-                 JPUSHService.setAlias(String(result.resultData.userId), completion: nil, seq: 0)
                 
                 finishCallBack()
             }

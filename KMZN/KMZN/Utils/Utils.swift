@@ -23,6 +23,11 @@ class Utils {
         SVProgressHUD.show(withStatus: info)
     }
     
+    class func hiddleHUD(){
+        
+        SVProgressHUD.dismiss()
+    }
+    
     
     class func getDateStr(date:Date,formatStr:String)->String {
         

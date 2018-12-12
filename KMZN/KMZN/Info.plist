@@ -30,7 +30,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>10</string>
+	<string>15</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>weixin</string>
@@ -42,6 +42,11 @@
 	<string>285cff87329e8</string>
 	<key>MoBAppSecret</key>
 	<string>ce15297f11b7b1d8c9e182259fc16b96</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>请求访问您的相机</string>
 	<key>NSPhotoLibraryUsageDescription</key>

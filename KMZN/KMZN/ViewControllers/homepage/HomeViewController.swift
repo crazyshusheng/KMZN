@@ -157,7 +157,7 @@ extension HomeViewController {
                 
                 if let name = UserSettings.shareInstance.getStringValue(key: UserSettings.USER_NICK_NAME){
                     
-                      self.welcomeLabel.text = "欢迎回家," + name
+                      self.welcomeLabel.text = "欢迎回家"
                 }else{
                     
                     self.welcomeLabel.text = "欢迎回家"
@@ -249,6 +249,12 @@ extension HomeViewController:PasswordAlertViewDelegate {
         }else if  alertType == 2{
             
             //验证开锁密码
+            
+            guard  deviceInfo.deviceId != nil  else {
+                
+                return
+            }
+            
             
             self.deviceVM.ckeckLockPassword(deviceID: self.deviceInfo.deviceId, masterPassword: password) {
                 

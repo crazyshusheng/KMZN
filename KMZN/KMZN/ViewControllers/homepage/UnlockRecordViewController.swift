@@ -85,6 +85,8 @@ extension UnlockRecordViewController: UITableViewDataSource,UITableViewDelegate{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "unlockrecord_cell") as! UnlockRecordCell
         
+        cell.selectionStyle = .none
+        
         if dataList.count > 0 {
             
             cell.recordInfo = dataList[indexPath.row]
