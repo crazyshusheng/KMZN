@@ -135,7 +135,31 @@ extension CodeLoginViewController{
       
         registerVM.codeLogin(phone: phone, code: code, finishCallback: {
             
+           
+            
+            
+            //发送通知
+            NotificationCenter.default.post(name: NOTIFY_HOMEVC_REFRESH, object: self)
+            NotificationCenter.default.post(name: NOTIFY_DEVICEVC_DEVICE, object: self)
+            NotificationCenter.default.post(name: NOTIFY_USERVC_DEVICE, object: self)
+            NotificationCenter.default.post(name: NOTIFY_SETTING_DEVICE, object: self)
+            
             self.dismiss(animated: true, completion: nil)
+            
+            
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(UInt64(5)*NSEC_PER_SEC))/Double(NSEC_PER_SEC)) {
+                
+                if let userID =  UserSettings.shareInstance.getUserID() {
+                    
+                    
+                    
+                    JPUSHService.setAlias(String(userID), completion: nil, seq: 0)
+                    
+                }
+            }
+            
+            
             self.navigationController?.popToRootViewController(animated: true)
         })
     }

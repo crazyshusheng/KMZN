@@ -39,6 +39,7 @@ class QRCodeViewController: ThemeViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.clipsToBounds = true
+        navigationItem.title = "扫一扫"
         setupMaskView()
         setupScanView()
         scaning()
@@ -77,7 +78,7 @@ class QRCodeViewController: ThemeViewController {
         scanView?.isUserInteractionEnabled = false
         
         let label = UILabel.init(frame: CGRect.init(x:  CGFloat(kMargin), y: (scanView?.frame.origin.y)! + scanViewH + 20, width: scanViewW, height: 20))
-        label.text = "放入框内，自动扫描"
+        label.text = "对准锁后面的二维码"
         label.font = UIFont.systemFont(ofSize: 14)
         label.textAlignment = .center
         label.textColor = UIColor.white

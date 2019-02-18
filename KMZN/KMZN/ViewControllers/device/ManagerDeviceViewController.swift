@@ -14,15 +14,18 @@ class ManagerDeviceViewController: ThemeViewController {
     
     @IBOutlet weak var stateImageView: UIImageView!
     
+    
     @IBOutlet weak var stateLabel: UILabel!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var deviceButton: ButtonWithRightImage!
     
-    private var titles = ["密码管理","指纹管理","卡片管理","设备成员","开锁记录","报警记录","删除设备"]
+    private var titles = ["密码管理","指纹管理","卡片管理","成员管理","开锁记录","报警记录"]
 
     fileprivate let viewModel = DeviceInfoViewModel.init()
+    
+    var userPwd = ""
     
     var deviceInfo = DeviceInfo()
     var deviceID = ""
@@ -35,6 +38,22 @@ class ManagerDeviceViewController: ThemeViewController {
         self.navigationController?.navigationBar.isTranslucent = false
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(true)
+     
+        //背景色
+        navigationController?.navigationBar.barTintColor = UIColor.colorWithCustom(r: 36, g: 175, b: 251)
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+         navigationController?.navigationBar.barTintColor = THEME_COLOR
+        
+    }
 
 
 
@@ -45,9 +64,12 @@ class ManagerDeviceViewController: ThemeViewController {
     
     @IBAction func changeDeviceName(_ sender: Any) {
         
-       
         showKWAlertView()
     }
+    
+    
+    
+    
     
     
 }
@@ -58,13 +80,7 @@ extension ManagerDeviceViewController{
         
         collectionView.delegate = self
         collectionView.dataSource = self
-//        
-//        if deviceInfo.role != 0 {
-//            
-//            titles.remove(at: 6)
-//            titles.remove(at: 7)
-//            titles.remove(at: 8)
-//        }
+
     
     }
     
@@ -79,8 +95,8 @@ extension ManagerDeviceViewController{
             self.stateImageView.image = #imageLiteral(resourceName: "正常运行")
             
         }else {
-            self.stateLabel.text = "已下线"
-            self.stateImageView.image = #imageLiteral(resourceName: "有风险")
+            self.stateLabel.text = "已离线"
+            self.stateImageView.image = #imageLiteral(resourceName: "已离线")
             
         }
     }
@@ -105,14 +121,7 @@ extension ManagerDeviceViewController{
     }
     
     
-    func showPwdAlertView(){
-        
-        let alertView = PasswordAlertView.init(frame: self.view.bounds)
-        let label = alertView.BGView.viewWithTag(10) as! UILabel
-        alertView.delegate = self
-        label.text = "验证管理员密码"
-        self.view.addSubview(alertView)
-    }
+   
 
     
 }
@@ -133,21 +142,6 @@ extension ManagerDeviceViewController:KWAlertViewDelegate {
     }
 }
 
-
-extension ManagerDeviceViewController:PasswordAlertViewDelegate {
-    
-    func passwordCompleteInAlertView(alertView: PasswordAlertView, password: String) {
-        
-        alertView.removeFromSuperview()
-        
-        self.viewModel.deleteDevice(deviceID: deviceInfo.deviceId, masterPassword: password) {
-            
-            Utils.showHUD(info: "设备已删除")
-            NotificationCenter.default.post(name: NOTIFY_DEVICEVC_DEVICE, object: self)
-            self.navigationController?.popViewController(animated: true)
-        }
-    }
-}
 
 
 
@@ -200,19 +194,16 @@ extension ManagerDeviceViewController:UICollectionViewDelegate,UICollectionViewD
         //某个Cell被选择的事件处理
         switch (indexPath.row) {
             
-        case 0,1,2,3:
+        case 0,1,2:
             
             var title:String?
-            var type = indexPath.row + 1
+            let type = indexPath.row + 1
             if indexPath.row == 0 {
                 title = "密码管理"
             }else if indexPath.row == 1{
                 title = "指纹管理"
             }else if indexPath.row == 2{
                 title = "卡片管理"
-            }else{
-                title = "设备成员"
-                type = 4
             }
             let managerVC = storyboard?.instantiateViewController(withIdentifier: "ManagerPWDVC") as! ManagerPWDViewController
             managerVC.titleName = title
@@ -220,40 +211,20 @@ extension ManagerDeviceViewController:UICollectionViewDelegate,UICollectionViewD
             managerVC.typeID = type
             print(type)
             navigationController?.pushViewController(managerVC, animated: true)
-//        case 6:
-//            let heartVC = storyboard?.instantiateViewController(withIdentifier: "HeartBeatVC") as! HeartBeatViewController
-//            heartVC.deviceInfo = deviceInfo
-//            navigationController?.pushViewController(heartVC, animated: true)
+        case 3:
+            let managerVC = storyboard?.instantiateViewController(withIdentifier: "ManagerUserVC") as! ManagerUserViewController
+           
+            managerVC.info = deviceInfo
+            
+            navigationController?.pushViewController(managerVC, animated: true)
+            
+
         case 4,5:
             let recordVC = UIStoryboard.init(name: "Homepage", bundle: nil).instantiateViewController(withIdentifier: "UnlockRecordVC") as! UnlockRecordViewController
             recordVC.type = indexPath.row - 3
             recordVC.deviceID = deviceID
             navigationController?.pushViewController(recordVC, animated: true)
-        case 6:
-            
-            if deviceInfo.role == 0 {
-                
-                showPwdAlertView()
-                
-            }else{
-                
-                Utils.showHUD(info: "没有管理员权限")
-            }
-//        case 7:
-//
-//            if deviceInfo.role == 0 {
-//
-//                let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-//                let vc = storyboard.instantiateViewController(withIdentifier: "ResetPwdVC") as! ResetPwdViewController
-//                vc.type = 2
-//                vc.deviceID = deviceInfo.deviceId
-//                navigationController?.pushViewController(vc, animated: true)
-//
-//            }else{
-//
-//                Utils.showHUD(info: "没有管理员权限")
-//            }
-//
+    
 
         default:
             break

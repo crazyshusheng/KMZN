@@ -18,6 +18,7 @@ class Utils {
         SVProgressHUD.show(nil, status: info)
     }
     
+    //显示加载，并显示文本
     class func showStatus(info:String){
        
         SVProgressHUD.show(withStatus: info)
@@ -28,6 +29,10 @@ class Utils {
         SVProgressHUD.dismiss()
     }
     
+    class func hiddleHUDWithDelay(){
+        
+        SVProgressHUD.dismiss(withDelay: 1.5)
+    }
     
     class func getDateStr(date:Date,formatStr:String)->String {
         
@@ -61,14 +66,20 @@ class Utils {
     
     
     
-    class func isVailedPassword(password:String)->Bool{
+    class func isVailedPassword(password:String?)->Bool{
+        
+        guard (password != nil && password!.count >= 6)  else{
+            
+            return false
+        }
+        
         do {
             
             let pattern="^[a-zA-Z0-9]{6,12}$"
             // - 2、创建正则表达式对象
             let regex = try NSRegularExpression(pattern: pattern, options: NSRegularExpression.Options.caseInsensitive)
             // - 3、开始匹配
-            let matchs = regex.matches(in: password, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, password.count))
+            let matchs = regex.matches(in: password!, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, password!.count))
             
             return matchs.count>0
             
@@ -121,14 +132,20 @@ class Utils {
     
     
     //判断有效电话号码
-    class func isVailedPhone(phone:String)->Bool{
+    class func isVailedPhone(phone:String?)->Bool{
+        
+        guard phone != nil else{
+            
+            return false
+        }
+        
         do {
             
             let pattern="^[1][35789][0-9]{9}$"
             // - 2、创建正则表达式对象
             let regex = try NSRegularExpression(pattern: pattern, options: NSRegularExpression.Options.caseInsensitive)
             // - 3、开始匹配
-            let matchs = regex.matches(in: phone, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, phone.count))
+            let matchs = regex.matches(in: phone!, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, phone!.count))
             
             return matchs.count>0
             

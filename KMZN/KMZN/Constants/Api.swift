@@ -51,13 +51,14 @@ class Api{
     static let DEVICE_ADD_PWD = "/pass/addPassword" //添加密码
     static let DEVICE_DELETE_PWD = "/pass/deletePass" //删除密码
     static let DEVICE_UPDATE_NAME = "/pass/updateName" //修改名称
-    static let DEVICE_DELETE_DEIVCE = "/device/deleteDevice" //删除设备
+    static let DEVICE_DELETE_USER_DEIVCE = "/device/deleteUserDevice" //解除关联关系
     static let DEVICE_CHECK_BIND = "/device/checkDeviceBind" // 是否可添加
     
     /** 个人设置 */
     
     static let USER_PHOTO_INFO = "/user/uploadAvatar" //头像文件
     static let USER_NAME_INFO = "/user/updateName" //名字
+    static let USER_AGREEMENT = "/html/userAgreement.html" //用户协议
     
 }
 

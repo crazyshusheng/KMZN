@@ -19,6 +19,7 @@ PODS:
   - JPush (3.1.1.1):
     - JCore (~> 1.2.5)
   - Kingfisher (4.8.0)
+  - MJRefresh (3.1.15.7)
   - mob_sharesdk (4.2.0):
     - mob_sharesdk/ShareSDK (= 4.2.0)
     - MOBFoundation
@@ -34,7 +35,12 @@ PODS:
     - mob_sharesdk/ShareSDK
     - MOBFoundation
   - MOBFoundation (3.1.9)
-  - ObjectMapper (3.1.0)
+  - ObjectMapper (3.4.2)
+  - ReactiveCocoa (8.0.2):
+    - ReactiveSwift (~> 4.0)
+  - ReactiveSwift (4.0.0):
+    - Result (~> 4.0)
+  - Result (4.1.0)
   - Starscream (3.0.5)
   - SVProgressHUD (2.1.2)
 
@@ -43,13 +49,32 @@ DEPENDENCIES:
   - DZNEmptyDataSet
   - JPush
   - Kingfisher
+  - MJRefresh
   - mob_sharesdk
   - mob_sharesdk/ShareSDKPlatforms/Copy
   - mob_sharesdk/ShareSDKPlatforms/SMS
   - mob_sharesdk/ShareSDKPlatforms/WeChat
-  - ObjectMapper (~> 3.1.0)
+  - ObjectMapper (~> 3.4.2)
+  - ReactiveCocoa
   - Starscream
   - SVProgressHUD
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - DZNEmptyDataSet
+    - JCore
+    - JPush
+    - Kingfisher
+    - MJRefresh
+    - mob_sharesdk
+    - MOBFoundation
+    - ObjectMapper
+    - ReactiveCocoa
+    - ReactiveSwift
+    - Result
+    - Starscream
+    - SVProgressHUD
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -57,12 +82,16 @@ SPEC CHECKSUMS:
   JCore: 14706de2640b25fb77dbd02332696491407f37c9
   JPush: 25dd9013fbe106082c14f9f30a82364ee98852fb
   Kingfisher: 976d828df2b24834c6a3f2fc4d82cdbd26552be1
+  MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   mob_sharesdk: fc8a9aab921c08e5e88a5b1f36229c6d406a2ff8
   MOBFoundation: 11500153c10d83e4ac341f6ad6301b3998ce6db2
-  ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
+  ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
+  ReactiveCocoa: fbd26e9ba60e98417ee47433e59465a98ed9da0f
+  ReactiveSwift: a2bb9ace428a109e9c0209615645d9d286c8c433
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   Starscream: faf918b2f2eff7d5dd21180646bf015a669673bd
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
 
-PODFILE CHECKSUM: 42b8b4be10ebb0cf3da9989d9a5e949e4af37abc
+PODFILE CHECKSUM: 74ea8bf36ac8486cab1444a28ec81aaf68b58862
 
-COCOAPODS: 1.3.0.rc.1
+COCOAPODS: 1.5.3

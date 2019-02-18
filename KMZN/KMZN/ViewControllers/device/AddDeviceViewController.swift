@@ -11,7 +11,7 @@ import Kingfisher
 
 class AddDeviceViewController: ThemeViewController {
     
-    @IBOutlet weak var lockImageView: UIImageView!
+
     
     @IBOutlet weak var eiTextField: UITextField!
     
@@ -42,8 +42,8 @@ class AddDeviceViewController: ThemeViewController {
     func setupUI(){
         
        
-        
-        lockImageView?.kf.setImage(with: URL.init(string: productInfo.image))
+        eiTextField.delegate = self
+        siTextField.delegate = self
         
     }
     
@@ -51,7 +51,7 @@ class AddDeviceViewController: ThemeViewController {
     @IBAction func addDevice(_ sender: Any) {
         
         
-        addDevice(type: 1, pwd: "")
+        addDevice()
         
        
     }
@@ -101,25 +101,14 @@ extension AddDeviceViewController:QRCodeViewControllerDelegate {
 extension AddDeviceViewController {
     
     
-    func showPwdAlertView(){
-        
-        let pswAlertView = PasswordAlertView.init(frame: self.view.bounds)
-        let label = pswAlertView.BGView.viewWithTag(10) as! UILabel
-        label.text = "设备为初始状态，请先创建管理员密码"
-        pswAlertView.delegate = self
-        self.view.addSubview(pswAlertView)
-        
-    }
-    
+
  
-    
-    
-    
-    func addDevice(type:Int,pwd:String){
+    func addDevice(){
         
         let eiCode = eiTextField.text!
-        let siCode = siTextField.text!
+        var siCode = siTextField.text!
         let name = nameTextField.text!
+        siCode = "012345678912345"
         
         if(eiCode.isEmpty || !Utils.isVailedIMCode(code: eiCode)){
             
@@ -147,22 +136,30 @@ extension AddDeviceViewController {
             self.navigationController?.popToRootViewController(animated: true)
         }
     
-        
-    
-        
+
     }
 
 }
 
-
-
-extension AddDeviceViewController:PasswordAlertViewDelegate {
+extension AddDeviceViewController:UITextFieldDelegate{
     
-    func passwordCompleteInAlertView(alertView: PasswordAlertView, password: String) {
-        
-        alertView.removeFromSuperview()
-        
-        addDevice(type: 2, pwd: password)
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        
+        if string.count == 0 {//判断是是否为删除键
+            return true
+        }else if (textField.text?.count)! >= 15 {
+            //当输入的密码大于等于15位后就忽略
+            return false
+        } else {
+            return true
+        }
     }
+    
 }
+
+
+
+
+

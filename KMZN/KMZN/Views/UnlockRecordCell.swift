@@ -29,10 +29,22 @@ class UnlockRecordCell: UITableViewCell {
             
             if recordInfo.operateType != nil {
                 
-                 detLael.text = recordInfo.name
                 
-                nameLabel.text = UNLOCK_TYPE[String(recordInfo.operateType)]
+                if recordInfo.name != nil {
+                    
+                    nameLabel.text = recordInfo.name
+                    
+                    detLael.text = UNLOCK_TYPE[String(recordInfo.operateType)]
+                    
+                }else {
+                    
+                     nameLabel.text = UNLOCK_TYPE[String(recordInfo.operateType)]
+                    detLael.text = ""
+                }
                 
+              
+                
+                photoImageView.image = UIImage.init(named: UNLOCK_TYPE[String(recordInfo.operateType)]!)
                 
             }
             if recordInfo.alertType != nil {

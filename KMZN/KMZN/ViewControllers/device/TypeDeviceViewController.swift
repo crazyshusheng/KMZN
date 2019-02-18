@@ -22,12 +22,13 @@ class TypeDeviceViewController: ThemeViewController {
         super.viewDidLoad()
         
         setupUI()
+        
         productViewModel.getUserDevices {
-            
+
             self.dataList = self.productViewModel.infoList
             self.tableView.reloadData()
         }
-        
+
         
     }
 
@@ -60,7 +61,8 @@ extension TypeDeviceViewController: UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 150
+        return 100
+    
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -69,11 +71,15 @@ extension TypeDeviceViewController: UITableViewDataSource,UITableViewDelegate{
         
         if dataList.count > 0 {
             
-            let imageView =  cell?.viewWithTag(10) as? UIImageView
+//            let imageView =  cell?.viewWithTag(10) as? UIImageView
             
-            imageView?.kf.setImage(with: URL.init(string: dataList[indexPath.row].image))
+//            if let image = dataList[indexPath.row].image{
+//                
+//                 imageView?.kf.setImage(with: URL.init(string:image ))
+//            }
             
-            (cell?.viewWithTag(11) as? UILabel)?.text = "型号：" + dataList[indexPath.row].modelNumber
+    
+            (cell?.viewWithTag(11) as? UILabel)?.text =  dataList[indexPath.row].modelNumber
         }
         
     

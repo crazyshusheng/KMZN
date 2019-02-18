@@ -28,7 +28,7 @@ class  TimeSelectView: UIView {
     var datepicker = UIDatePicker()
     
     
-    let buttonColor = UIColor(red:0.19, green:0.67, blue:0.91, alpha:1.00)
+    let buttonColor = THEME_COLOR
     
     
     weak var delegate:TimeSelectViewDelegate?

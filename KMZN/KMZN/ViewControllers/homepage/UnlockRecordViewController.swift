@@ -27,6 +27,21 @@ class UnlockRecordViewController: ThemeViewController {
         getDataList()
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        if UserSettings.shareInstance.isPush() {
+            
+          
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(image:UIImage.init(named: "返回"), style: .plain, target: self, action: #selector(backToRootVc))
+        }else{
+            
+            self.navigationItem.leftBarButtonItem = nil
+        }
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -66,6 +81,12 @@ extension UnlockRecordViewController {
         }
     }
     
+    @objc func backToRootVc(){
+    
+         UserSettings.shareInstance.setValue(key: UserSettings.IS_PUSH, value: false)
+         self.dismiss(animated: true, completion: nil)
+    }
+    
     
 }
 
@@ -78,7 +99,7 @@ extension UnlockRecordViewController: UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 100
+        return 60
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

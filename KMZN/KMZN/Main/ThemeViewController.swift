@@ -19,11 +19,19 @@ class ThemeViewController: UIViewController {
         
 
         //返回按钮颜色
-        self.navigationController?.navigationBar.tintColor = UIColor.black
+        self.navigationController?.navigationBar.tintColor = UIColor.white
         
         
         navigationController?.navigationBar.isTranslucent = false
-       
+        
+        //背景色
+        navigationController?.navigationBar.barTintColor = THEME_COLOR
+        
+        let dict:NSDictionary = [NSAttributedStringKey.foregroundColor: UIColor.white,NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 17)]
+        //标题颜色
+        navigationController?.navigationBar.titleTextAttributes = dict as? [NSAttributedStringKey : AnyObject]
+      
+        
         
     }
     
@@ -65,7 +73,8 @@ class ThemeViewController: UIViewController {
 extension ThemeViewController:DZNEmptyDataSetSource{
     
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-        return #imageLiteral(resourceName: "空状态")
+        
+        return  #imageLiteral(resourceName: "暂无记录")
     }
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let attrs=[kCTFontAttributeName:UIFont.systemFont(ofSize: 15),kCTForegroundColorAttributeName:UIColor.colorWithCustom(r: 0x99, g: 0x99, b: 0x99)]
@@ -73,7 +82,7 @@ extension ThemeViewController:DZNEmptyDataSetSource{
     }
     func backgroundColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
         
-        return UIColor.white
+        return THEME_BG_COLOR
     }
     
 }

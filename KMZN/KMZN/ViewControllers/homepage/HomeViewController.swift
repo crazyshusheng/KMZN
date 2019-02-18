@@ -12,29 +12,34 @@ import SVProgressHUD
 
 class HomeViewController: BasicViewController {
     
-    @IBOutlet weak var addAdeviceView: UIView!
+   
+
+    @IBOutlet weak var addView: UIView!
     
-    @IBOutlet weak var homeView: UIView!
+    @IBOutlet weak var btnView: UIView!
     
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
     
-    @IBOutlet weak var welcomeLabel: UILabel!
     
-    @IBOutlet weak var typeLabel: UILabel!
     
-    @IBOutlet weak var statusLabel: UILabel!
-    
-    @IBOutlet weak var batteryLabel: UILabel!
-    
-    @IBOutlet weak var signalImageView: UIImageView!
-    
+  
     var activeView:UIView!
     
     var deviceVM =  DeviceInfoViewModel()
     
-    var deviceInfo = DeviceInfo()
+    var deviceList = [DeviceInfo]()
    
-    var alertType = 1
+    
+    var scrollIndex = 0 {
+        
+        didSet{
+            
+            self.deviceVM.chooseCurrentDevice(deviceId: deviceList[scrollIndex].deviceId) {
+                
+            }
+        }
+    }
+    
     
     override func viewDidLoad() {
        
@@ -42,16 +47,31 @@ class HomeViewController: BasicViewController {
         super.viewDidLoad()
         
         
-        setupUI()
-        
+
         deviceVM.viewController = self
+        
         
         let socket = KMWebSocket.sharedInstance()
         socket.webSocketDelegate = self
        
         NotificationCenter.default.addObserver(self, selector: #selector(isRefreshUI), name: NOTIFY_HOMEVC_REFRESH, object: nil)
-        addAdeviceView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addDevice)))
+        
+        if(!UserSettings.shareInstance.isLogin()){
+            
+
+            
+            let storyBD = UIStoryboard.init(name: "Main", bundle: nil)
+            let startvc = storyBD.instantiateViewController(withIdentifier: "startNVC")
+            self.present(startvc, animated: false)
+        }
     
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(true)
+        
+        setupUI()
     }
     
 
@@ -62,16 +82,14 @@ class HomeViewController: BasicViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    @objc func addDevice() {
-        
+    @IBAction func addLockDevice(_ sender: Any) {
         
         let storyboard = UIStoryboard.init(name: "Device", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "TypeDeviceVC") as! TypeDeviceViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "DeviceTypeVC") as! DeviceTypeViewController
         navigationController?.pushViewController(vc, animated: true)
-        
     }
     
+
     
     
     @IBAction func unlockRecord(_ sender: Any) {
@@ -80,7 +98,7 @@ class HomeViewController: BasicViewController {
         let recordVC = UIStoryboard.init(name: "Homepage", bundle: nil).instantiateViewController(withIdentifier: "UnlockRecordVC") as! UnlockRecordViewController
         recordVC.type = 1
         
-        if let deviceId = deviceInfo.deviceId {
+        if let deviceId = deviceList[scrollIndex].deviceId {
             
              recordVC.deviceID = deviceId
         }
@@ -90,7 +108,7 @@ class HomeViewController: BasicViewController {
     
     @IBAction func creatTemporaryPwd(_ sender: Any) {
         
-        alertType = 2
+       
         showPwdAlertView()
         
       
@@ -100,7 +118,7 @@ class HomeViewController: BasicViewController {
         
         let recordVC = UIStoryboard.init(name: "Homepage", bundle: nil).instantiateViewController(withIdentifier: "UnlockRecordVC") as! UnlockRecordViewController
         recordVC.type = 2
-        if let deviceId = deviceInfo.deviceId {
+        if let deviceId =  deviceList[scrollIndex].deviceId {
             
             recordVC.deviceID = deviceId
         }
@@ -110,17 +128,54 @@ class HomeViewController: BasicViewController {
     }
     
     
-    
-    @IBAction func openLock(_ sender: Any) {
-        
-        alertType = 1
-        showPwdAlertView()
-      
-        
-    }
-    
 }
 extension HomeViewController {
+    
+    
+    
+    func setupScrollView(){
+        
+        scrollView.delegate = self
+        
+        scrollView.contentSize = CGSize.init(width: scrollView.frame.size.width * CGFloat(deviceList.count), height: 0)
+        
+        for (i,info) in deviceList.enumerated() {
+            
+            let deviceView = Bundle.main.loadNibNamed("homeDeviceView", owner: nil, options: nil)!.first as! HomeDeviceView
+          
+            
+            deviceView.frame = CGRect.init(x: scrollView.frame.size.width *  CGFloat(i), y: 0, width: scrollView.frame.size.width, height: scrollView.frame.size.height)
+           
+            deviceView.deviceInfo = info
+            
+            if i == 0 {
+                
+                deviceView.leftView.isHidden = true
+                
+                if deviceList.count == 1{
+                    
+                    deviceView.rightView.isHidden = true
+                }else{
+                    deviceView.rightView.isHidden = false
+                }
+                
+                
+            }else if i == deviceList.count - 1{
+                
+                deviceView.leftView.isHidden = false
+                deviceView.rightView.isHidden = true
+                
+            }else {
+                
+                deviceView.leftView.isHidden = false
+                deviceView.rightView.isHidden = false
+            }
+            
+            scrollView.addSubview(deviceView)
+        }
+    }
+    
+    
     
     func   setupUI(){
         
@@ -137,69 +192,33 @@ extension HomeViewController {
             let webSocket = KMWebSocket.sharedInstance()
 
             webSocket.connectSever()
-            
         
-           
-           
         }
         
-        if let deviceID = UserSettings.shareInstance.getStringValue(key: UserSettings.DEVICE_ID){
+        deviceVM.getDeviceLists {
             
-            print(deviceID)
+            self.deviceList = self.deviceVM.dataList
             
-            homeView.isHidden = false
-            addAdeviceView.isHidden = true
-            
-            deviceVM.getDeviceInfo(deviceID:deviceID) {
+            if self.deviceList.count == 0 {
                 
-                self.deviceInfo = self.deviceVM.deviceInfo
-                self.nameLabel.text = self.deviceInfo.name
+                self.scrollView.isHidden = true
+                self.addView.isHidden = false
+                self.refreshBtnView(isSelect: false)
                 
-                if let name = UserSettings.shareInstance.getStringValue(key: UserSettings.USER_NICK_NAME){
-                    
-                      self.welcomeLabel.text = "欢迎回家"
-                }else{
-                    
-                    self.welcomeLabel.text = "欢迎回家"
-                }
-            
-                if let battery = self.deviceInfo.battery {
-                    
-                    self.batteryLabel.text = String(battery) + "%"
-                }
-                self.statusLabel.text = (self.deviceInfo.online == 1) ? "正常运行" : "已离线"
-                self.typeLabel.text = self.deviceInfo.modelNumber
+            }else{
                 
-                if let signal = self.deviceInfo.signal {
-                    
-                    let name = "信号图标" + String((signal / 21)  + 1 )
-                    print(name)
-                    self.signalImageView.image  = UIImage.init(named: name)
-                }
-                
-                
-                
+                self.scrollView.isHidden = false
+                self.addView.isHidden = true
+                self.refreshBtnView(isSelect: true)
+                //设备变化
+               self.setupScrollView()
             }
-        }else {
-            
-            homeView.isHidden = true
-            addAdeviceView.isHidden = false
-            
-            deviceVM.getDeviceLists {
-                
-                if self.deviceVM.deviceInfo.deviceId != nil {
-                    
-                    UserSettings.shareInstance.setValue(key: UserSettings.DEVICE_ID, value: self.deviceVM.deviceInfo.deviceId)
-                     self.setupUI()
-                }
-
-            }
-            
             
         }
+        
         
     }
-    
+
     
     
     func showPwdAlertView(){
@@ -218,9 +237,40 @@ extension HomeViewController {
         setupUI()
     }
     
+    func refreshBtnView(isSelect:Bool){
+        
+        
+        for i in 10...12{
+            
+            (btnView.viewWithTag(i) as! UIButton).isSelected  = isSelect
+            
+             (btnView.viewWithTag(i) as! UIButton).isUserInteractionEnabled = isSelect
+            
+        }
+        
+        
+    }
+    
     
     
 }
+
+
+extension HomeViewController:UIScrollViewDelegate{
+    
+    
+    
+ 
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+        
+        scrollIndex = (Int(scrollView.contentOffset.x)/Int(self.view.frame.size.width))
+        
+       
+    }
+    
+}
+
 
 extension HomeViewController:PasswordAlertViewDelegate {
     
@@ -229,42 +279,21 @@ extension HomeViewController:PasswordAlertViewDelegate {
         alertView.removeFromSuperview()
         
         
+        guard  deviceList[scrollIndex].deviceId != nil  else {
+            
+            return
+        }
         
-        if alertType == 1 {
+        
+        self.deviceVM.ckeckLockPassword(deviceID: self.deviceList[scrollIndex].deviceId, masterPassword: password) {
             
+          
+            let pwdVC = UIStoryboard.init(name: "Homepage", bundle: nil).instantiateViewController(withIdentifier: "PwdListVC") as! PwdListViewController
             
-            guard  deviceInfo.deviceId != nil  else {
-    
-                return
-            }
+            pwdVC.deviceID = self.deviceList[self.scrollIndex].deviceId
+            pwdVC.masterPwd = password
             
-            self.deviceVM.openLock(deviceID: self.deviceInfo.deviceId, masterPassword: password) {
-                
-                //显示激活设备
-                 self.activeView = Bundle.main.loadNibNamed("deviceActiveView", owner: nil, options: nil)!.first as! DeviceActiveView
-                 self.activeView.frame = self.view.frame
-                 self.view.addSubview(self.activeView)
-            }
-            
-        }else if  alertType == 2{
-            
-            //验证开锁密码
-            
-            guard  deviceInfo.deviceId != nil  else {
-                
-                return
-            }
-            
-            
-            self.deviceVM.ckeckLockPassword(deviceID: self.deviceInfo.deviceId, masterPassword: password) {
-                
-                
-                let pwdVC = UIStoryboard.init(name: "Homepage", bundle: nil).instantiateViewController(withIdentifier: "TemporaryPwdVC") as! TemporaryPwdViewController
-                pwdVC.deviceID = self.deviceInfo.deviceId
-                pwdVC.lockPwd = password
-                self.navigationController?.pushViewController(pwdVC, animated: true)
-            }
-            
+            self.navigationController?.pushViewController(pwdVC, animated: true)
         }
     
         

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		290A46C4211BE1A400D37A37 /* ThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290A46C3211BE1A400D37A37 /* ThemeViewController.swift */; };
-		290A46C6211BE27500D37A37 /* ChooseDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290A46C5211BE27500D37A37 /* ChooseDeviceViewController.swift */; };
 		290A46C9211BEE0700D37A37 /* DeviceInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 290A46C8211BEE0700D37A37 /* DeviceInfoCell.xib */; };
 		290A46CB211C224F00D37A37 /* DeviceInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290A46CA211C224F00D37A37 /* DeviceInfoCell.swift */; };
 		290A46CD211C2E6600D37A37 /* TemporaryPwdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290A46CC211C2E6600D37A37 /* TemporaryPwdViewController.swift */; };
@@ -22,8 +21,12 @@
 		290A46E0211D896500D37A37 /* AddDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290A46DF211D896500D37A37 /* AddDeviceViewController.swift */; };
 		290B0966218045FE007D9ECC /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290B0965218045FE007D9ECC /* MessageViewController.swift */; };
 		290B096821804710007D9ECC /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290B096721804710007D9ECC /* MessageViewModel.swift */; };
-		290F351CD2545C033A4B6BC2 /* Pods_KMZN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95530961FAB0509454A37F5A /* Pods_KMZN.framework */; };
 		290FD08E2109675C00A615B4 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290FD08D2109675C00A615B4 /* UserInfo.swift */; };
+		2918A40921C35C7F0026C250 /* homeDeviceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2918A40821C35C7F0026C250 /* homeDeviceView.xib */; };
+		2918A40B21C35E5F0026C250 /* HomeDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2918A40A21C35E5F0026C250 /* HomeDeviceView.swift */; };
+		2918A40F21C3AF1F0026C250 /* temporaryPwdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2918A40E21C3AF1F0026C250 /* temporaryPwdView.xib */; };
+		2918A41121C4909E0026C250 /* TemporaryPwdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2918A41021C4909E0026C250 /* TemporaryPwdView.swift */; };
+		2929132421E9B7F300A93B1D /* UserAgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2929132321E9B7F300A93B1D /* UserAgreementViewController.swift */; };
 		293439EB212BEFF50022B4E0 /* ManagerDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293439EA212BEFF50022B4E0 /* ManagerDetailViewModel.swift */; };
 		293439ED212C039D0022B4E0 /* AddPwdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293439EC212C039D0022B4E0 /* AddPwdViewModel.swift */; };
 		2937410A2123B9F60086529E /* KMWebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293741092123B9F60086529E /* KMWebSocket.swift */; };
@@ -74,25 +77,29 @@
 		2979D66C2106BE6E00FF0E44 /* CodeLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2979D66B2106BE6E00FF0E44 /* CodeLoginViewController.swift */; };
 		2979D66E2106BEAF00FF0E44 /* ResetPwdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2979D66D2106BEAF00FF0E44 /* ResetPwdViewController.swift */; };
 		297A2F29217D5DC900CF96CA /* TemporaryPwdInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297A2F28217D5DC900CF96CA /* TemporaryPwdInfo.swift */; };
+		298645AF21C4DA690093E38E /* CategoryPwdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298645AE21C4DA690093E38E /* CategoryPwdViewController.swift */; };
 		298AAA11216C90BC003C671A /* TimeSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298AAA10216C90BC003C671A /* TimeSelectView.swift */; };
-		29994ABF216EFEF30023BD61 /* PwdDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29994ABE216EFEF30023BD61 /* PwdDetailViewController.swift */; };
+		298C42A621C7492600632413 /* DeviceTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298C42A521C7492600632413 /* DeviceTypeViewController.swift */; };
 		29994AC3216EFF1B0023BD61 /* PwdListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29994AC2216EFF1B0023BD61 /* PwdListViewController.swift */; };
+		29A8FDCF21E2DF840088ABAF /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A8FDCE21E2DF840088ABAF /* GuideViewController.swift */; };
+		29B10EA221C78ED900144C11 /* ManagerUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B10EA121C78ED900144C11 /* ManagerUserViewController.swift */; };
+		29B10EA421C7965000144C11 /* ManagerUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B10EA321C7965000144C11 /* ManagerUserCell.swift */; };
 		29B4AB7F2134ED3A003DE40B /* String-Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B4AB7E2134ED3A003DE40B /* String-Extras.swift */; };
 		29B4AB8321353D3C003DE40B /* HeartBeatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B4AB8221353D3C003DE40B /* HeartBeatViewModel.swift */; };
 		29BD6EA021465B1600109E02 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BD6E9F21465B1600109E02 /* AboutUsViewController.swift */; };
 		29BD6EA22146641700109E02 /* SystemSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BD6EA12146641700109E02 /* SystemSetupViewController.swift */; };
 		29C3A8AF21748FB3000FC25F /* TemporaryPWDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C3A8AE21748FB3000FC25F /* TemporaryPWDViewModel.swift */; };
 		29CB9AB4212E9BF300D4C33C /* KWAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CB9AB3212E9BF300D4C33C /* KWAlertView.swift */; };
-		29CB9AB6212E9F8600D4C33C /* DeviceListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CB9AB5212E9F8600D4C33C /* DeviceListViewModel.swift */; };
 		29DB6F2E219BC9A800EBD141 /* MessageListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DB6F2D219BC9A800EBD141 /* MessageListCell.swift */; };
 		29DB6F30219BCA6800EBD141 /* MessageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DB6F2F219BCA6800EBD141 /* MessageInfo.swift */; };
 		29FA980D2136721100EF28BF /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FA980C2136721100EF28BF /* BasicViewController.swift */; };
 		29FA980F21368A2A00EF28BF /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FA980E21368A2A00EF28BF /* UserInfoViewModel.swift */; };
+		29FD6E442217D1350038E333 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FD6E432217D1350038E333 /* LoginViewModel.swift */; };
+		3A467D3B5ABED2E40FD2F864 /* Pods_KMZN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4DC680F662307FF5E3C41F6 /* Pods_KMZN.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		290A46C3211BE1A400D37A37 /* ThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewController.swift; sourceTree = "<group>"; };
-		290A46C5211BE27500D37A37 /* ChooseDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDeviceViewController.swift; sourceTree = "<group>"; };
 		290A46C8211BEE0700D37A37 /* DeviceInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeviceInfoCell.xib; sourceTree = "<group>"; };
 		290A46CA211C224F00D37A37 /* DeviceInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoCell.swift; sourceTree = "<group>"; };
 		290A46CC211C2E6600D37A37 /* TemporaryPwdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryPwdViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +114,11 @@
 		290B0965218045FE007D9ECC /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		290B096721804710007D9ECC /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
 		290FD08D2109675C00A615B4 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		2918A40821C35C7F0026C250 /* homeDeviceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = homeDeviceView.xib; sourceTree = "<group>"; };
+		2918A40A21C35E5F0026C250 /* HomeDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDeviceView.swift; sourceTree = "<group>"; };
+		2918A40E21C3AF1F0026C250 /* temporaryPwdView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = temporaryPwdView.xib; sourceTree = "<group>"; };
+		2918A41021C4909E0026C250 /* TemporaryPwdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryPwdView.swift; sourceTree = "<group>"; };
+		2929132321E9B7F300A93B1D /* UserAgreementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAgreementViewController.swift; sourceTree = "<group>"; };
 		293439EA212BEFF50022B4E0 /* ManagerDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerDetailViewModel.swift; sourceTree = "<group>"; };
 		293439EC212C039D0022B4E0 /* AddPwdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPwdViewModel.swift; sourceTree = "<group>"; };
 		293741092123B9F60086529E /* KMWebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMWebSocket.swift; sourceTree = "<group>"; };
@@ -159,9 +171,13 @@
 		2979D66B2106BE6E00FF0E44 /* CodeLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeLoginViewController.swift; sourceTree = "<group>"; };
 		2979D66D2106BEAF00FF0E44 /* ResetPwdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPwdViewController.swift; sourceTree = "<group>"; };
 		297A2F28217D5DC900CF96CA /* TemporaryPwdInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryPwdInfo.swift; sourceTree = "<group>"; };
+		298645AE21C4DA690093E38E /* CategoryPwdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPwdViewController.swift; sourceTree = "<group>"; };
 		298AAA10216C90BC003C671A /* TimeSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSelectView.swift; sourceTree = "<group>"; };
-		29994ABE216EFEF30023BD61 /* PwdDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PwdDetailViewController.swift; sourceTree = "<group>"; };
+		298C42A521C7492600632413 /* DeviceTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTypeViewController.swift; sourceTree = "<group>"; };
 		29994AC2216EFF1B0023BD61 /* PwdListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PwdListViewController.swift; sourceTree = "<group>"; };
+		29A8FDCE21E2DF840088ABAF /* GuideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
+		29B10EA121C78ED900144C11 /* ManagerUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerUserViewController.swift; sourceTree = "<group>"; };
+		29B10EA321C7965000144C11 /* ManagerUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerUserCell.swift; sourceTree = "<group>"; };
 		29B4AB7E2134ED3A003DE40B /* String-Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String-Extras.swift"; sourceTree = "<group>"; };
 		29B4AB802134EE96003DE40B /* KMZN-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KMZN-Bridging-Header.h"; sourceTree = "<group>"; };
 		29B4AB8221353D3C003DE40B /* HeartBeatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartBeatViewModel.swift; sourceTree = "<group>"; };
@@ -169,15 +185,15 @@
 		29BD6EA12146641700109E02 /* SystemSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemSetupViewController.swift; sourceTree = "<group>"; };
 		29C3A8AE21748FB3000FC25F /* TemporaryPWDViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryPWDViewModel.swift; sourceTree = "<group>"; };
 		29CB9AB3212E9BF300D4C33C /* KWAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KWAlertView.swift; sourceTree = "<group>"; };
-		29CB9AB5212E9F8600D4C33C /* DeviceListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListViewModel.swift; sourceTree = "<group>"; };
 		29DB6F2D219BC9A800EBD141 /* MessageListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListCell.swift; sourceTree = "<group>"; };
 		29DB6F2F219BCA6800EBD141 /* MessageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInfo.swift; sourceTree = "<group>"; };
 		29E8AEBA218AE5F100E33520 /* KMZN.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KMZN.entitlements; sourceTree = "<group>"; };
 		29FA980C2136721100EF28BF /* BasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
 		29FA980E21368A2A00EF28BF /* UserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
-		31000842390331D2A80109DA /* Pods-KMZN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KMZN.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KMZN/Pods-KMZN.debug.xcconfig"; sourceTree = "<group>"; };
-		95530961FAB0509454A37F5A /* Pods_KMZN.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KMZN.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A65219BE89C4CDB29A4C1B81 /* Pods-KMZN.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KMZN.release.xcconfig"; path = "Pods/Target Support Files/Pods-KMZN/Pods-KMZN.release.xcconfig"; sourceTree = "<group>"; };
+		29FD6E432217D1350038E333 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		74E884B583923D60A5C5C300 /* Pods-KMZN.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KMZN.release.xcconfig"; path = "Pods/Target Support Files/Pods-KMZN/Pods-KMZN.release.xcconfig"; sourceTree = "<group>"; };
+		BE19E27247A54409B04C83BC /* Pods-KMZN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KMZN.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KMZN/Pods-KMZN.debug.xcconfig"; sourceTree = "<group>"; };
+		E4DC680F662307FF5E3C41F6 /* Pods_KMZN.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KMZN.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,13 +201,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				290F351CD2545C033A4B6BC2 /* Pods_KMZN.framework in Frameworks */,
+				3A467D3B5ABED2E40FD2F864 /* Pods_KMZN.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0958558D0030CA03DB2A205C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				74E884B583923D60A5C5C300 /* Pods-KMZN.release.xcconfig */,
+				BE19E27247A54409B04C83BC /* Pods-KMZN.debug.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		290A46C7211BEDA700D37A37 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,12 +224,17 @@
 				290A46CA211C224F00D37A37 /* DeviceInfoCell.swift */,
 				290A46D0211C310B00D37A37 /* UnlockRecordCell.swift */,
 				29623F88212AA85900CBE772 /* DeviceManagerCell.swift */,
+				29B10EA321C7965000144C11 /* ManagerUserCell.swift */,
 				29623F7A212A6C0600CBE772 /* PasswordAlertView.swift */,
 				29CB9AB3212E9BF300D4C33C /* KWAlertView.swift */,
 				298AAA10216C90BC003C671A /* TimeSelectView.swift */,
 				2965A4B0217872FC005FB02C /* deviceActiveView.xib */,
 				2965A4B2217874E5005FB02C /* DeviceActiveView.swift */,
 				29DB6F2D219BC9A800EBD141 /* MessageListCell.swift */,
+				2918A40821C35C7F0026C250 /* homeDeviceView.xib */,
+				2918A40A21C35E5F0026C250 /* HomeDeviceView.swift */,
+				2918A40E21C3AF1F0026C250 /* temporaryPwdView.xib */,
+				2918A41021C4909E0026C250 /* TemporaryPwdView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -213,10 +243,12 @@
 			isa = PBXGroup;
 			children = (
 				290A46D5211D5E7B00D37A37 /* DeviceViewController.swift */,
-				290A46D7211D666A00D37A37 /* ManagerDeviceViewController.swift */,
+				298C42A521C7492600632413 /* DeviceTypeViewController.swift */,
 				290A46DD211D846100D37A37 /* TypeDeviceViewController.swift */,
 				290A46DF211D896500D37A37 /* AddDeviceViewController.swift */,
+				290A46D7211D666A00D37A37 /* ManagerDeviceViewController.swift */,
 				2954B8B4211E883800905ECD /* ManagerPWDViewController.swift */,
+				29B10EA121C78ED900144C11 /* ManagerUserViewController.swift */,
 				29623F8A212AB5F800CBE772 /* AddPwdViewController.swift */,
 				2937410B212550C50086529E /* ManagerDetailViewController.swift */,
 				2954B8B6211E8D7600905ECD /* HeartBeatViewController.swift */,
@@ -230,8 +262,8 @@
 			children = (
 				294075D42105B10400ACECEB /* KMZN */,
 				294075D32105B10400ACECEB /* Products */,
-				6BCFBBECB54BE375EE28CBCF /* Pods */,
-				C6B7B65E33A221F61CEEE5B2 /* Frameworks */,
+				0958558D0030CA03DB2A205C /* Pods */,
+				87792107263A506347EBDE5F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -312,10 +344,12 @@
 		294075F22105C7E800ACECEB /* login&register */ = {
 			isa = PBXGroup;
 			children = (
+				29A8FDCE21E2DF840088ABAF /* GuideViewController.swift */,
 				294075F52105C84700ACECEB /* LoginViewController.swift */,
 				294075F32105C82C00ACECEB /* RegisterViewController.swift */,
 				2979D66B2106BE6E00FF0E44 /* CodeLoginViewController.swift */,
 				2979D66D2106BEAF00FF0E44 /* ResetPwdViewController.swift */,
+				2929132321E9B7F300A93B1D /* UserAgreementViewController.swift */,
 			);
 			path = "login&register";
 			sourceTree = "<group>";
@@ -324,11 +358,10 @@
 			isa = PBXGroup;
 			children = (
 				294E6BDE211AEE6800FEED8C /* HomeViewController.swift */,
-				290A46C5211BE27500D37A37 /* ChooseDeviceViewController.swift */,
-				290A46CC211C2E6600D37A37 /* TemporaryPwdViewController.swift */,
 				29994AC2216EFF1B0023BD61 /* PwdListViewController.swift */,
-				29994ABE216EFEF30023BD61 /* PwdDetailViewController.swift */,
+				290A46CC211C2E6600D37A37 /* TemporaryPwdViewController.swift */,
 				290A46CE211C30DE00D37A37 /* UnlockRecordViewController.swift */,
+				298645AE21C4DA690093E38E /* CategoryPwdViewController.swift */,
 			);
 			path = homepage;
 			sourceTree = "<group>";
@@ -349,12 +382,12 @@
 			isa = PBXGroup;
 			children = (
 				294EA7C121086A33007F9E5B /* BaseViewModel.swift */,
+				29FD6E432217D1350038E333 /* LoginViewModel.swift */,
 				294EA7C321086F15007F9E5B /* RegisterViewModel.swift */,
 				2942F72121300C9100530120 /* ProductListViewModel.swift */,
-				29CB9AB5212E9F8600D4C33C /* DeviceListViewModel.swift */,
+				29623F7E212A8F5100CBE772 /* DeviceInfoViewModel.swift */,
 				29623F7C212A717600CBE772 /* AddDeviceViewModel.swift */,
 				29623F8C212ABAD600CBE772 /* UnlockRecordViewModel.swift */,
-				29623F7E212A8F5100CBE772 /* DeviceInfoViewModel.swift */,
 				29623F82212A9CB900CBE772 /* RecordListViewModel.swift */,
 				293439EA212BEFF50022B4E0 /* ManagerDetailViewModel.swift */,
 				293439EC212C039D0022B4E0 /* AddPwdViewModel.swift */,
@@ -396,19 +429,10 @@
 			path = userSetting;
 			sourceTree = "<group>";
 		};
-		6BCFBBECB54BE375EE28CBCF /* Pods */ = {
+		87792107263A506347EBDE5F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				31000842390331D2A80109DA /* Pods-KMZN.debug.xcconfig */,
-				A65219BE89C4CDB29A4C1B81 /* Pods-KMZN.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		C6B7B65E33A221F61CEEE5B2 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				95530961FAB0509454A37F5A /* Pods_KMZN.framework */,
+				E4DC680F662307FF5E3C41F6 /* Pods_KMZN.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -420,12 +444,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 294075E42105B10400ACECEB /* Build configuration list for PBXNativeTarget "KMZN" */;
 			buildPhases = (
-				CA36C26E80C4D15BCECB9F63 /* [CP] Check Pods Manifest.lock */,
+				5D664E06A540DC5128214F9A /* [CP] Check Pods Manifest.lock */,
 				294075CE2105B10400ACECEB /* Sources */,
 				294075CF2105B10400ACECEB /* Frameworks */,
 				294075D02105B10400ACECEB /* Resources */,
-				14BE52D15D75435F0C60D240 /* [CP] Embed Pods Frameworks */,
-				05EFA1F59CF76A1D94B4C056 /* [CP] Copy Pods Resources */,
+				DA3907831F3CB971F6BD115D /* [CP] Embed Pods Frameworks */,
+				479C26805E0BDE39452B09A5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -443,7 +467,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = czc;
 				TargetAttributes = {
 					294075D12105B10400ACECEB = {
@@ -485,18 +509,20 @@
 				294E6BDC211AEB6100FEED8C /* Setup.storyboard in Resources */,
 				294E6BD8211AE87900FEED8C /* Homepage.storyboard in Resources */,
 				294075E02105B10400ACECEB /* LaunchScreen.storyboard in Resources */,
+				2918A40F21C3AF1F0026C250 /* temporaryPwdView.xib in Resources */,
 				2965A4B1217872FC005FB02C /* deviceActiveView.xib in Resources */,
 				2965A4B521787FBD005FB02C /* device_active.gif in Resources */,
 				294075DD2105B10400ACECEB /* Assets.xcassets in Resources */,
 				294E6BDA211AEB0200FEED8C /* Device.storyboard in Resources */,
 				294075DB2105B10400ACECEB /* Main.storyboard in Resources */,
+				2918A40921C35C7F0026C250 /* homeDeviceView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		05EFA1F59CF76A1D94B4C056 /* [CP] Copy Pods Resources */ = {
+		479C26805E0BDE39452B09A5 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -507,42 +533,14 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ShareSDK.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KMZN/Pods-KMZN-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		14BE52D15D75435F0C60D240 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-KMZN/Pods-KMZN-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
-				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KMZN/Pods-KMZN-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CA36C26E80C4D15BCECB9F63 /* [CP] Check Pods Manifest.lock */ = {
+		5D664E06A540DC5128214F9A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -558,6 +556,42 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA3907831F3CB971F6BD115D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-KMZN/Pods-KMZN-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KMZN/Pods-KMZN-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -580,17 +614,21 @@
 				298AAA11216C90BC003C671A /* TimeSelectView.swift in Sources */,
 				29623F85212AA54E00CBE772 /* RecondListInfo.swift in Sources */,
 				290A46CF211C30DE00D37A37 /* UnlockRecordViewController.swift in Sources */,
-				29CB9AB6212E9F8600D4C33C /* DeviceListViewModel.swift in Sources */,
+				29FD6E442217D1350038E333 /* LoginViewModel.swift in Sources */,
+				298645AF21C4DA690093E38E /* CategoryPwdViewController.swift in Sources */,
 				2965A4B3217874E5005FB02C /* DeviceActiveView.swift in Sources */,
 				294EA7C0210827A0007F9E5B /* BaseMappable.swift in Sources */,
 				2954B8B7211E8D7600905ECD /* HeartBeatViewController.swift in Sources */,
 				290B0966218045FE007D9ECC /* MessageViewController.swift in Sources */,
 				294EA7B821081DF8007F9E5B /* HttpWrapper.swift in Sources */,
+				2918A40B21C35E5F0026C250 /* HomeDeviceView.swift in Sources */,
 				29623F7D212A717600CBE772 /* AddDeviceViewModel.swift in Sources */,
 				293439ED212C039D0022B4E0 /* AddPwdViewModel.swift in Sources */,
 				29FA980F21368A2A00EF28BF /* UserInfoViewModel.swift in Sources */,
 				294EA7C221086A33007F9E5B /* BaseViewModel.swift in Sources */,
+				29B10EA421C7965000144C11 /* ManagerUserCell.swift in Sources */,
 				294E6BDF211AEE6800FEED8C /* HomeViewController.swift in Sources */,
+				2918A41121C4909E0026C250 /* TemporaryPwdView.swift in Sources */,
 				290FD08E2109675C00A615B4 /* UserInfo.swift in Sources */,
 				294075F62105C84700ACECEB /* LoginViewController.swift in Sources */,
 				29623F8F212ABD8100CBE772 /* UnlockTypeInfo.swift in Sources */,
@@ -599,13 +637,14 @@
 				29BD6EA22146641700109E02 /* SystemSetupViewController.swift in Sources */,
 				290A46DE211D846100D37A37 /* TypeDeviceViewController.swift in Sources */,
 				2954B8B5211E883800905ECD /* ManagerPWDViewController.swift in Sources */,
+				298C42A621C7492600632413 /* DeviceTypeViewController.swift in Sources */,
 				296C84AF2133EA6C008DC91A /* QRCodeViewController.swift in Sources */,
 				29DB6F2E219BC9A800EBD141 /* MessageListCell.swift in Sources */,
+				29A8FDCF21E2DF840088ABAF /* GuideViewController.swift in Sources */,
 				290B096821804710007D9ECC /* MessageViewModel.swift in Sources */,
 				2979D66C2106BE6E00FF0E44 /* CodeLoginViewController.swift in Sources */,
 				290A46D1211C310B00D37A37 /* UnlockRecordCell.swift in Sources */,
 				29623F83212A9CB900CBE772 /* RecordListViewModel.swift in Sources */,
-				290A46C6211BE27500D37A37 /* ChooseDeviceViewController.swift in Sources */,
 				29623F8B212AB5F800CBE772 /* AddPwdViewController.swift in Sources */,
 				2937410A2123B9F60086529E /* KMWebSocket.swift in Sources */,
 				294EA7BA21081F6A007F9E5B /* Api.swift in Sources */,
@@ -625,12 +664,13 @@
 				290A46DC211D764400D37A37 /* ButtonWithRightImage.swift in Sources */,
 				294EA7BD21082724007F9E5B /* CommonResult.swift in Sources */,
 				29623F87212AA68700CBE772 /* PageRow.swift in Sources */,
+				2929132421E9B7F300A93B1D /* UserAgreementViewController.swift in Sources */,
 				297A2F29217D5DC900CF96CA /* TemporaryPwdInfo.swift in Sources */,
 				2937410C212550C50086529E /* ManagerDetailViewController.swift in Sources */,
-				29994ABF216EFEF30023BD61 /* PwdDetailViewController.swift in Sources */,
 				290A46D6211D5E7B00D37A37 /* DeviceViewController.swift in Sources */,
 				294075D62105B10400ACECEB /* AppDelegate.swift in Sources */,
 				29B4AB8321353D3C003DE40B /* HeartBeatViewModel.swift in Sources */,
+				29B10EA221C78ED900144C11 /* ManagerUserViewController.swift in Sources */,
 				2942F72221300C9100530120 /* ProductListViewModel.swift in Sources */,
 				29FA980D2136721100EF28BF /* BasicViewController.swift in Sources */,
 				29623F8D212ABAD600CBE772 /* UnlockRecordViewModel.swift in Sources */,
@@ -663,63 +703,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		294075E22105B10400ACECEB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Debug;
-		};
 		294075E32105B10400ACECEB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -734,6 +717,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -741,6 +725,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -762,7 +747,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -770,50 +755,109 @@
 			};
 			name = Release;
 		};
-		294075E52105B10400ACECEB /* Debug */ = {
+		294075E62105B10400ACECEB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 31000842390331D2A80109DA /* Pods-KMZN.debug.xcconfig */;
+			baseConfigurationReference = 74E884B583923D60A5C5C300 /* Pods-KMZN.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = KMZN/KMZN.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TKP3ERZA96;
+				DEVELOPMENT_TEAM = Q9X6FK366Y;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = KMZN/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.enjoycare.hgzn;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hgznjs.hgzn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "KMZN/Extensions/KMZN-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		299E18D721DDB9E100426F00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Debug;
 		};
-		294075E62105B10400ACECEB /* Release */ = {
+		299E18D821DDB9E100426F00 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A65219BE89C4CDB29A4C1B81 /* Pods-KMZN.release.xcconfig */;
+			baseConfigurationReference = BE19E27247A54409B04C83BC /* Pods-KMZN.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = KMZN/KMZN.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TKP3ERZA96;
+				DEVELOPMENT_TEAM = Q9X6FK366Y;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = KMZN/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.enjoycare.hgzn;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hgznjs.hgzn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "KMZN/Extensions/KMZN-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
-			name = Release;
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
@@ -821,8 +865,8 @@
 		294075CD2105B10400ACECEB /* Build configuration list for PBXProject "KMZN" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				294075E22105B10400ACECEB /* Debug */,
 				294075E32105B10400ACECEB /* Release */,
+				299E18D721DDB9E100426F00 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -830,8 +874,8 @@
 		294075E42105B10400ACECEB /* Build configuration list for PBXNativeTarget "KMZN" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				294075E52105B10400ACECEB /* Debug */,
 				294075E62105B10400ACECEB /* Release */,
+				299E18D821DDB9E100426F00 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -80,7 +80,7 @@ extension SettingUserViewController{
             
             self.photoImageView.kf.setImage(with: URL.init(string: photo))
         }else{
-            self.photoImageView.image = #imageLiteral(resourceName: "头像")
+            self.photoImageView.image = #imageLiteral(resourceName: "我的-默认头像")
         }
         
         

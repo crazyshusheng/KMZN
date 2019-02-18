@@ -9,9 +9,11 @@
 import Foundation
 
 
+
 class RegisterViewModel: BaseViewModel {
     
-  
+    
+   
     fileprivate var userInfo = UserInfo()
     
     //注册
@@ -76,10 +78,7 @@ class RegisterViewModel: BaseViewModel {
                  UserSettings.shareInstance.setValue(key: UserSettings.USER_PASSWORD, value:pwd)
                  UserSettings.shareInstance.setValue(key: UserSettings.USER_ID, value:result.resultData.userId)
                 UserSettings.shareInstance.setValue(key: UserSettings.USER_PHONE, value:result.resultData.mobile)
-                if let registerID =  result.resultData.currentDeviceId {
-                    
-                      UserSettings.shareInstance.setValue(key: UserSettings.DEVICE_ID, value:registerID)
-                }
+               
                 if let nickname = result.resultData.nickname{
                     
                     UserSettings.shareInstance.setValue(key: UserSettings.USER_NICK_NAME, value:nickname)
@@ -115,9 +114,7 @@ class RegisterViewModel: BaseViewModel {
                 UserSettings.shareInstance.setValue(key: UserSettings.TOKEN, value:result.resultData.token)
                 UserSettings.shareInstance.setValue(key: UserSettings.USER_ID, value:result.resultData.userId)
                 UserSettings.shareInstance.setValue(key: UserSettings.USER_PHONE, value:result.resultData.mobile)
-                if let registerID =  result.resultData.currentDeviceId {
-                    UserSettings.shareInstance.setValue(key: UserSettings.DEVICE_ID, value:registerID)
-                }
+              
                 if let nickname = result.resultData.nickname{
                     
                     UserSettings.shareInstance.setValue(key: UserSettings.USER_NICK_NAME, value:nickname)

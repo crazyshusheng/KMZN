@@ -56,5 +56,46 @@ class RecordListViewModel: BaseViewModel {
         
     }
     
+    
+    //删除通行证(密码，指纹，卡)列表
+    func deletePasswordRecord(recordId:Int,deviceId:String,finishCallback: @escaping() ->()) {
+        
+        let param=NSMutableDictionary()
+        param.setValue(recordId, forKey: "id")
+        param.setValue(deviceId, forKey: "deviceId")
+        
+        
+        
+        loadData(action: Api.DEVICE_DELETE_PWD, param: param) { (jStr) in
+            
+            if CommonResult<BaseMappable>(JSONString:jStr) != nil{
+                
+                finishCallback()
+                
+                Utils.showHUD(info: "密码已删除")
+                
+            }
+        }
+        
+    }
+    
+    
+    func deleteUserDevice(deviceId:String,userId:Int,finishCallback: @escaping() ->()) {
+        
+        let param=NSMutableDictionary()
+        
+        
+        param.setValue(deviceId, forKey: "deviceId")
+        param.setValue(userId, forKey: "userId")
+        
+        loadData(action: Api.DEVICE_DELETE_DEVICE, param: param) { (jStr) in
+            
+            finishCallback()
+            
+            
+        }
+        
+    }
+    
 
 }

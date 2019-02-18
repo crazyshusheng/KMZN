@@ -12,7 +12,7 @@ class DeviceInfoViewModel: BaseViewModel {
     
     
     lazy var deviceInfo = DeviceInfo()
-    
+    lazy var dataList = [DeviceInfo]()
     
     
     //获取所有设备
@@ -22,12 +22,32 @@ class DeviceInfoViewModel: BaseViewModel {
             
             if let result = CommonResult<PageRow<DeviceInfo>>(JSONString: jsonStr){
                 
-                guard result.resultData.list.count > 0 else{
+        
+                if result.resultData != nil {
                     
-                    return
+                      self.dataList = result.resultData.list
+                
+                    
+                    for (index,device) in self.dataList.enumerated(){
+                        
+                        
+                        if device.isChoose != nil {
+                            
+                            
+                            if   device.isChoose {
+                                
+                                
+                                self.dataList.remove(at: index)
+                                self.dataList.insert(device, at: 0)
+                                break
+                            }
+                        }
+                    
+                    }
+                    
                 }
                 
-                self.deviceInfo = result.resultData.list.first!
+
                 finishedCallback()
                 
             }
@@ -76,21 +96,26 @@ class DeviceInfoViewModel: BaseViewModel {
     }
     
     
-    // 远程开锁
-    func openLock(deviceID:String,masterPassword:String,finishedCallback : @escaping () -> ()){
+    
+    //选择当前设备
+    func chooseCurrentDevice(deviceId:String,finishedCallback : @escaping () -> ()){
         
         let param=NSMutableDictionary()
         
-        param.setValue(deviceID, forKey: "deviceId")
-        param.setValue(masterPassword, forKey: "masterPassword")
         
-        loadData(action: Api.DEVICE_OPENLOCK, param: param) { (jsonStr) in
+        param.setValue(deviceId, forKey: "deviceId")
+        
+        
+        loadData(action: Api.DEVICE_SWITCH_CURRENT, param: param) { (jsonStr) in
+            
+            
+            
             
             finishedCallback()
-           
+            
         }
-        
     }
+    
     
     // 验证开锁密码
     func ckeckLockPassword(deviceID:String,masterPassword:String,finishedCallback : @escaping () -> ()){
@@ -109,22 +134,26 @@ class DeviceInfoViewModel: BaseViewModel {
     }
     
     
-    // 删除设备
-    func deleteDevice(deviceID:String,masterPassword:String,finishedCallback : @escaping () -> ()){
+    
+    // 解除关联关系
+    func deleteDevice(deviceID:String,userID:String,finishedCallback : @escaping () -> ()){
         
         let param=NSMutableDictionary()
         
         param.setValue(deviceID, forKey: "deviceId")
-        param.setValue(masterPassword, forKey: "masterPassword")
         
-        loadData(action: Api.DEVICE_DELETE_DEIVCE, param: param) { (jsonStr) in
+        param.setValue(userID, forKey: "userId")
+        
+        loadData(action: Api.DEVICE_DELETE_USER_DEIVCE, param: param) { (jsonStr) in
             
             finishedCallback()
             
         }
         
     }
-  
+    
+    
+    
     
 
 }

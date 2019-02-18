@@ -13,13 +13,23 @@ import ObjectMapper
 class ManagerDetailViewController: ThemeViewController {
     
     
+  
+    
     @IBOutlet weak var nameView: UIView!
+    
+    @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var nameLabel: UILabel!
     
+    @IBOutlet weak var pwdLabel: UILabel!
+    
     @IBOutlet weak var detailLabel: UILabel!
 
-    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var typeLabel: UILabel!
+    
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    
     var detailType = 1
     var recordInfo:RecondListInfo!
     fileprivate var viewModel = ManagerDetailViewModel()
@@ -39,26 +49,7 @@ class ManagerDetailViewController: ThemeViewController {
     }
     
 
-    @IBAction func deleteRecord(_ sender: Any) {
-        
-        if detailType == 4{
-            
-            viewModel.deleteUserDevice(deviceId: recordInfo.deviceId, userId: recordInfo.userId) {
-                
-                Utils.showHUD(info: "命令下发成功")
-                self.navigationController?.popViewController(animated: true)
-            }
-        }else{
-            
-            viewModel.deletePasswordRecord(recordId: recordInfo.recordID,deviceId:recordInfo.deviceId) {
-                
-                 Utils.showHUD(info: "命令下发成功")
-                 self.navigationController?.popViewController(animated: true)
-            }
-            
-        }
-        
-    }
+  
     
 
 }
@@ -67,43 +58,65 @@ extension ManagerDetailViewController{
     
     func setupUI(){
         
-        if recordInfo.name != nil {
+        
+        nameLabel.text = recordInfo.name
+        
+        
+        if recordInfo.passId != nil {
             
-            nameLabel.text = recordInfo.name
-        }else{
+            if recordInfo.passId >= 1 && recordInfo.passId <= 30 {
+                
+                typeLabel.text = "管理员"
+            }else {
+                
+                typeLabel.text = "普通用户"
+            }
+        }
+        
+        if recordInfo.role != nil {
             
-            nameLabel.text = String(recordInfo.passId)
+            typeLabel.text = (recordInfo.role == 0) ? "管理员":"普通用户"
         }
         
         
+
+       timeLabel.text = recordInfo.createTime
+        
+        if detailType == 1 {
+            
+            titleLabel.text = "密码"
+            detailLabel.text = recordInfo.password
+        }else if  detailType == 4 {
+            
+            titleLabel.text = "手机号"
+            detailLabel.text = recordInfo.mobile
+            
+           
+        }else{
+            
+            titleLabel.text = "ID"
+            detailLabel.text = String(recordInfo.recordID)
+            
+        }
         
         
-        detailLabel.text = (detailType == 4) ? String(recordInfo.userId) : recordInfo.password
         let webSocket = KMWebSocket.sharedInstance()
         webSocket.webSocketDelegate = self
         
         
         
         nameView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showAlertView)))
-        deleteButton.isHidden = false
-  
       
-        
-        
-        
-        
+
     }
     
     @objc func showAlertView(){
         
-        if detailType != 4 {
-            
-            let pswAlertView = KWAlertView.init(frame: self.view.bounds)
-            let label = pswAlertView.BGView.viewWithTag(10) as! UILabel
-            label.text = "修改名称"
-            pswAlertView.delegate = self
-            self.view.addSubview(pswAlertView)
-        }
+        let pswAlertView = KWAlertView.init(frame: self.view.bounds)
+        let label = pswAlertView.BGView.viewWithTag(10) as! UILabel
+        label.text = "修改名称"
+        pswAlertView.delegate = self
+        self.view.addSubview(pswAlertView)
         
         
     }
@@ -122,6 +135,7 @@ extension ManagerDetailViewController:KWAlertViewDelegate {
             self.nameLabel.text = name
             let vc = self.navigationController?.viewControllers[2] as? ManagerPWDViewController
             vc?.isRefresh = true
+            self.navigationController?.popViewController(animated: true)
         }
     }
 }
@@ -132,8 +146,7 @@ extension ManagerDetailViewController:KMWebSocketDelegate{
     
     func websocketDidReceiveMessage(socket: KMWebSocket, text: String) {
         
-        
-        
+    
         if let result = CommonResult<BaseMappable>(JSONString:text){
             
             Utils.showHUD(info: result.message)

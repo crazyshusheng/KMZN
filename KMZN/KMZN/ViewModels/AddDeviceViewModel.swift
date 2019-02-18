@@ -35,7 +35,6 @@ class AddDeviceViewModel: BaseViewModel {
                 Utils.showHUD(info: "添加设备成功")
                 self.lockInfo = result.resultData
                 
-                UserSettings.shareInstance.setValue(key: UserSettings.DEVICE_ID, value: result.resultData.deviceId)
                 
                 NotificationCenter.default.post(name: NOTIFY_DEVICEVC_DEVICE, object: nil)
                 

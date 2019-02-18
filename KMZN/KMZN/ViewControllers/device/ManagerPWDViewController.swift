@@ -61,12 +61,9 @@ extension ManagerPWDViewController{
         
         navigationItem.title = titleName
         
-        if typeID == 1 || typeID == 4 {
+        if deviceInfo.role == 0  &&   typeID == 1 {
             
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: #imageLiteral(resourceName: "添加设备"), style: .plain, target: self, action: #selector(addRecord))
-        }else{
-            
-            self.navigationItem.rightBarButtonItems?.removeAll()
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: #imageLiteral(resourceName: "+添加"), style: .plain, target: self, action: #selector(addRecord))
         }
        
     }
@@ -88,15 +85,7 @@ extension ManagerPWDViewController{
                 self.dataList =  self.viewModel.recordList
                 self.tableView.reloadData()
             }
-        case  4:
-            
-            listType = 4
-            viewModel.getDeviceUsers(deviceID: deviceInfo.deviceId) {
-                
-                self.dataList =  self.viewModel.recordList
-                self.tableView.reloadData()
-            }
-            
+      
         default:
             break
         }
@@ -121,7 +110,7 @@ extension ManagerPWDViewController: UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 44
+        return 80
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -130,7 +119,7 @@ extension ManagerPWDViewController: UITableViewDataSource,UITableViewDelegate{
         if dataList.count > 0 {
             
             cell.type = self.typeID
-            cell.managerInfo = dataList[indexPath.row]
+            cell.managerInfo = dataList[indexPath.section]
         }
         
         return cell
@@ -138,21 +127,83 @@ extension ManagerPWDViewController: UITableViewDataSource,UITableViewDelegate{
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return dataList.count
+        return 1
         
     }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return dataList.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        return 15
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let view  = UIView.init()
+        view.backgroundColor = THEME_BG_COLOR
+        view.frame = CGRect.init(x: 0, y: 0, width: tableView.frame.size.width, height: 10)
+        
+        return view
+    }
+
     
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-  
         let vc = storyboard?.instantiateViewController(withIdentifier: "ManagerDetailVC") as! ManagerDetailViewController
         vc.detailType = listType
-        vc.recordInfo = dataList[indexPath.row]
+        vc.recordInfo = dataList[indexPath.section]
         navigationController?.pushViewController(vc, animated: true)
         
     
     }
+    
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        
+        if deviceInfo.role == 0 {
+            
+            return UITableViewCellEditingStyle.delete
+        }else{
+            
+            return UITableViewCellEditingStyle.none
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        let alert = UIAlertController.init(title:
+            "确定要删除密码?", message: "", preferredStyle: .alert)
+        let cancelAction = UIAlertAction.init(title: "取消", style: .cancel, handler: nil)
+        
+        let firstAction = UIAlertAction.init(title: "确定", style: .default) { (nil) in
+            
+        self.viewModel.deletePasswordRecord(recordId:self.dataList[indexPath.section].recordID,deviceId:self.dataList[indexPath.section].deviceId) {
+            
+                self.dataList.remove(at: indexPath.row)
+                self.tableView.reloadData()
+                
+            }
+        }
+        alert.addAction(cancelAction)
+        alert.addAction(firstAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "删除"
+    }
+    
     
     
 }

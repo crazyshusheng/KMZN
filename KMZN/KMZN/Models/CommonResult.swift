@@ -17,6 +17,7 @@ class CommonResult<T: Mappable>: BaseMappable {
     
     // Mappable
     override func mapping(map: Map) {
+        
         success <- map["success"]
         code    <- map["code"]
         message       <- map["message"]

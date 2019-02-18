@@ -10,9 +10,17 @@ import UIKit
 
 class DeviceManagerCell: UITableViewCell {
 
+    @IBOutlet weak var headView: UIImageView!
+    
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var delLabel: UILabel!
+    
+    @IBOutlet weak var numLabel: UILabel!
+    
+    
+    
+    
     
     var  type = 1
     
@@ -20,26 +28,32 @@ class DeviceManagerCell: UITableViewCell {
         
         didSet{
             
-            if type == 4 {
+            if managerInfo.passId >= 1 && managerInfo.passId <= 30 {
                 
-                nameLabel.text = managerInfo.name
-                delLabel.text = (managerInfo.role == 0) ? "管理员" : "成员"
-            }else{
+                delLabel.text = "管理员"
+            }else {
                 
-                if managerInfo.name != nil {
-                    
-                     nameLabel.text = managerInfo.name
-                    
-                }else{
-                    
-                    nameLabel.text = managerInfo.createTime
-                }
+                 delLabel.text = "普通用户"
+            }
+            
+           
+            
+            numLabel.text = "ID:" + String(managerInfo.recordID)
+            
+             nameLabel.text = managerInfo.name
+            
+            if type == 1{
                 
-               
-                delLabel.text = "ID:" + String(managerInfo.passId)
+                headView.image = UIImage.init(named: "password-management")
+            }else if type == 2{
+                
+                 headView.image = UIImage.init(named: "fingerprint-management")
+            }else if type == 3{
+                
+                 headView.image = UIImage.init(named: "card-management")
                 
             }
-           
+            
             
         }
         

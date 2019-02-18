@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let types: UInt = UIUserNotificationType.alert.rawValue|UIUserNotificationType.sound.rawValue|UIUserNotificationType.badge.rawValue
         
         JPUSHService.register(forRemoteNotificationTypes: types, categories: nil)
-        JPUSHService.setup(withOption: launchOptions, appKey: "d317f18902c6a1e6efecb92d", channel: nil, apsForProduction: false)
+        JPUSHService.setup(withOption: launchOptions, appKey: "585607901725b44433d30867", channel: nil, apsForProduction: false)
         // 获取推送RegisterID
         JPUSHService.registrationIDCompletionHandler { (code, registerID) in
             print(registerID ?? String())
@@ -83,26 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    @available(iOS 10.0, *)
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        
-        
-        let alert = UIAlertController.init(title:
-            notification.request.content.title, message: notification.request.content.body, preferredStyle: .alert)
-        let cancelAction = UIAlertAction.init(title: "取消", style: .cancel, handler: nil)
-        
-        let firstAction = UIAlertAction.init(title: "好的", style: .default) { (nil) in
-            
-        }
-        alert.addAction(cancelAction)
-        alert.addAction(firstAction)
-        window?.rootViewController?.present(alert, animated: true, completion: {
-            
-        })
-        //present(alert, animated: true, completion: nil)
-        
-        
-    }
+    
     
     @available(iOS 10.0, *)
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
@@ -139,7 +120,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
+
+  
+    
+    
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        
+        print(userInfo)
+        
         JPUSHService.handleRemoteNotification(userInfo)
         completionHandler(UIBackgroundFetchResult.newData)
         
@@ -149,22 +138,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let infoDict = userInfo["aps"] as! NSDictionary
             
             let alert = UIAlertController.init(title: "提示", message: infoDict.object(forKey: "alert") as? String, preferredStyle: .alert)
-             let cancelAction = UIAlertAction.init(title: "确定", style: .cancel, handler: nil)
+            let cancelAction = UIAlertAction.init(title: "确定", style: .cancel, handler: nil)
+            let sureAction = UIAlertAction.init(title: "查看", style: .default) { (nil) in
+                
+                self.goToPushVC(deviceId: userInfo["deviceId"] as! String)
+            }
             alert.addAction(cancelAction)
             
-            window?.rootViewController?.present(alert, animated: true, completion: {
-                
-            })
+            if  userInfo["deviceId"] != nil{
+
+                alert.addAction(sureAction)
+            }
             
-        }else{
-            //app 杀死和后台时，跳转到指定界面
             
+            window?.rootViewController?.present(alert, animated: true, completion: nil)
+            
+        }else if application.applicationState == .inactive || application.applicationState == .background{
+            //app 后台挂起
+            
+            
+            self.goToPushVC(deviceId: userInfo["deviceId"] as! String)
             
         }
-        
-        print(userInfo)
+       
     }
 
+    
+    func applicationDidFinishLaunching(_ application: UIApplication) {
+
+        print("通知启动")
+    }
     
 
 
@@ -173,15 +176,30 @@ extension AppDelegate {
     
     func setHUD(){
         
+        if (!(UserSettings.shareInstance.userDefaults.bool(forKey: "everLaunched"))) {
+            
+           self.window?.rootViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GuideVC")
+        }
+        
+        
+    
         //设置 指示框 后面View是否可操作
-        SVProgressHUD.setDefaultMaskType(.none)
-        SVProgressHUD.setMinimumDismissTimeInterval(2)
+        SVProgressHUD.setDefaultMaskType(.clear)
+        SVProgressHUD.setMinimumDismissTimeInterval(1.5)
         SVProgressHUD.setFadeOutAnimationDuration(0.5)
-        SVProgressHUD.setDefaultStyle(.light)
+        
+        SVProgressHUD.setDefaultStyle(.dark)
+        //仅在custom有效
         SVProgressHUD.setBackgroundColor(UIColor.darkText)
         SVProgressHUD.setForegroundColor(UIColor.white)
+
+        SVProgressHUD.setInfoImage(#imageLiteral(resourceName: "关于我们"))
+
         
         HttpWrapper.shareInstance.reachability.startMonitoring()
+        
+        
+      
     }
     
     
@@ -198,6 +216,21 @@ extension AppDelegate {
         }
     }
     
+    
+    func goToPushVC(deviceId:String){
+        
+        UserSettings.shareInstance.setValue(key: UserSettings.IS_PUSH, value: true)
+        
+        let recordVC = UIStoryboard.init(name: "Homepage", bundle: nil).instantiateViewController(withIdentifier: "UnlockRecordVC") as! UnlockRecordViewController
+        recordVC.type = 2
+        recordVC.deviceID = deviceId
+        
+        let naVC = UINavigationController.init(rootViewController: recordVC)
+        
+        self.window?.rootViewController?.present(naVC, animated: true, completion: nil)
+        
+        
+    }
 
     
 }

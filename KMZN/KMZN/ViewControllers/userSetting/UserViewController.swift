@@ -11,14 +11,16 @@ import UIKit
 class UserViewController: BasicViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    
     @IBOutlet weak var photoButton: UIButton!
     
-    private let titles = [["通知消息"],["系统设置","检查更新"],["关于我们"]]
+    private let titles = ["用户设置","通知消息","系统设置","当前版本","关于我们"]
     
-    @IBOutlet weak var userBtn: UIButton!
     
-    @IBOutlet weak var tipLabel: UILabel!
     
+    //[["通知消息"],["系统设置","检查更新"],["关于我们"]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,22 +29,8 @@ class UserViewController: BasicViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(refreshUserVC), name: NOTIFY_USERVC_DEVICE, object: nil)
     }
-
-
-    @IBAction func login(_ sender: Any) {
-        
-        if !UserSettings.shareInstance.isLogin(){
-            
-            let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-            let loginVC = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
-            navigationController?.pushViewController(loginVC, animated: true)
-        }else{
-            
-            let setVC = storyboard?.instantiateViewController(withIdentifier: "SettingUserVC") as! SettingUserViewController
-            navigationController?.pushViewController(setVC, animated: true)
-        }
-        
-    }
+    
+    
     
     @IBAction func setUserInfo(_ sender: Any) {
         
@@ -74,28 +62,25 @@ extension UserViewController{
         
         if UserSettings.shareInstance.isLogin(){
             
-            userBtn.setTitle(UserSettings.shareInstance.getStringValue(key: UserSettings.USER_PHONE), for: .normal)
-            
             if let nickname = UserSettings.shareInstance.getStringValue(key: UserSettings.USER_NICK_NAME) {
                 
                 if nickname.count > 0 {
                     
-                    userBtn.setTitle(nickname, for: .normal)
+                    nameLabel.text = nickname
                 }
+            }else{
+                
+                 nameLabel.text = UserSettings.shareInstance.getStringValue(key: UserSettings.USER_PHONE)
             }
-            tipLabel.isHidden = true
+          
             
             if let photo =  UserSettings.shareInstance.getStringValue(key: UserSettings.USER_PHOTO){
                 print(photo)
                 self.photoButton.kf.setImage(with: URL.init(string: photo), for: .normal)
             }else{
                 
-                self.photoButton.setImage(#imageLiteral(resourceName: "头像"), for: .normal)
+                self.photoButton.setImage(#imageLiteral(resourceName: "我的-默认头像"), for: .normal)
             }
-            
-        }else{
-            userBtn.setTitle("登录", for: .normal)
-            tipLabel.isHidden = false
         }
         
     }
@@ -118,78 +103,94 @@ extension UserViewController: UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 44
+        return 48
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = UITableViewCell.init()
+        let cellID = "cellID"
+        let cell = UITableViewCell.init(style: .value1, reuseIdentifier: cellID)
         
-        cell.textLabel?.text = titles[indexPath.section][indexPath.row]
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 15)
-        
+        cell.textLabel?.text = titles[indexPath.row]
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 16)
+        cell.imageView?.image = UIImage.init(named: titles[indexPath.row])
         cell.accessoryType = .disclosureIndicator
         cell.selectionStyle = .none
+        
+        
+        if indexPath.row == 3 {
+            
+           
+            let versionStr =  Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String?
+            cell.detailTextLabel?.text = "V" + versionStr!
+            
+        }else{
+            
+            cell.detailTextLabel?.text = ""
+        }
+        
+        
+        //去掉最后一个cell的分割线
+        if indexPath.row == titles.count - 1{
+            
+            cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, UIScreen.main.bounds.size.width)
+        }else{
+            
+            cell.separatorInset =  UIEdgeInsetsMake(0, 15, 0, 0)
+        }
         
         return cell
         
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        switch section {
-        case 0:
-            return 1
-        case 1:
-            return 2
-        case 2 :
-            return 1
-        default:
-            return 0
-        }
+        return titles.count
         
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 3
+        return 1
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
-        return 10
-    }
-    
+
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
       
-        switch  (indexPath.section,indexPath.row) {
+        switch  (indexPath.row) {
             
-        case (0,0):
+        case 0:
+            
+            
+            let setVC = storyboard?.instantiateViewController(withIdentifier: "SettingUserVC") as! SettingUserViewController
+            navigationController?.pushViewController(setVC, animated: true)
+        
+        case 1:
             
             let aboutVC = storyboard?.instantiateViewController(withIdentifier: "MessageVC") as! MessageViewController
             navigationController?.pushViewController(aboutVC, animated: true)
+        case 2:
             
-        case (1,0):
             
             let aboutVC = storyboard?.instantiateViewController(withIdentifier: "SystemSetupVC") as! SystemSetupViewController
             navigationController?.pushViewController(aboutVC, animated: true)
             
+         
+        case 3:
+                break
             
-        case (2,0):
+        case 4:
             
             let aboutVC = storyboard?.instantiateViewController(withIdentifier: "AboutUsVC") as! AboutUsViewController
             navigationController?.pushViewController(aboutVC, animated: true)
             
+            
         default:
             break
         }
-        
-        
-        
+    
     }
-    
-    
 }
 

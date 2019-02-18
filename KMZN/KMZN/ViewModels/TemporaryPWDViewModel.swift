@@ -13,10 +13,11 @@ class TemporaryPWDViewModel: BaseViewModel {
     
     var recordList = [TemporaryPwdInfo]()
     
-    func addTemporaryOncePassword(deviceId:String,masterPassword:String,password:String,finishedCallback : @escaping () -> ()){
+    func addTemporaryOncePassword(name:String?,deviceId:String,masterPassword:String,password:String,finishedCallback : @escaping () -> ()){
         
         let param = NSMutableDictionary()
         
+        param.setValue(name, forKey: "name")
         param.setValue(deviceId, forKey: "deviceId")
         param.setValue(masterPassword, forKey: "masterPassword")
         param.setValue(password, forKey: "password")
@@ -28,6 +29,8 @@ class TemporaryPWDViewModel: BaseViewModel {
             
            
             finishedCallback()
+            
+            Utils.showHUD(info: "命令下发成功")
         }
     }
     
@@ -52,6 +55,7 @@ class TemporaryPWDViewModel: BaseViewModel {
             
             
             finishedCallback()
+            Utils.showHUD(info: "命令下发成功")
         }
     }
     

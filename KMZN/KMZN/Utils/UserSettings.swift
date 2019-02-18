@@ -23,8 +23,9 @@ class UserSettings{
     static let USER_PASSWORD = "user_password" //用户密码
     static let USER_PHOTO = "user_photo"
     static let USER_NICK_NAME = "user_nickname"
+    static let IS_PUSH = "is_push"
     
-    static let DEVICE_ID = "deviceId"
+   
     static let DEVICE_IMEI = "imei"
     static let DEVICE_IMSI = "imsi"
     
@@ -63,12 +64,17 @@ class UserSettings{
     func isLogin()->Bool{
         return userDefaults.bool(forKey: UserSettings.IS_LOGIN)
     }
+    
+    func isPush() ->Bool{
+        
+        return userDefaults.bool(forKey: UserSettings.IS_PUSH)
+    }
 
     
    
     func clearUserInfo(){
         
-        let array = [UserSettings.TOKEN,UserSettings.DEVICE_ID,UserSettings.USER_PHOTO,UserSettings.USER_NICK_NAME]
+        let array = [UserSettings.TOKEN,UserSettings.USER_PHOTO,UserSettings.USER_NICK_NAME]
       
         for key in array {
             

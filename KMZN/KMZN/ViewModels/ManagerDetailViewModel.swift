@@ -26,6 +26,8 @@ class ManagerDetailViewModel: BaseViewModel {
             if CommonResult<BaseMappable>(JSONString:jStr) != nil{
                 
                 finishCallback()
+                
+                Utils.showHUD(info: "密码已删除")
 
             }
         }

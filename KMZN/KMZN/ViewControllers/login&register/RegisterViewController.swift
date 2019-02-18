@@ -95,6 +95,12 @@ class RegisterViewController: UIViewController {
     
     @IBAction func getUserAgreement(_ sender: Any) {
         
+        let agreementVC = storyboard?.instantiateViewController(withIdentifier: "UserAgreementVC") as! UserAgreementViewController 
+        agreementVC.titleName = "用户协议"
+        agreementVC.htmlStr = BASE_URL + Api.USER_AGREEMENT
+        navigationController?.pushViewController(agreementVC, animated: true)
+        
+        
     }
     
     

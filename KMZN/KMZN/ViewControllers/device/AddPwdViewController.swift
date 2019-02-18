@@ -94,8 +94,18 @@ extension AddPwdViewController{
             
             viewModel.addDevicePwd(deviceId: deviceID, name: name, password: pwd) {
                 
-                let vc = self.navigationController?.viewControllers[2] as? ManagerPWDViewController
-                vc?.isRefresh = true
+                if self.type == 4 {
+                    
+                    let vc = self.navigationController?.viewControllers[2] as? ManagerUserViewController
+                    vc?.isRefresh = true
+                    
+                }else{
+                    
+                    
+                    let vc = self.navigationController?.viewControllers[2] as? ManagerPWDViewController
+                    vc?.isRefresh = true
+                    
+                }
                 
                 self.navigationController?.popViewController(animated: true)
             }
@@ -111,8 +121,18 @@ extension AddPwdViewController{
             
             viewModel.addUserDevice(deviceId: deviceID, name: name, mobile: pwd) {
                 
-                let vc = self.navigationController?.viewControllers[2] as? ManagerPWDViewController
-                vc?.isRefresh = true
+                if self.type == 4 {
+                    
+                    let vc = self.navigationController?.viewControllers[2] as? ManagerUserViewController
+                    vc?.isRefresh = true
+                    
+                }else{
+                    
+                    
+                    let vc = self.navigationController?.viewControllers[2] as? ManagerPWDViewController
+                    vc?.isRefresh = true
+                    
+                }
                 
                 self.navigationController?.popViewController(animated: true)
                 
@@ -142,8 +162,8 @@ extension AddPwdViewController:KMWebSocketDelegate{
             
             Utils.showHUD(info: result.message)
             
-            let vc = self.navigationController?.viewControllers[2] as? ManagerPWDViewController
-            vc?.isRefresh = true
+
+         
         }
         
     }

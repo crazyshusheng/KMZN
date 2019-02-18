@@ -17,7 +17,7 @@ class KWAlertView: UIView,UITextFieldDelegate {
     let ScreenH = UIScreen.main.bounds.size.height
     let ScreenW = UIScreen.main.bounds.size.width
     let buttonH = 44
-    let borderH = 44
+    let borderH = 40
     let borderW = 15
     let pointSize = CGSize.init(width: 12, height: 12)
     let pointCount = 6
@@ -41,10 +41,10 @@ class KWAlertView: UIView,UITextFieldDelegate {
         //背景颜色
         self.backgroundColor = UIColor.black.withAlphaComponent(0.2)
         //弹框背景
-        let bgView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: ScreenW - 30, height: 200))
+        let bgView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: ScreenW - 60, height: 180))
         bgView.center = self.center
         bgView.backgroundColor = UIColor.white
-        bgView.layer.cornerRadius = 10
+        bgView.layer.cornerRadius = 5
         bgView.layer.masksToBounds = true
         BGView = bgView
         let bgViewW = bgView.frame.size.width
@@ -57,11 +57,7 @@ class KWAlertView: UIView,UITextFieldDelegate {
         tipLabel.font = UIFont.systemFont(ofSize: 15)
         tipLabel.textAlignment = NSTextAlignment.center
         bgView.addSubview(tipLabel)
-        //line
-        let line = UIView.init(frame: CGRect.init(x: 0, y: tipLabel.frame.size.height + 1, width: bgViewW, height: 1))
-        line.backgroundColor = UIColor.gray.withAlphaComponent(0.4)
-        line.isHidden = true
-        bgView.addSubview(line)
+
         
         let pwdView = UIView.init(frame: CGRect.init(x:15 , y: Int(tipLabel.frame.origin.y + 45), width: Int(bgView.frame.size.width) - borderW * 2, height: borderH))
         pwdView.layer.cornerRadius = 12
@@ -85,22 +81,40 @@ class KWAlertView: UIView,UITextFieldDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(keyBoardWillHide(Info:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         
+        
+        //line
+        let line = UIImageView.init(frame: CGRect.init(x: 3, y: Int(bgViewH) - buttonH, width: Int(bgViewW) - 6, height: 1))
+        line.image = UIImage.init(named: "分隔线1")
+        line.backgroundColor = UIColor.gray.withAlphaComponent(0.4)
+        bgView.addSubview(line)
+        
+        
+        //line
+        let line2 = UIImageView.init(frame: CGRect.init(x: Int((bgViewW )/2) , y: Int(bgViewH) - buttonH, width: 1, height: buttonH))
+        line2.image = UIImage.init(named: "分隔线2")
+        line2.backgroundColor = UIColor.gray.withAlphaComponent(0.4)
+        bgView.addSubview(line2)
+        
+        
+        
         //取消按钮
         let cancelButton = UIButton.init(type: .custom)
-        cancelButton.frame = CGRect.init(x: 15, y: Int(bgViewH) - buttonH - 15 , width: Int(bgViewW - 60)/2, height: buttonH)
-        cancelButton.backgroundColor = UIColor.gray.withAlphaComponent(0.2)
-        cancelButton.layer.cornerRadius = 22
+        cancelButton.frame = CGRect.init(x: 0, y: Int(bgViewH) - buttonH , width: Int(bgViewW / 2), height: buttonH)
+        //        cancelButton.backgroundColor = UIColor.gray.withAlphaComponent(0.2)
+        //        cancelButton.layer.cornerRadius = 5
         cancelButton.setTitle("取消", for: .normal)
-        cancelButton.setTitleColor(UIColor.black.withAlphaComponent(0.7), for: .normal)
+        cancelButton.setTitleColor(UIColor.black.withAlphaComponent(0.8), for: .normal)
         cancelButton.addTarget(self, action:#selector(cancel(sender:)), for: .touchUpInside)
         bgView.addSubview(cancelButton)
+        
+        
         //确认按钮
         let sureButton = UIButton.init(type: .custom)
-        sureButton.frame = CGRect.init(x: Int((bgViewW - 60)/2 + 45) , y: Int(bgViewH) - buttonH - 15, width: Int(bgViewW - 60)/2, height: buttonH)
-        sureButton.backgroundColor = buttonColor
-        sureButton.layer.cornerRadius = 22
+        sureButton.frame = CGRect.init(x: Int((bgViewW )/2 ) , y: Int(bgViewH) - buttonH, width: Int(bgViewW )/2, height: buttonH)
+        //        sureButton.backgroundColor = THEME_COLOR
+        //        sureButton.layer.cornerRadius = 5
         sureButton.setTitle("确定", for: .normal)
-        sureButton.setTitleColor(UIColor.white, for: .normal)
+        sureButton.setTitleColor(THEME_COLOR, for: .normal)
         sureButton.addTarget(self, action:#selector(sure(sender:)), for: .touchUpInside)
         bgView.addSubview(sureButton)
         

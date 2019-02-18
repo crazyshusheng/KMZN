@@ -105,10 +105,17 @@ extension BaseViewModel {
             
             if errorCode == "001" {
                 
-                errorMsg = "登录失效，请重新登录"
-
+                if UserSettings.shareInstance.getUserID() != nil {
+                    
+                    errorMsg = "登录失效，请重新登录"
+                    
+                    Utils.showHUD(info: errorMsg!)
+                    
+                }
+            }else{
+                
+                 Utils.showHUD(info: errorMsg!)
             }
-            Utils.showHUD(info: errorMsg!)
             
             if errorCode == "001" {
             

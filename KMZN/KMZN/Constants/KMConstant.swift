@@ -3,10 +3,19 @@ import Foundation
 import UIKit
 
 
-public let THEME_BG_COLOR = UIColor.colorWithCustom(r: 50, g: 150, b: 255)
+public let THEME_COLOR = UIColor.colorWithCustom(r: 50, g: 150, b: 255)
+public let THEME_GRAY_COLOR = UIColor.colorWithCustom(r: 137, g: 137, b: 137)
+public let THEME_BG_COLOR = UIColor.colorWithCustom(r: 240, g: 240, b: 240)
 
 public let BASE_URL = "http://www.homehealth.top/itlock-apiapp" //接口访问地址
 public let WB_URL = "ws://www.homehealth.top:6381/websocket"  //websocket链接地址
+//
+
+// http://39.108.7.110:8080/itlock-apiapp
+//  ws://39.108.7.110:6381/websocket
+
+//http://www.homehealth.top/itlock-apiapp
+//  ws://www.homehealth.top:6381/websocket
 
 public let SCREEN_WIDTH: CGFloat = UIScreen.main.bounds.size.width
 public let SCREEN_HEIGHT: CGFloat = UIScreen.main.bounds.size.height
@@ -37,7 +46,7 @@ public let RESULT_CODE_LOGIN_USER_STATUS_INVALID = -4// 用户状态异常（未
 
 
 public let UNLOCK_TYPE:Dictionary<String,String> = ["0":"命令开锁","1":"钥匙开锁","2":"指纹开锁","3":"IC卡开锁","4":"密码开锁"] //开锁类型
-public let ALERT_TYPE:Dictionary<String,String> = ["1":"低电压报警","2":"错误次数报警","3":"防撬报警"]
+public let ALERT_TYPE:Dictionary<String,String> = ["1":"低电量报警","2":"错误次数报警","3":"防撬报警"]
 
 //MARK: 通知常量
 
